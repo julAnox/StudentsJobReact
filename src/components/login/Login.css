@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.flex-r,
+.flex-c {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.flex-c {
+  flex-direction: column;
+}
+
+.flex-r {
+  flex-direction: row;
+}
+
+.container-login {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px 10px;
+  background-color: rgba(25, 41, 56, 0.94);
+}
+
+.login-text-login {
+  background-color: #f6f6f6;
+  max-width: 400px;
+  min-height: 300px;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.login-text-login h1 {
+  font-size: 25px;
+}
+
+.login-text-login p {
+  font-size: 15px;
+  color: #000000b2;
+}
+
+form {
+  align-items: flex-start !important;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.input-box-login {
+  margin: 10px 0;
+  width: 100%;
+}
+
+.label-login {
+  font-size: 15px;
+  color: black;
+  margin-bottom: 3px;
+}
+
+.input-login {
+  background-color: #f6f6f6;
+  padding: 0;
+  border: 2px solid rgba(216, 216, 216, 1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-input {
+  border: none;
+  outline: none;
+  padding: 8px 40px 8px 10px;
+  background-color: #eeeeee;
+  flex: 1;
+}
+
+.input-login i {
+  color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  right: 1px;
+  background-color: #eeeeee;
+  padding: 8px;
+  border-radius: 0 10px 10px 0;
+  pointer-events: none;
+}
+
+.btn-login-custom {
+  display: flex;
+  color: #ffffff;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  border-radius: 30px;
+  padding: 10px 40px;
+  background: linear-gradient(122.33deg, #68bed1 30.62%, #1e94e9 100%);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  transition: all 0.4s linear;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-login-custom:hover {
+  transform: translateY(-5px);
+}
+
+.link-button {
+  text-decoration: none;
+}
+
+.extra-line-login {
+  display: flex;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.extra-line-login a {
+  color: #0095b6;
+}
+
+.link-signup {
+  text-decoration: none;
+}

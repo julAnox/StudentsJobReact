@@ -1,0 +1,277 @@
+/* Universal Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(25, 41, 56, 0.94);
+  font-family: "Poppins", sans-serif;
+}
+
+.home-container {
+  overflow-x: hidden;
+}
+
+/* General Container Styles */
+.impact-all {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 20px;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.impact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #37475a;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.impact:hover {
+  transform: translateY(-10px);
+  background-color: #4b5e6b;
+}
+
+.impact img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+}
+
+.impact h2 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.gap-logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Main Block Styles */
+.first-main-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 75%;
+  margin: 30px auto;
+  padding-bottom: 25px;
+}
+
+.text-impact {
+  color: #ccc;
+  text-align: left;
+  font-size: 14px;
+}
+
+.first-main-block h2 {
+  color: white;
+}
+
+.first-row-facts,
+.second-row-facts {
+  display: flex;
+  flex-direction: row;
+  gap: 90px;
+}
+
+.facts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 25px;
+  gap: 30px;
+  color: white;
+}
+
+.advantages {
+  font-size: 22px;
+  margin-top: 30px;
+  color: white;
+  text-align: center;
+}
+
+.modern-heading {
+  font-size: 22px;
+  margin-top: 30px;
+}
+
+.fact {
+  background: #1f2a3d;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.fact:hover {
+  background: #2a3c50;
+  transform: scale(1.05);
+}
+
+.second-main-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18%;
+  background-color: #37475a;
+  width: 57%;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 65px;
+}
+
+.second-main-block img {
+  width: 90px;
+  height: 90px;
+  padding: 15px;
+  border-radius: 20px;
+  transition: ease all 0.3s;
+  box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.247);
+}
+
+.second-main-block img:hover {
+  transform: scale(1.05);
+}
+
+.parallax-container {
+  position: relative;
+  height: 60vh;
+  overflow: hidden;
+}
+
+.bg-home {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .first-main-block {
+    width: 90%;
+  }
+
+  .first-row-facts,
+  .second-row-facts {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .second-main-block {
+    flex-direction: column;
+    width: 80%;
+    gap: 20px;
+  }
+
+  .second-main-block img {
+    width: 75px;
+    height: 75px;
+    padding: 10px;
+  }
+
+  .parallax-container {
+    height: 45vh;
+  }
+
+  .advantages,
+  .modern-heading {
+    font-size: 20px;
+    margin-top: 25px;
+  }
+
+  .impact-all {
+    margin-top: -20px;
+  }
+
+  .facts {
+    gap: 40px;
+    max-width: 500px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .first-main-block {
+    width: 100%;
+  }
+
+  .first-row-facts,
+  .second-row-facts {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .second-main-block {
+    width: 90%;
+    gap: 30px;
+  }
+
+  .second-main-block img {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+  }
+
+  .parallax-container {
+    height: 35vh;
+  }
+
+  .advantages,
+  .modern-heading {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  .impact-all {
+    margin-top: -30px;
+  }
+
+  .facts {
+    gap: 50px;
+    max-width: 400px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .parallax-container {
+    height: 30vh;
+  }
+
+  .impact-all {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .impact {
+    padding: 10px;
+  }
+
+  .impact img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .first-main-block h2,
+  .advantages,
+  .modern-heading {
+    font-size: 16px;
+  }
+}

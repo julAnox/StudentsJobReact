@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.flex-r,
+.flex-c {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.flex-c {
+  flex-direction: column;
+}
+
+.flex-r {
+  flex-direction: row;
+}
+
+.container-sign-up {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px 10px;
+  background-color: rgba(25, 41, 56, 0.94);
+}
+
+.login-text-sign-up {
+  background-color: #ffffff;
+  max-width: 400px;
+  min-height: 500px;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.login-text-sign-up h1 {
+  font-size: 25px;
+}
+
+.login-text-sign-up p {
+  font-size: 15px;
+  color: #000000b2;
+}
+
+form {
+  align-items: flex-start !important;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.input-box-sign-up,
+.input-box1-sign-up {
+  margin: 10px 0;
+  width: 100%;
+}
+
+.label-sign-up,
+.label-sign-up1 {
+  font-size: 15px;
+  color: black;
+  margin-bottom: 3px;
+}
+
+.input-sign-up,
+.input1-sign-up {
+  background-color: #eeeeee;
+  padding: 0;
+  border: 2px solid rgba(216, 216, 216, 1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input {
+  border: none;
+  outline: none;
+  padding: 10px 40px 10px 10px;
+  background-color: #eeeeee;
+  flex: 1;
+}
+
+.input-sign-up i,
+.input1-sign-up i {
+  color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  right: 1px;
+  background-color: #eeeeee;
+  padding: 8px;
+  border-radius: 0 10px 10px 0;
+  pointer-events: none;
+}
+
+.check-sign-up span {
+  color: #000000b2;
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.btn-sign-up {
+  color: #ffffff;
+  border-radius: 30px;
+  padding: 10px 15px;
+  background: linear-gradient(122.33deg, #68bed1 30.62%, #1e94e9 100%);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  transition: all 0.4s linear;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-sign-up:hover {
+  transform: translateY(-5px);
+}
+
+.extra-line-sign-up {
+  display: flex;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.extra-line-sign-up a {
+  color: #0095b6;
+}
+
+.btn-sign-up-link {
+  text-decoration: none;
+}
+
+.link-login {
+  text-decoration: none;
+}
