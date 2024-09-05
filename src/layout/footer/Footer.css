@@ -1,5 +1,5 @@
 footer {
-  background-color: #37475a;
+  background: #1f2a3d;
   color: #e0e0e0;
   padding: 30px 20px;
   text-align: center;
@@ -66,10 +66,6 @@ footer p {
 
   .footer-column {
     text-align: left;
-  }
-
-  .footer-column h3 {
-    text-align: center;
   }
 
   .footer-column:nth-child(2n) {
