@@ -1,4 +1,3 @@
-/* Universal Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -14,14 +13,14 @@ body {
   overflow-x: hidden;
 }
 
-/* General Container Styles */
 .impact-all {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  gap: 30px; /* Устанавливаем gap в 30px */
   padding: 20px;
   margin: 0 auto;
   width: 80%;
+  max-width: 1200px;
 }
 
 .impact {
@@ -59,7 +58,6 @@ body {
   align-items: center;
 }
 
-/* Main Block Styles */
 .first-main-block {
   display: flex;
   align-items: center;
@@ -162,7 +160,14 @@ body {
   z-index: 0;
 }
 
-/* Responsive Styles */
+@media (max-width: 1430px) {
+  .impact-all {
+    max-width: 400px;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
 @media (max-width: 1024px) {
   .first-main-block {
     width: 90%;
@@ -175,9 +180,9 @@ body {
   }
 
   .second-main-block {
-    flex-direction: column;
-    width: 80%;
-    gap: 20px;
+    flex-direction: row;
+    width: 70%;
+    gap: 120px;
   }
 
   .second-main-block img {
@@ -199,12 +204,6 @@ body {
   .impact-all {
     margin-top: -20px;
   }
-
-  .facts {
-    gap: 40px;
-    max-width: 500px;
-    text-align: center;
-  }
 }
 
 @media (max-width: 768px) {
@@ -219,8 +218,8 @@ body {
   }
 
   .second-main-block {
-    width: 90%;
-    gap: 30px;
+    width: 70%;
+    gap: 60px;
   }
 
   .second-main-block img {
@@ -242,12 +241,6 @@ body {
   .impact-all {
     margin-top: -30px;
   }
-
-  .facts {
-    gap: 50px;
-    max-width: 400px;
-    text-align: center;
-  }
 }
 
 @media (max-width: 480px) {
@@ -256,7 +249,7 @@ body {
   }
 
   .impact-all {
-    width: 100%;
+    width: 80%;
     padding: 15px;
   }
 
@@ -273,5 +266,10 @@ body {
   .advantages,
   .modern-heading {
     font-size: 16px;
+  }
+
+  .second-main-block {
+    width: 70%;
+    gap: 30px;
   }
 }

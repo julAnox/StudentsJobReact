@@ -55,3 +55,24 @@ footer p {
   color: #e0e0e0;
   font-size: 0.9em;
 }
+
+@media (max-width: 842px) {
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .footer-column {
+    text-align: left;
+  }
+
+  .footer-column h3 {
+    text-align: center;
+  }
+
+  .footer-column:nth-child(2n) {
+    margin-top: 0;
+  }
+}
