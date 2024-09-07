@@ -15,9 +15,9 @@ function Navbar() {
       <div className="left-section">
         <div className="logo-container">
           <div className="gap-logo">
-            <p className="hoverable">Student's</p>
+            <p>Student's</p>
             <img src={logo} alt="Logo" className="logo" />
-            <p className="hoverable">Job</p>
+            <p>Job</p>
           </div>
         </div>
         <div className="main-nav-content">
