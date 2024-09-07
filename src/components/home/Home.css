@@ -171,7 +171,7 @@ body {
 @media (max-width: 390px) {
   .heading-and-impact {
     opacity: 0;
-    transition: opacity 1s ease-out;
+    transition: opacity 0.7s ease-out;
   }
   .search-input {
     width: 200px;

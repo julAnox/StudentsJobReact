@@ -14,7 +14,7 @@ import "./Home.css";
 function Home() {
   const { ref: mainRef, inView: mainInView } = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.008,
   });
 
   useEffect(() => {
