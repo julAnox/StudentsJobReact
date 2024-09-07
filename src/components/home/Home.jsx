@@ -31,8 +31,24 @@ function Home() {
       <Navbar />
       <div className="parallax-container">
         <img src={bghome} alt="Background" className="bg-home" />
+        <div className="overlay">
+          <div className="parallax-text">Start your career with us!</div>
+          <p className="hero-subtitle">
+            Find your first job among thousands of vacancies developed
+            specifically for students. Gain experience and skills that will help
+            you become a sought-after specialist.
+          </p>
+          <div className="search-box">
+            <input
+              type="text"
+              placeholder="Enter job title..."
+              className="search-input"
+            />
+            <button className="search-btn">Find a job</button>
+          </div>
+        </div>
       </div>
-      <h2 className="advantages">Our advantages </h2>
+      <h2 className="advantages">Our advantages</h2>
       <div className="first-main-block">
         <div className="impact-all">
           <div className="impact">
