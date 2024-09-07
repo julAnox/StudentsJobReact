@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import logo from "../../assets/logo.png";
 import "./Navbar.css";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useTranslation(); // Initialize the translation hook
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -21,22 +23,22 @@ function Navbar() {
           </div>
         </div>
         <div className="main-nav-content">
-          <p className="hoverable">Vacancies</p>
-          <p className="hoverable">Summary</p>
-          <p className="hoverable">Chat</p>
-          <p className="hoverable">About</p>
+          <p className="hoverable">{t("vacancies")}</p>
+          <p className="hoverable">{t("summary")}</p>
+          <p className="hoverable">{t("chat")}</p>
+          <p className="hoverable">{t("about")}</p>
         </div>
       </div>
       <div className="log-sig-ava">
         <Link to="/profile" className="underline hoverable">
-          <p>Profile</p>
+          <p>{t("profile")}</p>
         </Link>
         <Link to="/login" className="underline hoverable">
-          <p>Log In</p>
+          <p>{t("log_in")}</p>
         </Link>
         <p>|</p>
         <Link to="/signup" className="underline hoverable">
-          <p>Sign Up</p>
+          <p>{t("sign_up")}</p>
         </Link>
       </div>
       <div className="hamburger" onClick={toggleMenu}>
@@ -48,21 +50,21 @@ function Navbar() {
         <div className="mobile-menu-wrapper">
           <div className="mobile-menu">
             <div className="upper-section">
-              <p className="hoverable">Vacancies</p>
-              <p className="hoverable">Summary</p>
-              <p className="hoverable">Chat</p>
-              <p className="hoverable">About</p>
+              <p className="hoverable">{t("vacancies")}</p>
+              <p className="hoverable">{t("summary")}</p>
+              <p className="hoverable">{t("chat")}</p>
+              <p className="hoverable">{t("about")}</p>
             </div>
             <div className="bottom-section">
-              <a href="/profile" className="underline">
-                Profile
-              </a>
-              <a href="/login" className="underline">
-                Log In
-              </a>
-              <a href="/signup" className="underline">
-                Sign Up
-              </a>
+              <Link to="/profile" className="underline">
+                {t("profile")}
+              </Link>
+              <Link to="/login" className="underline">
+                {t("log_in")}
+              </Link>
+              <Link to="/signup" className="underline">
+                {t("sign_up")}
+              </Link>
             </div>
           </div>
         </div>
