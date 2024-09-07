@@ -367,7 +367,6 @@ body {
     overflow-x: hidden;
   }
 }
-/* Media query for widths 1720px and below */
 @media (max-width: 390px) {
   .language-switcher {
     position: absolute;
