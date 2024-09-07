@@ -13,7 +13,7 @@ import { useInView } from "react-intersection-observer";
 import "./Home.css";
 
 function Home() {
-  const { t } = useTranslation(); // Initialize the translation hook
+  const { t } = useTranslation();
 
   const { ref: mainRef, inView: mainInView } = useInView({
     triggerOnce: true,
