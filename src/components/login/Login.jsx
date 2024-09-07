@@ -1,65 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "./Login.css";
 
 function Login() {
+  const { t } = useTranslation();
+
   return (
-    //   const [email, setEmail] = useState("");
-    //   const [password, setPassword] = useState("");
-    //   const navigate = useNavigate();
-
-    //   const handleSubmit = async (event) => {
-    //     event.preventDefault();
-
-    //     try {
-    //       const response = await fetch("http://193.168.49.29:8080/api/users/", {
-    //         method: "GET",
-    //         headers: {
-    //           "Content-Type": "application/json",
-    //         },
-    //       });
-
-    //       if (!response.ok) {
-    //         const errorText = await response.text();
-    //         throw new Error(Failed to fetch users: ${errorText});
-    //       }
-
-    //       const users = await response.json();
-    //       console.log("Fetched users:", users);
-
-    //       const user = users.find(
-    //         (user) => user.email === email && user.password === password
-    //       );
-
-    //       console.log("Trying to log in with:", { email, password });
-    //       console.log("Found user:", user);
-
-    //       if (user) {
-    //         localStorage.setItem("userData", JSON.stringify(user));
-    //         navigate("/profile");
-    //       } else {
-    //         alert("Invalid email or password");
-    //       }
-    //     } catch (error) {
-    //       console.error("Error logging in:", error);
-    //     }
-    //   };
     <div className="flex-r container-login">
       <div className="flex-r login-wrapper-login">
         <div className="login-text-login">
-          <h1>Log In</h1>
-          <p>
-            Welcome!
-            <br />
-            We are glad that you chose us! Log In here...
-          </p>
+          <h1>{t("log_in")}</h1>
+          <p>{t("welcome_message_login")}</p>
           <form className="flex-c">
             <div className="input-box-login">
-              <span className="label-login">E-mail</span>
+              <span className="label-login">{t("email")}</span>
               <div className="flex-r input-login">
                 <input
                   type="text"
-                  placeholder="name@abc.com"
+                  placeholder={t("email_placeholder")}
                   className="login-input"
                   required
                 />
@@ -67,11 +26,11 @@ function Login() {
               </div>
             </div>
             <div className="input-box-login">
-              <span className="label-login">Password</span>
+              <span className="label-login">{t("password")}</span>
               <div className="flex-r input-login">
                 <input
                   type="password"
-                  placeholder="enter your password"
+                  placeholder={t("password_placeholder")}
                   className="login-input"
                   required
                 />
@@ -80,13 +39,13 @@ function Login() {
             </div>
             <Link to="/home" className="link-button">
               <button className="btn-login-custom" type="button">
-                Log In
+                {t("log_in_button")}
               </button>
             </Link>
             <span className="extra-line-login">
-              <span>Don't have an account?</span>
+              <span>{t("dont_have_account")}</span>
               <Link to="/signup" className="link-signup">
-                Sign Up
+                {t("sign_up")}
               </Link>
             </span>
           </form>

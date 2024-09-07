@@ -1,13 +1,26 @@
 .language-switcher {
+  position: fixed;
+  top: 15px;
+  right: 10px;
   display: flex;
-  justify-content: center;
-  margin: 10px;
-  margin-top: 70px;
+  gap: 10px;
+  z-index: 1000;
 }
 
 .language-switcher button {
-  margin-top: 20px;
-  margin: 0 5px;
+  background: none;
+  border: 1px solid #ccc;
   padding: 5px 10px;
   cursor: pointer;
+  color: white;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.language-switcher button:hover {
+  background-color: transparent;
+  color: white;
+}
+
+.language-switcher button:focus {
+  outline: none;
 }

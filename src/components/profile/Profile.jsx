@@ -1,9 +1,12 @@
+// src/components/Profile.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "./Profile.css";
 import profiledefault from "../../assets/user-default.png";
 
 function Profile() {
+  const { t } = useTranslation();
   const [imagePreview, setImagePreview] = useState(profiledefault);
   const [selectedCity, setSelectedCity] = useState("Minsk");
   const cityDistricts = {
@@ -47,14 +50,18 @@ function Profile() {
   return (
     <div className="profile-container-wrapper">
       <div className="profile-container">
-        <h1 className="profile-heading">Personal Area</h1>
+        <h1 className="profile-heading">{t("personal_area")}</h1>
         <form id="profile-form" className="profile-form">
           <div className="profile-form-row">
             <label htmlFor="profile-pic" className="profile-label">
-              Profile Picture:
+              {t("profile_picture")}:
             </label>
             <div className="profile-image-upload">
-              <img id="profile-preview" src={imagePreview} alt="your profile" />
+              <img
+                id="profile-preview"
+                src={imagePreview}
+                alt={t("profile_picture")}
+              />
               <input
                 type="file"
                 id="profile-pic"
@@ -68,7 +75,7 @@ function Profile() {
 
           <div className="profile-form-row">
             <label htmlFor="first-name" className="profile-label">
-              Name:
+              {t("name")}:
             </label>
             <input
               type="text"
@@ -82,7 +89,7 @@ function Profile() {
 
           <div className="profile-form-row">
             <label htmlFor="last-name" className="profile-label">
-              Surname:
+              {t("surname")}:
             </label>
             <input
               type="text"
@@ -96,7 +103,7 @@ function Profile() {
 
           <div className="profile-form-row">
             <label htmlFor="date-input" className="profile-label">
-              Date of Birth:
+              {t("date_of_birth")}:
             </label>
             <input
               type="text"
@@ -109,7 +116,7 @@ function Profile() {
 
           <div className="profile-form-row">
             <label htmlFor="email" className="profile-label">
-              Email:
+              {t("email")}:
             </label>
             <input
               type="email"
@@ -122,7 +129,7 @@ function Profile() {
 
           <div className="profile-form-row">
             <label htmlFor="phone" className="profile-label">
-              Telephone number:
+              {t("telephone_number")}:
             </label>
             <input
               type="tel"
@@ -136,7 +143,7 @@ function Profile() {
 
           <div className="profile-form-row">
             <label htmlFor="gender" className="profile-label">
-              Gender:
+              {t("gender")}:
             </label>
             <select id="gender" name="gender" className="profile-select">
               <option value="Man">Man</option>
@@ -146,7 +153,7 @@ function Profile() {
 
           <div className="profile-form-row">
             <label htmlFor="select-city" className="profile-label">
-              City:
+              {t("city")}:
             </label>
             <select
               id="select-city"
@@ -165,7 +172,7 @@ function Profile() {
 
           <div className="profile-form-row">
             <label htmlFor="select-district" className="profile-label">
-              District:
+              {t("district")}:
             </label>
             <select
               id="select-district"
@@ -184,13 +191,15 @@ function Profile() {
         <div className="profile-actions">
           <div className="full-width-btn">
             <Link to="/home">
-              <button className="profile-save-settings">Save settings</button>
+              <button className="profile-save-settings">
+                {t("save_settings")}
+              </button>
             </Link>
           </div>
           <div className="profile-actions-row">
-            <button className="profile-my-company">My company</button>
-            <button className="profile-my-resumes">My resumes</button>
-            <button className="profile-logout-btn">Log out</button>
+            <button className="profile-my-company">{t("my_company")}</button>
+            <button className="profile-my-resumes">{t("my_resumes")}</button>
+            <button className="profile-logout-btn">{t("log_out")}</button>
           </div>
         </div>
       </div>
