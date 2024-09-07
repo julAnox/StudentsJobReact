@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
 import Navbar from "../../layout/navbar/Navbar";
 import Footer from "../../layout/footer/Footer";
-import moneyIcon from "../../assets/money.png";
-import bookIcon from "../../assets/book.png";
-import vscodeIcon from "../../assets/vscode.png";
-import instIcon from "../../assets/inst.png";
-import tgIcon from "../../assets/tg.png";
-import vkIcon from "../../assets/vk.png";
+// import instIcon from "../../assets/inst.png";
+// import tgIcon from "../../assets/tg.png";
+// import vkIcon from "../../assets/vk.png";
+import skills from "../../assets/skills.jpg";
+import feauture from "../../assets/feature.jpg";
+import flexibility from "../../assets/flexibility.jpg";
+import advice from "../../assets/advice.jpg";
+import practice from "../../assets/practice.jpg";
+import heart_love from "../../assets/heartlove.jpg";
 import bghome from "../../assets/bg-home.jpg";
 import "./Home.css";
 
@@ -48,70 +51,84 @@ function Home() {
           </div>
         </div>
       </div>
-      <h2 className="advantages">Our advantages</h2>
-      <div className="first-main-block">
-        <div className="impact-all">
-          <div className="impact">
-            <img src={moneyIcon} alt="Money" />
-            <h2>Money</h2>
-            <div className="text-impact">
+      <div className="main">
+        <div className="heading-and-impact">
+          <h2>Our advantages</h2>
+          <div className="first-impact">
+            <div className="impact">
+              <img
+                src={skills}
+                alt="first-impact"
+                className="img-first-impact"
+              />
+              <h4>Develop Your Skills</h4>
               <p>
-                On our website, we can choose a vacancy for you and earn a lot
-                of money from it, which can develop and promote you in life!
+                Find an internship or job that will help you develop your
+                professional skills and gain practical experience.
               </p>
             </div>
-          </div>
-          <div className="impact">
-            <img src={bookIcon} alt="Book" />
-            <h2>Self Improvement</h2>
-            <div className="text-impact">
+            <div className="impact">
+              <img
+                src={feauture}
+                alt="second-impact"
+                className="img-second-impact"
+              />
+              <h4>Professions of the Future</h4>
               <p>
-                On our website you can find a job you like where you can develop
-                yourself and gain new knowledge!
+                Discover job opportunities in fields that will be relevant and
+                in demand in the future.
               </p>
             </div>
-          </div>
-          <div className="impact">
-            <img src={vscodeIcon} alt="Vscode" />
-            <h2>Experience</h2>
-            <div className="text-impact">
+            <div className="impact">
+              <img
+                src={flexibility}
+                alt="third-impact"
+                className="img-third-impact"
+              />
+              <h4>Flexible Schedule</h4>
               <p>
-                Having found a job on our website, you will be able to gain
-                experience that is highly valued in our world, without it you
-                can’t go anywhere!
+                Look for jobs with flexible schedules that allow you to balance
+                your studies and work responsibilities.
+              </p>
+            </div>
+            <div className="impact">
+              <img
+                src={advice}
+                alt="fourth-impact"
+                className="img-fourth-impact"
+              />
+              <h4>Career Growth Support</h4>
+              <p>
+                Receive advice and recommendations on career growth and
+                successful job placement from professionals.
+              </p>
+            </div>
+            <div className="impact">
+              <img
+                src={practice}
+                alt="fifth-impact"
+                className="img-fifth-impact"
+              />
+              <h4>Internships and Practice</h4>
+              <p>
+                Find an internship or job that will help you develop your
+                professional skills and gain practical experience.
+              </p>
+            </div>
+            <div className="impact">
+              <img
+                src={heart_love}
+                alt="six-impact"
+                className="img-six-impact"
+              />
+              <h4>Work in Your Favorite Field</h4>
+              <p>
+                Choose job openings in areas that genuinely interest you and
+                start doing what you love now.
               </p>
             </div>
           </div>
         </div>
-
-        <h2 className="modern-heading">Why us?</h2>
-
-        <div className="facts">
-          <div className="first-row-facts">
-            <div className="fact">
-              <p>Job search for students</p>
-            </div>
-            <div className="fact">
-              <p>More than 2000 companies</p>
-            </div>
-          </div>
-          <div className="second-row-facts">
-            <div className="fact">
-              <p>More than 210,000 vacancies</p>
-            </div>
-            <div className="fact">
-              <p>More than 540,000 resumes</p>
-            </div>
-            <div className="fact">
-              <p>About 1000 new users every day</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="second-main-block">
-        <img src={instIcon} alt="Instagram" />
-        <img src={tgIcon} alt="Telegram" />
-        <img src={vkIcon} alt="VK" />
       </div>
       <Footer />
     </div>
