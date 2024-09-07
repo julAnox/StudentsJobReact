@@ -71,6 +71,7 @@ body {
   cursor: pointer;
   padding: 17px;
   background-color: rgba(255, 255, 255, 0.075);
+  color: #1e90ff;
 }
 .gap-logo {
   gap: 20px;
@@ -80,6 +81,7 @@ body {
   cursor: pointer;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.075);
+  color: #1e90ff;
 }
 
 .log-sig-ava {
