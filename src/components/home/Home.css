@@ -154,12 +154,25 @@ body {
   margin: 0;
 }
 
+.heading-and-impact {
+  opacity: 0;
+  transition: opacity 1.5s ease-out;
+}
+
+.heading-and-impact.fade-in {
+  opacity: 1;
+}
+
 @media (max-width: 1230px) {
   .first-impact {
     grid-template-columns: 1fr;
   }
 }
 @media (max-width: 390px) {
+  .heading-and-impact {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
   .search-input {
     width: 200px;
     height: 45px;

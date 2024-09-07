@@ -1,9 +1,6 @@
 import React, { useEffect } from "react";
 import Navbar from "../../layout/navbar/Navbar";
 import Footer from "../../layout/footer/Footer";
-// import instIcon from "../../assets/inst.png";
-// import tgIcon from "../../assets/tg.png";
-// import vkIcon from "../../assets/vk.png";
 import skills from "../../assets/skills.jpg";
 import feauture from "../../assets/feature.jpg";
 import flexibility from "../../assets/flexibility.jpg";
@@ -11,9 +8,15 @@ import advice from "../../assets/advice.jpg";
 import practice from "../../assets/practice.jpg";
 import heart_love from "../../assets/heartlove.jpg";
 import bghome from "../../assets/bg-home.jpg";
+import { useInView } from "react-intersection-observer";
 import "./Home.css";
 
 function Home() {
+  const { ref: mainRef, inView: mainInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   useEffect(() => {
     const handleScroll = () => {
       const bgImage = document.querySelector(".bg-home");
@@ -51,8 +54,8 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="main">
-        <div className="heading-and-impact">
+      <div className="main" ref={mainRef}>
+        <div className={`heading-and-impact ${mainInView ? "fade-in" : ""}`}>
           <h2>Our advantages</h2>
           <div className="first-impact">
             <div className="impact">
