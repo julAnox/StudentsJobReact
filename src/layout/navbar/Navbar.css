@@ -22,7 +22,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.24);
   color: white;
   height: 60px;
   padding: 0 300px;
@@ -31,6 +30,7 @@ body {
   left: 0;
   width: 100%;
   z-index: 2;
+  background-color: rgba(0, 0, 0, 0.24);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   background-attachment: fixed;
@@ -111,18 +111,10 @@ body {
   border-radius: 5px;
 }
 
-@media (max-width: 1526px) {
+@media (max-width: 1600px) {
   .navbar {
     padding: 0 20px;
     height: 60px;
-  }
-
-  .left-section {
-    gap: 20px;
-  }
-
-  .logo-container {
-    gap: 10px;
   }
 
   .hamburger {
@@ -135,6 +127,89 @@ body {
 
   .log-sig-ava {
     display: none;
+  }
+
+  .mobile-menu-wrapper {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 30%;
+    height: calc(100vh - 60px);
+    background-color: rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 20px;
+
+    gap: 10px;
+    height: calc(100% - 40px);
+    text-align: center;
+  }
+
+  .upper-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bottom-section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 10px;
+    margin-top: auto;
+    justify-content: center;
+  }
+
+  .bottom-section a {
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 20px;
+    gap: 10px;
+    height: calc(100% - 40px);
+    text-align: center;
+  }
+
+  .upper-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bottom-section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 10px;
+    margin-top: auto;
+    justify-content: center;
+  }
+
+  .bottom-section a {
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
   }
 }
 
@@ -152,27 +227,51 @@ body {
     gap: 5px;
   }
 
-  .mobile-menu {
+  .mobile-menu-wrapper {
     position: absolute;
-    top: 60px;
+    top: 50px;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    width: 100%;
-    height: calc(100vh - 60px);
+    width: 40%;
+    height: calc(100vh - 50px);
+    background-color: rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobile-menu {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     padding-top: 20px;
-    z-index: 3;
+    gap: 10px;
+    height: calc(100% - 40px);
+    text-align: center;
   }
 
-  .mobile-menu p,
-  .mobile-menu a {
+  .upper-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bottom-section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 10px;
+    margin-top: auto;
+    justify-content: center;
+  }
+
+  .bottom-section a {
     font-size: 18px;
-    padding: 15px;
     color: white;
     text-align: center;
+    text-decoration: none;
   }
 
   .hamburger {
@@ -206,25 +305,52 @@ body {
     justify-content: center;
   }
 
-  .mobile-menu {
+  .mobile-menu-wrapper {
     position: absolute;
     top: 50px;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    width: 100%;
+    width: 40%;
     height: calc(100vh - 50px);
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobile-menu {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     padding-top: 20px;
-    z-index: 3;
+    gap: 10px;
+    height: calc(100% - 40px);
+    text-align: center;
   }
 
-  .mobile-menu p,
-  .mobile-menu a {
-    font-size: 16px;
+  .upper-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bottom-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
     padding: 10px;
+    margin-top: auto;
+    justify-content: center;
+  }
+
+  .bottom-section a {
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
   }
 
   html,

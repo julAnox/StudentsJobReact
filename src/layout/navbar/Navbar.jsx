@@ -28,6 +28,9 @@ function Navbar() {
         </div>
       </div>
       <div className="log-sig-ava">
+        <Link to="/profile" className="underline hoverable">
+          <p>Profile</p>
+        </Link>
         <Link to="/login" className="underline hoverable">
           <p>Log In</p>
         </Link>
@@ -42,17 +45,26 @@ function Navbar() {
         <div className="bar"></div>
       </div>
       {isMenuOpen && (
-        <div className="mobile-menu">
-          <p className="hoverable">Vacancies</p>
-          <p className="hoverable">Summary</p>
-          <p className="hoverable">Chat</p>
-          <p className="hoverable">About</p>
-          <Link to="/login" className="underline hoverable">
-            Log In
-          </Link>
-          <Link to="/signup" className="underline hoverable">
-            Sign Up
-          </Link>
+        <div className="mobile-menu-wrapper">
+          <div className="mobile-menu">
+            <div className="upper-section">
+              <p className="hoverable">Vacancies</p>
+              <p className="hoverable">Summary</p>
+              <p className="hoverable">Chat</p>
+              <p className="hoverable">About</p>
+            </div>
+            <div className="bottom-section">
+              <a href="/profile" className="underline">
+                Profile
+              </a>
+              <a href="/login" className="underline">
+                Log In
+              </a>
+              <a href="/signup" className="underline">
+                Sign Up
+              </a>
+            </div>
+          </div>
         </div>
       )}
     </div>
