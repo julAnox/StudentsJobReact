@@ -41,7 +41,10 @@ function Navbar() {
           <p>{t("sign_up")}</p>
         </Link>
       </div>
-      <div className="hamburger" onClick={toggleMenu}>
+      <div
+        className={`hamburger ${isMenuOpen ? "open" : ""}`}
+        onClick={toggleMenu}
+      >
         <div className="bar"></div>
         <div className="bar"></div>
         <div className="bar"></div>

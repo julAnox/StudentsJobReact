@@ -73,10 +73,12 @@ body {
   background-color: rgba(255, 255, 255, 0.075);
   color: #1e90ff;
 }
+
 .gap-logo {
   gap: 20px;
   padding: 10px 10px;
 }
+
 .gap-logo:hover {
   cursor: pointer;
   padding: 10px;
@@ -107,6 +109,7 @@ body {
   cursor: pointer;
   gap: 5px;
   padding: 10px;
+  transition: transform 0.3s ease;
 }
 
 .bar {
@@ -114,6 +117,19 @@ body {
   height: 3px;
   background-color: white;
   border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.hamburger.open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+
+.hamburger.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -8px);
 }
 
 @media (max-width: 1723px) {
@@ -154,7 +170,6 @@ body {
     justify-content: flex-start;
     align-items: center;
     padding-top: 20px;
-
     gap: 10px;
     height: calc(100% - 40px);
     text-align: center;
@@ -180,45 +195,6 @@ body {
     color: white;
     text-align: center;
     text-decoration: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .mobile-menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 20px;
-    gap: 10px;
-    height: calc(100% - 40px);
-    text-align: center;
-  }
-
-  .upper-section {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .bottom-section {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    padding: 10px;
-    margin-top: auto;
-    justify-content: center;
-  }
-
-  .bottom-section a {
-    font-size: 18px;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-  }
-  .logo {
-    width: 30px;
-    height: 30px;
   }
 }
 
@@ -367,6 +343,7 @@ body {
     overflow-x: hidden;
   }
 }
+
 @media (max-width: 390px) {
   .language-switcher {
     position: absolute;
