@@ -4,6 +4,7 @@ import "./Language.css";
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
+  const currentLanguage = i18n.language;
 
   const handleLanguageChange = (lang) => {
     i18n.changeLanguage(lang);
@@ -11,8 +12,18 @@ const LanguageSwitcher = () => {
 
   return (
     <div className="language-switcher">
-      <button onClick={() => handleLanguageChange("en")}>English</button>
-      <button onClick={() => handleLanguageChange("ru")}>Русский</button>
+      <button
+        className={currentLanguage === "en" ? "selected" : ""}
+        onClick={() => handleLanguageChange("en")}
+      >
+        English
+      </button>
+      <button
+        className={currentLanguage === "ru" ? "selected" : ""}
+        onClick={() => handleLanguageChange("ru")}
+      >
+        Русский
+      </button>
     </div>
   );
 };

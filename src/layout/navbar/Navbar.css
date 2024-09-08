@@ -116,7 +116,7 @@ body {
   border-radius: 5px;
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 1723px) {
   .navbar {
     padding: 0 20px;
     height: 60px;
@@ -242,7 +242,7 @@ body {
     right: 0;
     width: 40%;
     height: calc(100vh - 50px);
-    background-color: rgba(0, 0, 0, 0.24);
+    background-color: rgba(141, 141, 141, 0.185);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     display: flex;
@@ -321,7 +321,7 @@ body {
     width: 40%;
     height: calc(100vh - 50px);
     z-index: 2;
-    background-color: rgba(0, 0, 0, 0.24);
+    background-color: rgba(141, 141, 141, 0.185);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     display: flex;

@@ -1,13 +1,14 @@
 .language-switcher {
-  position: absolute;
-  top: 15px;
-  right: 10px;
   display: flex;
-  gap: 10px;
-  z-index: 1000;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  bottom: 0;
+  right: 0;
+  position: absolute;
 }
 
 .language-switcher button {
+  width: 80px;
   background: none;
   border: 1px solid #ccc;
   padding: 5px 10px;
@@ -17,10 +18,26 @@
 }
 
 .language-switcher button:hover {
-  background-color: transparent;
+  background-color: #5972929a;
   color: white;
 }
 
-.language-switcher button:focus {
+.language-switcher button:active {
   outline: none;
+}
+
+.language-switcher .selected {
+  background-color: #5972929a;
+  color: white;
+}
+
+@media (max-width: 390px) {
+  .language-switcher {
+    margin-top: 280px;
+    margin-right: 57px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+  }
 }

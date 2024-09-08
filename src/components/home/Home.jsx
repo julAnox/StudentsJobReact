@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Navbar from "../../layout/navbar/Navbar";
 import Footer from "../../layout/footer/Footer";
+import Language from "../../layout/language/Language";
 import skills from "../../assets/skills.jpg";
 import feauture from "../../assets/feature.jpg";
 import flexibility from "../../assets/flexibility.jpg";
@@ -50,6 +51,9 @@ function Home() {
               className="search-input"
             />
             <button className="search-btn">{t("search_button")}</button>
+          </div>
+          <div className="language-switcher">
+            <Language />
           </div>
         </div>
       </div>
