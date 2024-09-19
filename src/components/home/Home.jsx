@@ -9,6 +9,9 @@ import flexibility from "../../assets/flexibility.jpg";
 import advice from "../../assets/advice.jpg";
 import practice from "../../assets/practice.jpg";
 import heart_love from "../../assets/heartlove.jpg";
+import factlove from "../../assets/fact-love.png";
+import factcompany from "../../assets/fact-company.png";
+import factuser from "../../assets/fact-user.png";
 import bghome from "../../assets/bg-home.jpg";
 import { useInView } from "react-intersection-observer";
 import "./Home.css";
@@ -114,6 +117,27 @@ function Home() {
               />
               <h4>{t("work_favorite_field")}</h4>
               <p>{t("work_favorite_field_description")}</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="second-main">
+          <div className="second-main-heading">
+            <h2>{t("second_main_heading")}</h2>
+            <p>{t("second_main_description")}</p>
+          </div>
+          <div className="second-main-impact-all">
+            <div className="second-main-impact">
+              <img src={factlove} alt="Fact love" />
+              <p>{t("fact_love")}</p>
+            </div>
+            <div className="second-main-impact">
+              <img src={factcompany} alt="Fact company" />
+              <p>{t("fact_company")}</p>
+            </div>
+            <div className="second-main-impact">
+              <img src={factuser} alt="Fact user" />
+              <p>{t("fact_user")}</p>
             </div>
           </div>
         </div>

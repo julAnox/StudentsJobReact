@@ -3,7 +3,7 @@
   "hero_subtitle": "Find your first job among thousands of vacancies developed specifically for students. Gain experience and skills that will help you become a sought-after specialist.",
   "search_placeholder": "Enter job title...",
   "search_button": "Find a job",
-  "our_advantages": "Our advantages",
+  "our_advantages": "Our different types of advantages",
   "develop_skills": "Develop Your Skills",
   "develop_skills_description": "Find an internship or job that will help you develop your professional skills and gain practical experience.",
   "professions_future": "Professions of the Future",
@@ -64,5 +64,10 @@
   "password_placeholder": "Enter your password",
   "log_in_button": "Log In",
   "dont_have_account": "Don't have an account?",
-  "sign_up": "Sign Up"
+  "sign_up": "Sign Up",
+  "second_main_heading": "Facts about our company that you should know",
+  "second_main_description": "Join our community and offer people your vacancies",
+  "fact_love": "Our platform has a very large number of vacancies related to working on a computer, which every modern teenager can do.",
+  "fact_company": "On our platform, you can easily upload and manage resumes and cover letters to quickly apply to jobs and get feedback from employers.",
+  "fact_user": "Thanks to a user-friendly interface and an advanced filter system, you can find a suitable vacancy in just a couple of clicks by selecting a job based on your interests, schedule and experience level."
 }
