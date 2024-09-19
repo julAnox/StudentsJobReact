@@ -32,7 +32,6 @@ body {
   z-index: 2;
   background-color: rgba(141, 141, 141, 0.185);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -132,6 +131,7 @@ body {
   transform: rotate(-45deg) translate(7px, -8px);
 }
 
+/* Mobile Menu Styles */
 @media (max-width: 1723px) {
   .navbar {
     padding: 0 20px;
@@ -157,11 +157,12 @@ body {
     width: 30%;
     height: calc(100vh - 60px);
     background-color: rgba(141, 141, 141, 0.185);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1000;
   }
 
   .mobile-menu {
@@ -219,11 +220,12 @@ body {
     width: 40%;
     height: calc(100vh - 50px);
     background-color: rgba(141, 141, 141, 0.185);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1000;
   }
 
   .mobile-menu {
@@ -296,10 +298,10 @@ body {
     right: 0;
     width: 40%;
     height: calc(100vh - 50px);
-    z-index: 2;
+    z-index: 1000;
     background-color: rgba(141, 141, 141, 0.185);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -341,16 +343,5 @@ body {
   html,
   body {
     overflow-x: hidden;
-  }
-}
-
-@media (max-width: 390px) {
-  .language-switcher {
-    position: absolute;
-    top: 10px;
-    right: 300px;
-    display: flex;
-    gap: 10px;
-    z-index: 1000;
   }
 }
