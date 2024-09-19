@@ -57,7 +57,9 @@ function Navbar() {
         <div className="mobile-menu-wrapper">
           <div className="mobile-menu">
             <div className="upper-section">
-              <p className="hoverable">{t("vacancies")}</p>
+              <Link to="/vacancies" className="underline">
+                <p className="hoverable">{t("vacancies")}</p>
+              </Link>
               <p className="hoverable">{t("summary")}</p>
               <p className="hoverable">{t("chat")}</p>
               <p className="hoverable">{t("about")}</p>

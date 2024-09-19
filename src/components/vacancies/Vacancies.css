@@ -1,60 +1,193 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+body {
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.vacancies-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 auto;
+  max-width: 1500px;
+  padding: 20px;
+  margin-top: 90px;
+  gap: 100px;
+  margin-bottom: 30px;
+}
 
 .filters {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-top: 90px;
-  padding-bottom: 20px;
 }
 
 .filters div {
   width: 250px;
-  border: 2px solid rgba(255, 255, 255, 0.129);
-  padding: 10px;
-  background-color: rgb(135, 139, 139);
-  font-family: "Poppins", sans-serif;
-  margin-top: 7px;
-  list-style: none;
-  box-shadow: inset 2px 1px 10px 1px rgba(0, 0, 0, 0.75);
-  border-radius: 5px;
-  margin-left: 20px;
+  border: none;
+  padding: 12px;
+  margin-top: 10px;
+  border: 5px solid rgb(4, 43, 75);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.filters ul li,
-.filters .exp_lvl label,
-.filters .city li,
-.filters .podrabotka li {
+.home ul li,
+.exp_lvl label,
+.city li,
+.podrabotka li {
   margin-bottom: 10px;
 }
 
-.filters ul li input[type="checkbox"],
-.filters .exp_lvl input[type="range"],
-.filters .city li input[type="checkbox"],
-.filters .podrabotka li input[type="checkbox1"] {
-  margin-right: 10px;
+.home ul li input[type="checkbox"],
+.exp_lvl input[type="range"],
+.city li input[type="checkbox"],
+.podrabotka li input[type="checkbox"] {
+  margin-right: 12px;
   cursor: pointer;
 }
 
-.filters .income input[type="range"],
-.filters .employment select,
-.filters .schedule select,
-.filters .metro select {
+.income input[type="range"],
+.employment select,
+.schedule select,
+.metro select,
+.exp_lvl input[type="range"] {
   width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: none;
+  padding: 8px;
+  font-size: 14px;
 }
 
-.filters .slider {
+.income input[type="range"],
+.exp_lvl input[type="range"] {
+  width: 100%;
+  background-color: white;
+}
+
+.slider {
   width: 100%;
   height: 5px;
   border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
-.filters .city ul,
-.filters .podrabotka ul,
-.filters .sort ul,
-.filters .output ul,
-.filters .show ul {
-  list-style-type: none; /* Убираем маркеры для списка ul в блоках .city и .podrabotka */
+.city ul,
+.podrabotka ul,
+.sort ul,
+.output ul,
+.show ul {
+  list-style: none;
+  padding: 0;
+}
+
+.city li,
+.podrabotka li {
+  padding-left: 15px;
+  transition: color 0.3s ease;
+}
+
+.grid-of-vacancies {
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  padding: 10px;
+}
+
+.vacancy-block {
+  border: 2px solid rgb(4, 43, 75);
+  height: 200px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.vacancy-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.vacancy-description {
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+.vacancy-info {
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+}
+
+.vacancy-button {
+  margin-top: 30px;
+  background-color: #4b5e6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.vacancy-button:hover {
+  background-color: #597292;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search {
+  text-align: left;
+  width: 250px;
+  height: 20px;
+  border: none;
+  color: rgb(255, 255, 255);
+  background-color: #f7f7f713;
+  box-shadow: inset 4px 4px 6px rgba(0, 0, 0, 0.326);
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.search:focus {
+  outline: none;
+}
+@media (max-width: 1409px) {
+  .vacancies-content {
+    margin-top: 35px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .grid-of-vacancies {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  .filters {
+    width: 100%;
+  }
+
+  .filters div {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .search {
+    width: 100%;
+  }
 }
