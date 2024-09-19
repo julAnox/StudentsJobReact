@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 90px;
+  padding-bottom: 20px;
+}
+
+.filters div {
+  width: 250px;
+  border: 2px solid rgba(255, 255, 255, 0.129);
+  padding: 10px;
+  background-color: rgb(135, 139, 139);
+  font-family: "Poppins", sans-serif;
+  margin-top: 7px;
+  list-style: none;
+  box-shadow: inset 2px 1px 10px 1px rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
+.filters ul li,
+.filters .exp_lvl label,
+.filters .city li,
+.filters .podrabotka li {
+  margin-bottom: 10px;
+}
+
+.filters ul li input[type="checkbox"],
+.filters .exp_lvl input[type="range"],
+.filters .city li input[type="checkbox"],
+.filters .podrabotka li input[type="checkbox1"] {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.filters .income input[type="range"],
+.filters .employment select,
+.filters .schedule select,
+.filters .metro select {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.filters .slider {
+  width: 100%;
+  height: 5px;
+  border-radius: 10px;
+}
+
+.filters .city ul,
+.filters .podrabotka ul,
+.filters .sort ul,
+.filters .output ul,
+.filters .show ul {
+  list-style-type: none; /* Убираем маркеры для списка ul в блоках .city и .podrabotka */
+}

@@ -15,15 +15,19 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="left-section">
-        <div className="logo-container">
-          <div className="gap-logo">
-            <p>Student's</p>
-            <img src={logo} alt="Logo" className="logo" />
-            <p>Job</p>
+        <Link to="/home" className="underline hoverble">
+          <div className="logo-container">
+            <div className="gap-logo">
+              <p>Student's</p>
+              <img src={logo} alt="Logo" className="logo" />
+              <p>Job</p>
+            </div>
           </div>
-        </div>
+        </Link>
         <div className="main-nav-content">
-          <p className="hoverable">{t("vacancies")}</p>
+          <Link to="/vacancies" className="underline hoverable">
+            <p>{t("vacancies")}</p>
+          </Link>
           <p className="hoverable">{t("summary")}</p>
           <p className="hoverable">{t("chat")}</p>
           <p className="hoverable">{t("about")}</p>
