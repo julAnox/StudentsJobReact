@@ -37,6 +37,7 @@
 
 .login-text-login h1 {
   font-size: 25px;
+  color: black;
 }
 
 .login-text-login p {
@@ -101,7 +102,7 @@ form {
   border-radius: 30px;
   padding: 10px 40px;
   background: linear-gradient(122.33deg, #68bed1 30.62%, #1e94e9 100%);
-  margin-top: 10px;
+  margin-top: 8px;
   margin-bottom: 10px;
   font-size: 16px;
   transition: all 0.4s linear;
@@ -126,6 +127,10 @@ form {
 
 .extra-line-login a {
   color: #0095b6;
+}
+
+.extra-line-login span {
+  color: black;
 }
 
 .link-signup {
