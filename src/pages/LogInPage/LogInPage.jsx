@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import "./Login.css";
+import "./LogInPage.css";
 
-function Login() {
+function LogInPage() {
   const { t } = useTranslation();
 
   return (
@@ -55,4 +55,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LogInPage;

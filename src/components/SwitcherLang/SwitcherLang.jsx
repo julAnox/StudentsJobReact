@@ -1,8 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import "./Language.css";
+import "./SwitcherLang.css";
 
-const LanguageSwitcher = () => {
+const SwitcherLang = () => {
   const { i18n } = useTranslation();
   const currentLanguage = i18n.language;
 
@@ -28,4 +28,4 @@ const LanguageSwitcher = () => {
   );
 };
 
-export default LanguageSwitcher;
+export default SwitcherLang;

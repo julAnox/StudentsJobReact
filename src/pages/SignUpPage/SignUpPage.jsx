@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import "./Signup.css";
+import "./SignUpPage.css";
 
-function Signup() {
+function SignUpPage() {
   //   const [email, setEmail] = useState("");
   //   const [password, setPassword] = useState("");
   //   const [repeatPassword, setRepeatPassword] = useState("");
@@ -86,4 +86,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default SignUpPage;

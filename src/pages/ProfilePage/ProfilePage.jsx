@@ -2,10 +2,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import "./Profile.css";
+import "./ProfilePage.css";
 import profiledefault from "../../assets/user-default.png";
 
-function Profile() {
+function ProfilePage() {
   const { t } = useTranslation();
   const [imagePreview, setImagePreview] = useState(profiledefault);
   const [selectedCity, setSelectedCity] = useState("Minsk");
@@ -207,4 +207,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default ProfilePage;

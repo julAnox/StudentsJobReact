@@ -1,0 +1,64 @@
+.first-impact {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+.impact {
+  cursor: pointer;
+  background-color: rgba(51, 63, 103, 0.9);
+  padding: 0;
+  border-radius: 10px;
+  color: #fff;
+  width: 350px;
+  margin: 0;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.impact:hover {
+  transform: translateY(-6px);
+  background-color: rgba(62, 75, 119, 0.9);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.impact img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.impact h4 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 10px;
+  padding: 20px 20px 0 20px;
+}
+
+.impact p {
+  line-height: 1.5;
+  font-size: 1rem;
+  color: #b0c4de;
+  padding: 0 20px 20px 20px;
+  margin: 0;
+}
+
+.heading-and-impact {
+  opacity: 0;
+  transition: opacity 1.5s ease-out;
+}
+
+.heading-and-impact h2 {
+  margin-bottom: 40px;
+  font-size: 30px;
+}
+
+.heading-and-impact.fade-in {
+  opacity: 1;
+}

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Navbar from "../../layout/navbar/Navbar";
-import Footer from "../../layout/footer/Footer";
-import "./Vacancies.css";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
+import "./VacanciesPage.css";
 
-const Vacancies = () => {
+const VacanciesPage = () => {
   const [experience, setExperience] = useState(0);
   const [income, setIncome] = useState(200);
 
@@ -421,4 +421,4 @@ const Vacancies = () => {
   );
 };
 
-export default Vacancies;
+export default VacanciesPage;
