@@ -28,9 +28,15 @@ function Navbar() {
           <Link to="/vacancies" className="underline hoverable">
             <p>{t("vacancies")}</p>
           </Link>
-          <p className="hoverable">{t("summary")}</p>
-          <p className="hoverable">{t("chat")}</p>
-          <p className="hoverable">{t("about")}</p>
+          <Link to="/summary" className="underline hoverable">
+            <p>{t("summary")}</p>
+          </Link>
+          <Link to="/chat" className="underline hoverable">
+            <p>{t("chat")}</p>
+          </Link>
+          <Link to="/about" className="underline hoverable">
+            <p>{t("about")}</p>
+          </Link>
         </div>
       </div>
       <div className="log-sig-ava">
@@ -58,11 +64,17 @@ function Navbar() {
           <div className="mobile-menu">
             <div className="upper-section">
               <Link to="/vacancies" className="underline">
-                <p className="hoverable">{t("vacancies")}</p>
+                {t("vacancies")}
               </Link>
-              <p className="hoverable">{t("summary")}</p>
-              <p className="hoverable">{t("chat")}</p>
-              <p className="hoverable">{t("about")}</p>
+              <Link to="/sumary" className="underline">
+                {t("summary")}
+              </Link>
+              <Link to="/chat" className="underline">
+                {t("chat")}
+              </Link>
+              <Link to="/about" className="underline">
+                {t("about")}
+              </Link>
             </div>
             <div className="bottom-section">
               <Link to="/profile" className="underline">

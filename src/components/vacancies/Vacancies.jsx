@@ -7,6 +7,14 @@ const Vacancies = () => {
   const [experience, setExperience] = useState(0);
   const [income, setIncome] = useState(200);
 
+  const handleExperienceChange = (e) => {
+    setExperience(e.target.value);
+  };
+
+  const handleIncomeChange = (e) => {
+    setIncome(e.target.value);
+  };
+
   return (
     <div>
       <Navbar />
@@ -58,8 +66,8 @@ const Vacancies = () => {
               max="15"
               step="0.5"
               value={experience}
-              onChange={(e) => setExperience(e.target.value)}
-              className="slider"
+              onChange={handleExperienceChange}
+              style={{ "--val": `${(experience / 15) * 100}%` }}
             />
             <p>Selected: {experience} years</p>
           </div>
@@ -74,8 +82,8 @@ const Vacancies = () => {
               max="10000"
               step="100"
               value={income}
-              onChange={(e) => setIncome(e.target.value)}
-              className="slider"
+              onChange={handleIncomeChange}
+              style={{ "--val": `${((income - 200) / (10000 - 200)) * 100}%` }}
             />
             <p>Selected: {income} BYN</p>
           </div>
