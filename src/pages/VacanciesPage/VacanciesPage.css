@@ -241,13 +241,13 @@ body {
   background-color: rgba(140, 160, 177, 0.507);
 }
 
-form {
+.vac-form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.search {
+.search-vac {
   text-align: left;
   border-radius: 5px;
   width: 250px;
@@ -259,11 +259,11 @@ form {
   padding: 15px;
 }
 
-.search::placeholder {
+.search-vac::placeholder {
   color: white;
 }
 
-.search:focus {
+.search-vac:focus {
   outline: none;
 }
 @media (max-width: 1409px) {

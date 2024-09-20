@@ -20,8 +20,12 @@ const VacanciesPage = () => {
       <Navbar />
       <div className="vacancies-content">
         <div className="filters">
-          <form>
-            <input type="text" placeholder="Search here..." class="search" />
+          <form className="vac-form">
+            <input
+              type="text"
+              placeholder="Search here..."
+              class="search-vac"
+            />
           </form>
           <div className="city">
             <ul>

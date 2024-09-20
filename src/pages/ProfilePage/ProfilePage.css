@@ -51,6 +51,8 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  gap: 10px;
+  color: black;
   width: 70%;
 }
 
