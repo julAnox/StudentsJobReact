@@ -60,6 +60,11 @@ body {
   gap: 40px;
 }
 
+.gap-logo {
+  display: flex;
+  align-items: center;
+}
+
 .hoverable {
   padding: 17px;
   transition: background-color 0.3s, color 0.3s;
