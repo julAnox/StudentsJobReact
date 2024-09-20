@@ -14,7 +14,7 @@ body {
   max-width: 1500px;
   padding: 20px;
   margin-top: 90px;
-  gap: 100px;
+  gap: 70px;
   margin-bottom: 30px;
 }
 
@@ -22,6 +22,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-top: -5px;
 }
 
 .filters div {
@@ -29,9 +30,8 @@ body {
   border: none;
   padding: 12px;
   margin-top: 10px;
-  border: 5px solid rgb(4, 43, 75);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  border-radius: 5px;
+  background-color: rgba(141, 141, 141, 0.185);
 }
 
 .home ul li,
@@ -87,9 +87,48 @@ body {
 }
 
 .city li,
-.podrabotka li {
+.podrabotka li,
+.sort li,
+.output li,
+.show li {
   padding-left: 15px;
-  transition: color 0.3s ease;
+}
+
+.podrabotka ul > li,
+.sort ul > li,
+.output ul > li,
+.show ul > li,
+.city ul > li {
+  margin-top: 10px;
+}
+
+.metro,
+.employment,
+.schedule {
+  display: flex;
+  align-items: last baseline;
+  flex-direction: column;
+}
+
+.metro label,
+.employment label,
+.schedule label {
+  margin-bottom: 10px;
+}
+
+.exp_lvl,
+.income {
+  display: flex;
+  flex-direction: column;
+}
+
+.exp_lvl label,
+.income label {
+  margin-bottom: 10px;
+}
+
+.filters input[type="radio"] {
+  margin-right: 10px;
 }
 
 .grid-of-vacancies {
@@ -101,13 +140,21 @@ body {
 }
 
 .vacancy-block {
-  border: 2px solid rgb(4, 43, 75);
+  background-color: rgba(185, 185, 185, 0.185);
+  backdrop-filter: blur(10px);
+  border-radius: 5px;
   height: 200px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.377);
   padding: 15px;
   color: white;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
+}
+
+.vacancy-block:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+  background-color: rgba(196, 196, 196, 0.226);
 }
 
 .vacancy-title {
@@ -119,6 +166,7 @@ body {
 .vacancy-description {
   font-size: 0.9em;
   margin-bottom: 10px;
+  color: #b0c4de;
 }
 
 .vacancy-info {
@@ -131,7 +179,7 @@ body {
 
 .vacancy-button {
   margin-top: 30px;
-  background-color: #4b5e6b;
+  background-color: #5972929a;
   color: white;
   border: none;
   border-radius: 5px;
@@ -141,7 +189,7 @@ body {
 }
 
 .vacancy-button:hover {
-  background-color: #597292;
+  background-color: rgba(140, 160, 177, 0.507);
 }
 
 form {
@@ -152,14 +200,18 @@ form {
 
 .search {
   text-align: left;
+  border-radius: 5px;
   width: 250px;
   height: 20px;
   border: none;
   color: rgb(255, 255, 255);
-  background-color: #f7f7f713;
-  box-shadow: inset 4px 4px 6px rgba(0, 0, 0, 0.326);
+  background-color: rgba(141, 141, 141, 0.185);
+  backdrop-filter: blur(10px);
   padding: 15px;
-  margin-bottom: 10px;
+}
+
+.search::placeholder {
+  color: white;
 }
 
 .search:focus {
