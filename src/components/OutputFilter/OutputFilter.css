@@ -1,6 +1,7 @@
 .output ul {
   list-style: none;
   padding: 0;
+  margin-bottom: 10px;
 }
 .output li {
   padding-left: 15px;
