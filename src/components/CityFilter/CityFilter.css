@@ -1,0 +1,17 @@
+.city li {
+  margin-bottom: 10px;
+}
+.city li input[type="checkbox"] {
+  margin-right: 12px;
+  cursor: pointer;
+}
+.city ul {
+  list-style: none;
+  padding: 0;
+}
+.city li {
+  padding-left: 15px;
+}
+.city ul > li {
+  margin-top: 10px;
+}

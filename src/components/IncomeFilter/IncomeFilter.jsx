@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./IncomeFilter.css";
 
 const IncomeFilter = () => {
   const [income, setIncome] = useState(200);

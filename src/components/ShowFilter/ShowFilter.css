@@ -1,0 +1,12 @@
+.show ul {
+  list-style: none;
+  padding: 0;
+}
+
+.show li {
+  padding-left: 15px;
+}
+
+.show ul > li {
+  margin-top: 10px;
+}

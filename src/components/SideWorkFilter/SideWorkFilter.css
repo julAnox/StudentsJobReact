@@ -1,0 +1,15 @@
+.podrabotka li input[type="checkbox"] {
+  margin-right: 12px;
+  cursor: pointer;
+}
+.podrabotka li {
+  margin-bottom: 10px;
+  padding-left: 15px;
+}
+.podrabotka ul {
+  list-style: none;
+  padding: 0;
+}
+.podrabotka ul > li {
+  margin-top: 10px;
+}

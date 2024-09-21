@@ -1,0 +1,54 @@
+.exp_lvl input[type="range"] {
+  margin-right: 12px;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  color: white;
+  border: none;
+  padding: 8px;
+  font-size: 14px;
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: 10px;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(
+    to right,
+    rgba(185, 185, 185, 0.185) 0%,
+    rgba(185, 185, 185, 0.185) var(--val),
+    #1f2a3d var(--val),
+    #1f2a3d 100%
+  );
+  border-radius: 30px;
+  outline: none;
+}
+.exp_lvl input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1px;
+  height: 1px;
+  background-color: #1f2a3d;
+  cursor: pointer;
+}
+.exp_lvl input[type="range"]::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background-color: #1f2a3d;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.exp_lvl label {
+  font-size: 16px;
+  color: white;
+  margin-bottom: 10px;
+  display: block;
+}
+.exp_lvl p {
+  font-size: 14px;
+  color: #f0f0f0;
+  margin-top: 8px;
+}
+.exp_lvl {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import "./MetroFilter.css";
 
 const MetroFilter = () => (
   <div className="metro">

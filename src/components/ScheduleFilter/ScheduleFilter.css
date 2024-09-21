@@ -1,0 +1,19 @@
+.schedule select {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: none;
+  padding: 8px;
+  font-size: 14px;
+}
+.schedule {
+  display: flex;
+  align-items: last baseline;
+  flex-direction: column;
+}
+
+.schedule label {
+  margin-bottom: 10px;
+}

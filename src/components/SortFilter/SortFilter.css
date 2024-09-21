@@ -1,0 +1,10 @@
+.sort ul {
+  list-style: none;
+  padding: 0;
+}
+.sort li {
+  padding-left: 15px;
+}
+.sort ul > li {
+  margin-top: 10px;
+}

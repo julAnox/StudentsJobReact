@@ -1,4 +1,5 @@
 import React from "react";
+import "./ScheduleFilter.css";
 
 const ScheduleFilter = () => (
   <div className="schedule">

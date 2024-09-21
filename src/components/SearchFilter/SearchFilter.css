@@ -1,0 +1,24 @@
+.vac-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.search-vac {
+  text-align: left;
+  border-radius: 5px;
+  width: 250px;
+  height: 20px;
+  border: none;
+  color: rgb(0, 0, 0);
+  background-color: rgba(141, 141, 141, 0.185);
+  backdrop-filter: blur(10px);
+  padding: 15px;
+}
+
+.search-vac::placeholder {
+  color: white;
+}
+
+.search-vac:focus {
+  outline: none;
+}

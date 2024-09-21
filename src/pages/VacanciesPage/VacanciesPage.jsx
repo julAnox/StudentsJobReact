@@ -12,6 +12,7 @@ import OutputFilter from "../../components/OutputFilter/OutputFilter";
 import SortFilter from "../../components/SortFilter/SortFilter";
 import SideWorkFilter from "../../components/SideWorkFilter/SideWorkFilter";
 import SearchFilter from "../../components/SearchFilter/SearchFilter";
+import VacancyBlock from "../../components/VacancyBlock/VacancyBlock";
 import "./VacanciesPage.css";
 
 const VacanciesPage = () => {
@@ -44,54 +45,11 @@ const VacanciesPage = () => {
           <ShowFilter />
         </div>
         <div className="grid-of-vacancies">
-          <div className="vacancy-block">
-            <h3 className="vacancy-title">Software Engineer</h3>
-            <p className="vacancy-description">
-              Develop and maintain web applications.
-            </p>
-            <div className="vacancy-info">
-              Location: Minsk | Salary: 1500 BYN
-            </div>
-            <div className="vacancy-action">
-              <button className="vacancy-button">Apply Now</button>
-            </div>
-          </div>
-          <div className="vacancy-block">
-            <h3 className="vacancy-title">Software Engineer</h3>
-            <p className="vacancy-description">
-              Develop and maintain web applications.
-            </p>
-            <div className="vacancy-info">
-              Location: Minsk | Salary: 1500 BYN
-            </div>
-            <div className="vacancy-action">
-              <button className="vacancy-button">Apply Now</button>
-            </div>
-          </div>
-          <div className="vacancy-block">
-            <h3 className="vacancy-title">Software Engineer</h3>
-            <p className="vacancy-description">
-              Develop and maintain web applications.
-            </p>
-            <div className="vacancy-info">
-              Location: Minsk | Salary: 1500 BYN
-            </div>
-            <div className="vacancy-action">
-              <button className="vacancy-button">Apply Now</button>
-            </div>
-          </div>
-          <div className="vacancy-block">
-            <h3 className="vacancy-title">Software Engineer</h3>
-            <p className="vacancy-description">
-              Develop and maintain web applications.
-            </p>
-            <div className="vacancy-info">
-              Location: Minsk | Salary: 1500 BYN
-            </div>
-            <div className="vacancy-action">
-              <button className="vacancy-button">Apply Now</button>
-            </div>
-          </div>
+          <VacancyBlock />
+          <VacancyBlock />
+          <VacancyBlock />
+          <VacancyBlock />
+          <VacancyBlock />
         </div>
       </div>
       <Footer />

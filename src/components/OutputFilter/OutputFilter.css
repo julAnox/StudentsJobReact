@@ -1,0 +1,10 @@
+.output ul {
+  list-style: none;
+  padding: 0;
+}
+.output li {
+  padding-left: 15px;
+}
+.output ul > li {
+  margin-top: 10px;
+}

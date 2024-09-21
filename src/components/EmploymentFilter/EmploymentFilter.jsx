@@ -1,4 +1,5 @@
 import React from "react";
+import "./EmploymentFilter.css";
 
 const EmploymentFilter = () => (
   <div className="employment">
