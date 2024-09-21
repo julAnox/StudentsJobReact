@@ -1,0 +1,29 @@
+.students-job-foundation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 70%;
+  margin: 0 auto;
+  gap: 150px;
+}
+
+.students-job-foundation-h {
+  width: 50%;
+  font-size: 33px;
+  font-weight: bold;
+}
+
+.students-job-foundation-p {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 100;
+}
+
+.students-job-foundation ul,
+li {
+  margin-top: 20px;
+}
+
+.students-job-foundation li {
+  margin-left: 40px;
+}

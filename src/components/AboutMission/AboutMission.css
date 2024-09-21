@@ -1,0 +1,18 @@
+.about-mission {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 70%;
+  gap: 150px;
+  margin: 0 auto;
+}
+.about-mission-h {
+  width: 50%;
+  font-size: 33px;
+  font-weight: bold;
+}
+.about-mission-p {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 100;
+}

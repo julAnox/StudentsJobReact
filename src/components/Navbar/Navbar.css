@@ -30,7 +30,7 @@ body {
   left: 0;
   width: 100%;
   z-index: 2;
-  background-color: rgba(141, 141, 141, 0.185);
+  background-color: rgba(0, 0, 0, 0.198);
   backdrop-filter: blur(10px);
   background-attachment: fixed;
   background-position: center;
