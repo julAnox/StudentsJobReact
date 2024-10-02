@@ -32,32 +32,37 @@ const AboutFaq = () => {
   ];
 
   return (
-    <div className="about-faq">
-      <div className="about-content">
-        <div className="about-faq-h">
-          <h3>FAQ</h3>
-        </div>
-        <div className="accordion-all">
-          {accordionData.map((item, index) => (
-            <div key={index} className="accordion-item">
-              <div
-                className={`accordion-title ${
-                  activeIndex === index ? "active" : ""
-                }`}
-                onClick={() => toggleAccordion(index)}
-              >
-                <span>{activeIndex === index ? "-" : "+"}</span> {item.title}
+    <div>
+      <div className="about-faq">
+        <div className="about-content">
+          <div className="about-faq-h">
+            <h3>FAQ</h3>
+          </div>
+          <div className="accordion-all">
+            {accordionData.map((item, index) => (
+              <div key={index} className="accordion-item">
+                <div
+                  className={`accordion-title ${
+                    activeIndex === index ? "active" : ""
+                  }`}
+                  onClick={() => toggleAccordion(index)}
+                >
+                  <span>{activeIndex === index ? "-" : "+"}</span> {item.title}
+                </div>
+                <div
+                  className={`accordion-content ${
+                    activeIndex === index ? "show" : ""
+                  }`}
+                >
+                  {item.content}
+                </div>
               </div>
-              <div
-                className={`accordion-content ${
-                  activeIndex === index ? "show" : ""
-                }`}
-              >
-                {item.content}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+      </div>
+      <div>
+        <hr />
       </div>
     </div>
   );
