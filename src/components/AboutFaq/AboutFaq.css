@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 90%;
+  width: 100%;
 }
 
 .about-faq-h {
@@ -22,7 +22,7 @@
 }
 
 .accordion-all {
-  width: 75%;
+  width: 90%;
 }
 
 .accordion-item {
@@ -67,4 +67,11 @@
 .accordion-title span {
   font-weight: bold;
   margin-right: 10px;
+}
+
+hr {
+  margin: 0 auto;
+  width: 70%;
+  margin-top: 100px;
+  margin-bottom: -40px;
 }

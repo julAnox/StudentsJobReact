@@ -22,6 +22,7 @@ const AboutMission = () => {
           </p>
         </div>
       </div>
+      <hr />
     </div>
   );
 };

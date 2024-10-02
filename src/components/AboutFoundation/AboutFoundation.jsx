@@ -30,6 +30,7 @@ const AboutFoundation = () => {
           </p>
         </div>
       </div>
+      <hr />
     </div>
   );
 };
