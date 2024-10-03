@@ -37,6 +37,9 @@ function Navbar() {
           <Link to="/about" className="underline hoverable">
             <p>{t("about")}</p>
           </Link>
+          <Link to="/auction" className="underline hoverable">
+            <p>{t("auction")}</p>
+          </Link>
         </div>
       </div>
       <div className="log-sig-ava">
@@ -74,6 +77,9 @@ function Navbar() {
               </Link>
               <Link to="/about" className="underline">
                 {t("about")}
+              </Link>
+              <Link to="/auction" className="underline">
+                {t("auction")}
               </Link>
             </div>
             <div className="bottom-section">
