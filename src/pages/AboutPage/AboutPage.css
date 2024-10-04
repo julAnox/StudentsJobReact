@@ -7,4 +7,5 @@
   justify-content: center;
   flex-direction: column;
   gap: 80px;
+  background-image: url("/src/assets/stars.png");
 }
