@@ -22,7 +22,7 @@ const VacanciesPage = () => {
   const handleExperienceChange = (e) => setExperience(e.target.value);
   const handleIncomeChange = (e) => setIncome(e.target.value);
   return (
-    <div>
+    <div className="vacancies-all">
       <Navbar />
       <div className="vacancies-content">
         <div className="filters">
