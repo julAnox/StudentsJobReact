@@ -84,8 +84,3 @@
 .animate {
   animation: shrinkAndFly 0.5s forwards;
 }
-.error-message {
-  color: red;
-  position: absolute;
-  margin-top: 10px;
-}

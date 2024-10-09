@@ -1,7 +1,7 @@
 import React from "react";
 import "./FileUploadResume.css";
 
-const FileUploadResume = ({ selectedFile, onFileChange }) => {
+const FileUploadResume = ({ selectedFile, onFileChange, error }) => {
   return (
     <div className="file-upload">
       <label htmlFor="resume-upload" className="file-upload-label">
@@ -14,6 +14,7 @@ const FileUploadResume = ({ selectedFile, onFileChange }) => {
         accept=".doc,.docx,.txt"
         onChange={onFileChange}
       />
+      {error && <p className="error-message">{error}</p>}{" "}
     </div>
   );
 };

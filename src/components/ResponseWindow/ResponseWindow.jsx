@@ -23,8 +23,10 @@ const ResponseWindow = ({ isOpen, onClose, company, vacancy, onSubmit }) => {
       setError("Please upload a resume before submitting.");
       return;
     }
-    setError(""); // sbros error esli file est'
+
+    setError("");
     setIsAnimating(true);
+
     setTimeout(() => {
       setIsAnimating(false);
       onSubmit(selectedFile);
@@ -32,8 +34,9 @@ const ResponseWindow = ({ isOpen, onClose, company, vacancy, onSubmit }) => {
   };
 
   const handleFileChange = (e) => {
-    setSelectedFile(e.target.files[0]);
-    setError(""); // sbros pri vibore file
+    const file = e.target.files[0];
+    setSelectedFile(file);
+    setError("");
   };
 
   if (!isOpen) return null;
@@ -54,9 +57,8 @@ const ResponseWindow = ({ isOpen, onClose, company, vacancy, onSubmit }) => {
         <FileUploadResume
           selectedFile={selectedFile}
           onFileChange={handleFileChange}
+          error={error}
         />
-
-        {error && <p className="error-message">{error}</p>}
 
         <CoverLetterInput />
 
