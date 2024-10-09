@@ -8,9 +8,8 @@
 
 .vacancy-block {
   background-color: rgba(185, 185, 185, 0.185);
-  backdrop-filter: blur(10px);
   border-radius: 5px;
-  height: 200px;
+  height: auto;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.377);
   padding: 15px;
   color: white;
@@ -45,7 +44,8 @@
 }
 
 .vacancy-button {
-  margin-top: 30px;
+  margin-top: 20px;
+  margin-bottom: 25px;
   background-color: #5972929a;
   color: white;
   border: none;

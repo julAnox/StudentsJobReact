@@ -1,0 +1,32 @@
+.response-window-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-button,
+.close-button {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #4caf50;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover,
+.close-button:hover {
+  background-color: #45a049;
+}
+
+.submit-button.animate {
+  cursor: not-allowed;
+}
+
+.close-button {
+  background-color: #f44336;
+}
+
+.close-button:hover {
+  background-color: #e53935;
+}
