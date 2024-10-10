@@ -18,9 +18,8 @@
 }
 
 .vacancy-block:hover {
-  transform: scale(1.02);
-  cursor: pointer;
-  background-color: rgba(196, 196, 196, 0.226);
+  transform: scale(1.01);
+  background-color: rgba(182, 182, 182, 0.226);
 }
 
 .vacancy-title {
@@ -56,5 +55,6 @@
 }
 
 .vacancy-button:hover {
+  cursor: pointer;
   background-color: rgba(140, 160, 177, 0.507);
 }
