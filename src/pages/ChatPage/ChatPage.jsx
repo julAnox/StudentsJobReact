@@ -1,11 +1,16 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
+import Navbar from "../../components/Navbar/Navbar";
+import ChatList from "../../components/ChatList/ChatList";
+import ChatHeader from "../../components/ChatHeader/ChatHeader";
+import MessageList from "../../components/MessageList/MessageList";
+import MessageInput from "../../components/MessageInput/MessageInput";
+import ChatSettings from "../../components/ChatSettings/ChatSettings";
 import "./ChatPage.css";
 
 const ChatPage = () => {
   const [selectedChat, setSelectedChat] = useState(null);
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState({});
-  const messagesEndRef = useRef(null);
 
   const chats = [
     {
@@ -58,99 +63,36 @@ const ChatPage = () => {
     }
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      handleSendMessage();
-    }
-  };
-
-  useEffect(() => {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [messages[selectedChat?.id]]);
-
   useEffect(() => {
     if (selectedChat) {
       localStorage.setItem("messages", JSON.stringify(messages));
     }
-  }, [messages]);
+  }, [messages, selectedChat]);
 
   return (
     <div className="chat-page">
-      <div className="chat-list">
-        <div className="search-bar">
-          <input type="text" placeholder="Найти" />
-        </div>
-        {chats.map((chat) => (
-          <div
-            key={chat.id}
-            className={`chat-item ${
-              selectedChat?.id === chat.id ? "active" : ""
-            }`}
-            onClick={() => handleChatSelect(chat)}
-          >
-            <div className="chat-avatar">{chat.name[0]}</div>
-            <div className="chat-info">
-              <h4>{chat.name}</h4>
-              <p>{chat.status}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
+      <Navbar />
+      <ChatList
+        chats={chats}
+        selectedChat={selectedChat}
+        handleChatSelect={handleChatSelect}
+      />
       <div className="chat-main">
-        {selectedChat && (
-          <div className="chat-header">
-            <h2>{selectedChat.name}</h2>
-            <p>{selectedChat.phone}</p>
-          </div>
+        {selectedChat && <ChatHeader selectedChat={selectedChat} />}
+        {selectedChat ? (
+          <MessageList messages={messages[selectedChat.id] || []} />
+        ) : (
+          <p className="chat-predict-text">Выберите чат для начала общения</p>
         )}
-        <div className="chat-messages">
-          {selectedChat ? (
-            messages[selectedChat.id]?.length > 0 ? (
-              messages[selectedChat.id].map((msg, index) => (
-                <div key={index} className={`message ${msg.sender}`}>
-                  <div className="message-text">{msg.text}</div>
-                  <div className="message-time">{msg.time}</div>
-                </div>
-              ))
-            ) : (
-              <p className="no-messages">Сообщений пока нет</p>
-            )
-          ) : (
-            <p className="chat-predict-text">Выберите чат для начала общения</p>
-          )}
-          <div ref={messagesEndRef} />
-        </div>
         {selectedChat && (
-          <div className="input-container">
-            <input
-              type="text"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              onKeyDown={handleKeyDown}
-              placeholder="Введите сообщение..."
-              aria-label="Введите сообщение"
-            />
-            <button onClick={handleSendMessage} disabled={!message.trim()}>
-              Отправить
-            </button>
-          </div>
+          <MessageInput
+            message={message}
+            setMessage={setMessage}
+            handleSendMessage={handleSendMessage}
+          />
         )}
       </div>
-
-      <div className="chat-settings">
-        {selectedChat && (
-          <div className="settings-content">
-            <h4>Информация</h4>
-            <div className="settings-content-header">
-              <h2>{selectedChat.name}</h2>
-            </div>
-            <p>{selectedChat.phone}</p>
-          </div>
-        )}
-      </div>
+      <ChatSettings selectedChat={selectedChat} />
     </div>
   );
 };

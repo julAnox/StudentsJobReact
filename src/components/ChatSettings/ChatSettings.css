@@ -1,0 +1,19 @@
+.chat-settings {
+  width: 20%;
+  background-color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  color: white;
+}
+
+.settings-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-bottom: 1px solid #1f1f1f;
+}
+
+.settings-content-header h2 {
+  margin: 0;
+}
