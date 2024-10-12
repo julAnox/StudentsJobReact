@@ -8,6 +8,7 @@ const ChatSettings = ({
   onClose,
   onOpenShareModal,
   onCloseChat,
+  onDeleteChat,
   onClearChat,
 }) => {
   if (!isOpen || !selectedChat) return null;
@@ -38,9 +39,9 @@ const ChatSettings = ({
 
       <div className="settings-actions">
         <button onClick={onOpenShareModal}>Share contact</button>
-        <button onClick={onClearChat}>Clear messages</button>{" "}
-        <button onClick={onCloseChat}>Close chat</button>{" "}
-        <button>Delete chat</button>
+        <button onClick={onClearChat}>Clear messages</button>
+        <button onClick={onCloseChat}>Close chat</button>
+        <button onClick={onDeleteChat}>Delete chat</button>
         <button className="block-btn">Block</button>
       </div>
     </div>

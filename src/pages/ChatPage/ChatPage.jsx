@@ -6,6 +6,7 @@ import MessageList from "../../components/MessageList/MessageList";
 import MessageInput from "../../components/MessageInput/MessageInput";
 import ChatSettings from "../../components/ChatSettings/ChatSettings";
 import ContactShare from "../../components/ContactShare/ContactShare";
+import DeleteChatModal from "../../components/DeleteChatModal/DeleteChatModal";
 import "./ChatPage.css";
 
 const ChatPage = () => {
@@ -14,17 +15,13 @@ const ChatPage = () => {
   const [messages, setMessages] = useState({});
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [chats, setChats] = useState([]);
 
   useEffect(() => {
     const savedMessages = localStorage.getItem("messages");
     if (savedMessages) {
       setMessages(JSON.parse(savedMessages));
-    }
-
-    const savedChats = localStorage.getItem("chats");
-    if (savedChats) {
-      setChats(JSON.parse(savedChats));
     }
   }, []);
 
@@ -69,6 +66,26 @@ const ChatPage = () => {
       ],
     }));
     setIsShareModalOpen(false);
+  };
+
+  const handleDeleteChat = () => {
+    setIsDeleteModalOpen(true);
+  };
+
+  const confirmDeleteChat = () => {
+    if (selectedChat) {
+      const updatedChats = chats.filter((chat) => chat.id !== selectedChat.id);
+      setChats(updatedChats);
+      setSelectedChat(null);
+
+      const newMessages = { ...messages };
+      delete newMessages[selectedChat.id];
+
+      setMessages(newMessages);
+      localStorage.setItem("chats", JSON.stringify(updatedChats));
+      localStorage.setItem("messages", JSON.stringify(newMessages));
+    }
+    setIsDeleteModalOpen(false);
   };
 
   const handleClearChat = () => {
@@ -148,6 +165,7 @@ const ChatPage = () => {
               message={message}
               setMessage={setMessage}
               handleSendMessage={handleSendMessage}
+              isSendDisabled={!message.trim()}
             />
           </>
         ) : (
@@ -162,7 +180,9 @@ const ChatPage = () => {
         onOpenShareModal={() => setIsShareModalOpen(true)}
         onClearChat={handleClearChat}
         onCloseChat={handleCloseChat}
+        onDeleteChat={handleDeleteChat}
       />
+
       {isShareModalOpen && (
         <ContactShare
           chats={chats}
@@ -171,6 +191,12 @@ const ChatPage = () => {
           onShare={handleShareContact}
         />
       )}
+
+      <DeleteChatModal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        onDelete={confirmDeleteChat}
+      />
     </div>
   );
 };
