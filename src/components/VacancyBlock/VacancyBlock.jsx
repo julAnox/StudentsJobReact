@@ -11,7 +11,7 @@ const VacancyBlock = ({ vacancyData = {} }) => {
     company = "Microsoft",
     location = "Minsk",
     salary = "1500BYN",
-    description = "Here you can impove your skills like hard or soft",
+    description = "Here you can improve your skills like hard or soft",
   } = vacancyData;
 
   const handleApplyClick = () => {
@@ -23,7 +23,8 @@ const VacancyBlock = ({ vacancyData = {} }) => {
     setIsResponseWindowOpen(false);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (file) => {
+    console.log("File submitted:", file);
     setIsResponseWindowOpen(false);
   };
 
