@@ -1,13 +1,26 @@
 .chat-header {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   padding: 15px 20px;
-  height: 80px;
+  height: 60px;
   background-color: #2c3e50;
   border-bottom: 1px solid #1f1f1f;
   border-left: 1px solid #1f1f1f;
   border-right: 1px solid #1f1f1f;
   color: white;
-  font-size: 14px;
+  font-size: 12px;
+}
+
+.settings-btn {
+  display: flex;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.settings-btn:hover {
+  color: #c9c9c9;
 }

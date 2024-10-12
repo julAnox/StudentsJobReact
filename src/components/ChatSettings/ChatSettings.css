@@ -5,15 +5,65 @@
   flex-direction: column;
   padding: 20px;
   color: white;
+  margin-top: 60px;
 }
 
 .settings-content {
+  border-bottom: 1px solid #1f1f1f;
+  padding-bottom: 20px;
+}
+
+.settings-content h4 {
   display: flex;
+  align-items: center;
   justify-content: center;
-  flex-direction: column;
+  font-size: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
   border-bottom: 1px solid #1f1f1f;
 }
 
 .settings-content-header h2 {
+  font-size: 22px;
   margin: 0;
+}
+
+.contact-info,
+.media-info,
+.group-info {
+  margin-top: 20px;
+}
+
+.contact-info p,
+.media-info div,
+.group-info p {
+  margin: 5px 0;
+}
+
+.status {
+  color: #9b9b9b;
+  font-size: 12px;
+}
+
+.settings-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.settings-actions button {
+  padding: 7px;
+  background-color: #3d4a5a;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.settings-actions .block-btn {
+  background-color: #e74c3c;
+}
+
+.settings-actions button:hover {
+  scale: 0.99;
 }

@@ -15,10 +15,10 @@ const MessageInput = ({ message, setMessage, handleSendMessage }) => {
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         onKeyDown={handleKeyDown}
-        placeholder="Введите сообщение..."
+        placeholder="Type your message..."
       />
       <button onClick={handleSendMessage} disabled={!message.trim()}>
-        Отправить
+        Send
       </button>
     </div>
   );
