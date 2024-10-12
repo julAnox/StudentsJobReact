@@ -68,7 +68,7 @@ const ChatPage = () => {
   };
 
   const handleShareContact = (recipientChat) => {
-    const contactInfo = `Контакт: ${selectedChat.name}, Телефон: ${selectedChat.phone}`;
+    const contactInfo = `Contact: ${selectedChat.name}, Phone: ${selectedChat.phone}`;
     setMessages((prevMessages) => ({
       ...prevMessages,
       [recipientChat.id]: [
@@ -86,15 +86,15 @@ const ChatPage = () => {
     setIsShareModalOpen(false);
   };
 
-  // const handleCloseChat = () => {
-  //   setSelectedChat(null);
-  //   setMessages((prevMessages) => {
-  //     const newMessages = { ...prevMessages };
-  //     delete newMessages[selectedChat.id];
-  //     localStorage.setItem("messages", JSON.stringify(newMessages));
-  //     return newMessages;
-  //   });
-  // };
+  const handleClearChat = () => {
+    setSelectedChat(null);
+    setMessages((prevMessages) => {
+      const newMessages = { ...prevMessages };
+      delete newMessages[selectedChat.id];
+      localStorage.setItem("messages", JSON.stringify(newMessages));
+      return newMessages;
+    });
+  };
 
   const handleCloseChat = () => {
     setSelectedChat(null);
@@ -150,6 +150,7 @@ const ChatPage = () => {
         onClose={closeSettings}
         onOpenShareModal={() => setIsShareModalOpen(true)}
         onCloseChat={handleCloseChat}
+        onClearChat={handleClearChat}
       />
       {isShareModalOpen && (
         <ContactShare

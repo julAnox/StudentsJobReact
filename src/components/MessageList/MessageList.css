@@ -56,3 +56,10 @@
 .message-text {
   word-break: break-word;
 }
+
+.no-messages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
