@@ -14,32 +14,17 @@ const ChatPage = () => {
   const [messages, setMessages] = useState({});
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
-
-  const chats = [
-    {
-      id: 1,
-      name: "Ivan Fulatov",
-      status: "Missed call",
-      phone: "+7 958 100-32-91",
-    },
-    {
-      id: 2,
-      name: "Alexander Belov",
-      status: "You: ok",
-      phone: "+7 958 100-32-91",
-    },
-    {
-      id: 3,
-      name: "Alexey Punko",
-      status: "Sup! Can u play football right now?",
-      phone: "+7 958 100-32-91",
-    },
-  ];
+  const [chats, setChats] = useState([]);
 
   useEffect(() => {
     const savedMessages = localStorage.getItem("messages");
     if (savedMessages) {
       setMessages(JSON.parse(savedMessages));
+    }
+
+    const savedChats = localStorage.getItem("chats");
+    if (savedChats) {
+      setChats(JSON.parse(savedChats));
     }
   }, []);
 
@@ -50,7 +35,7 @@ const ChatPage = () => {
   };
 
   const handleSendMessage = () => {
-    if (message.trim()) {
+    if (message.trim() && selectedChat) {
       const currentTime = new Date().toLocaleTimeString([], {
         hour: "2-digit",
         minute: "2-digit",
@@ -87,13 +72,14 @@ const ChatPage = () => {
   };
 
   const handleClearChat = () => {
-    setSelectedChat(null);
-    setMessages((prevMessages) => {
-      const newMessages = { ...prevMessages };
-      delete newMessages[selectedChat.id];
-      localStorage.setItem("messages", JSON.stringify(newMessages));
-      return newMessages;
-    });
+    if (selectedChat) {
+      setMessages((prevMessages) => {
+        const newMessages = { ...prevMessages };
+        delete newMessages[selectedChat.id];
+        localStorage.setItem("messages", JSON.stringify(newMessages));
+        return newMessages;
+      });
+    }
   };
 
   const handleCloseChat = () => {
@@ -101,10 +87,35 @@ const ChatPage = () => {
   };
 
   useEffect(() => {
-    if (selectedChat) {
-      localStorage.setItem("messages", JSON.stringify(messages));
+    localStorage.setItem("messages", JSON.stringify(messages));
+  }, [messages]);
+
+  const createChatFromLocalStorage = () => {
+    const applicationData = localStorage.getItem("applicationData");
+    if (applicationData) {
+      const { company, vacancy } = JSON.parse(applicationData);
+
+      if (
+        !chats.find((chat) => chat.name === company && chat.vacancy === vacancy)
+      ) {
+        const newChat = {
+          id: chats.length + 1,
+          name: company,
+          vacancy: vacancy,
+          status: `Applied for ${vacancy}`,
+          phone: "",
+        };
+
+        const updatedChats = [...chats, newChat];
+        setChats(updatedChats);
+        localStorage.setItem("chats", JSON.stringify(updatedChats));
+      }
     }
-  }, [messages, selectedChat]);
+  };
+
+  useEffect(() => {
+    createChatFromLocalStorage();
+  }, []);
 
   const toggleSettings = () => {
     setIsSettingsOpen(!isSettingsOpen);
@@ -149,8 +160,8 @@ const ChatPage = () => {
         chats={chats}
         onClose={closeSettings}
         onOpenShareModal={() => setIsShareModalOpen(true)}
-        onCloseChat={handleCloseChat}
         onClearChat={handleClearChat}
+        onCloseChat={handleCloseChat}
       />
       {isShareModalOpen && (
         <ContactShare

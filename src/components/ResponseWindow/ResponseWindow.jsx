@@ -35,6 +35,19 @@ const ResponseWindow = ({ isOpen, onClose, company, vacancy, onSubmit }) => {
     setError("");
     setIsAnimating(true);
 
+    console.log("Cover letter before saving:", coverLetter);
+
+    const applicationData = {
+      selectedFileName: selectedFile.name,
+      coverLetter,
+      company,
+      vacancy,
+    };
+
+    localStorage.setItem("applicationData", JSON.stringify(applicationData));
+
+    console.log("Data saved to localStorage:", applicationData);
+
     setTimeout(() => {
       setIsAnimating(false);
       onSubmit(selectedFile);

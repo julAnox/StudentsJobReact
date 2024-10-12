@@ -23,8 +23,15 @@ const VacancyBlock = ({ vacancyData = {} }) => {
     setIsResponseWindowOpen(false);
   };
 
-  const handleSubmit = (file) => {
-    console.log("File submitted:", file);
+  const handleSubmit = (coverLetter) => {
+    const applicationData = {
+      company,
+      vacancy: selectedVacancy,
+      coverLetter,
+    };
+    localStorage.setItem("applicationData", JSON.stringify(applicationData));
+
+    console.log("Application submitted:", applicationData);
     setIsResponseWindowOpen(false);
   };
 
