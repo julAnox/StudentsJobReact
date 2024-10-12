@@ -10,7 +10,7 @@ const ResponseWindow = ({ isOpen, onClose, company, vacancy, onSubmit }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [coverLetter, setCoverLetter] = useState("");
   const [error, setError] = useState("");
-  const [isSubmitAttempted, setIsSubmitAttempted] = useState(false); // Состояние для отслеживания попыток отправки
+  const [isSubmitAttempted, setIsSubmitAttempted] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
@@ -18,23 +18,21 @@ const ResponseWindow = ({ isOpen, onClose, company, vacancy, onSubmit }) => {
       setSelectedFile(null);
       setCoverLetter("");
       setError("");
-      setIsSubmitAttempted(false); // Сбрасываем попытки отправки
+      setIsSubmitAttempted(false);
     }
   }, [isOpen]);
 
   const handleSubmit = () => {
     console.log("Submit button clicked");
-    setIsSubmitAttempted(true); // Отмечаем, что пользователь попытался отправить форму
+    setIsSubmitAttempted(true);
 
-    // Проверка на наличие резюме
     if (!selectedFile) {
       console.log("No resume selected");
-      setError("Please upload a resume before submitting."); // Устанавливаем сообщение об ошибке
+      setError("Please upload a resume before submitting.");
       return;
     }
 
-    // Если резюме выбрано, отправляем форму
-    setError(""); // Очистка ошибки при успешной отправке
+    setError("");
     setIsAnimating(true);
 
     setTimeout(() => {
@@ -47,7 +45,7 @@ const ResponseWindow = ({ isOpen, onClose, company, vacancy, onSubmit }) => {
     const file = e.target.files[0];
     setSelectedFile(file);
     if (file) {
-      setError(""); // Очистка ошибки при выборе файла
+      setError("");
     }
   };
 
@@ -72,7 +70,7 @@ const ResponseWindow = ({ isOpen, onClose, company, vacancy, onSubmit }) => {
         <FileUploadResume
           selectedFile={selectedFile}
           onFileChange={handleFileChange}
-          error={isSubmitAttempted && !selectedFile ? error : ""} // Отображение ошибки только под полем загрузки резюме
+          error={isSubmitAttempted && !selectedFile ? error : ""}
         />
         <CoverLetterInput
           onChange={handleCoverLetterChange}
@@ -82,7 +80,7 @@ const ResponseWindow = ({ isOpen, onClose, company, vacancy, onSubmit }) => {
           onSubmit={handleSubmit}
           onClose={onClose}
           isAnimating={isAnimating}
-          isSubmitDisabled={false} // Кнопка отправки всегда активна
+          isSubmitDisabled={false}
         />
       </div>
     </div>
