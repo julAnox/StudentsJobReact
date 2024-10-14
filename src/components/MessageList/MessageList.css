@@ -63,3 +63,24 @@
   justify-content: center;
   height: 100%;
 }
+
+.download-resume {
+  margin-top: 5px;
+  width: 100%;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  background-color: #5386b5;
+  border: none;
+}
+
+.download-resume:hover {
+  background-color: #6093c3;
+  cursor: pointer;
+}
+
+.material-symbols-outlined {
+  color: white;
+}

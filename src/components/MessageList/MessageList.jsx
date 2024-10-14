@@ -36,13 +36,17 @@ const MessageList = ({ messages }) => {
             <div className="message-text">
               {msg.text}
               {msg.sender === "me" && msg.text.startsWith("Resume:") && (
-                <button
-                  onClick={() =>
-                    handleDownload(msg.text.replace("Resume: ", ""))
-                  }
-                >
-                  Download Resume
-                </button>
+                <div className="resume-container">
+                  <span className="resume-text"></span>
+                  <button
+                    className="download-resume"
+                    onClick={() =>
+                      handleDownload(msg.text.replace("Resume: ", ""))
+                    }
+                  >
+                    <span className="material-symbols-outlined">download</span>
+                  </button>
+                </div>
               )}
             </div>
             <div className="message-time">{msg.time}</div>
