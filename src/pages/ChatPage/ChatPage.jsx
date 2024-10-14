@@ -82,8 +82,20 @@ const ChatPage = () => {
       delete newMessages[selectedChat.id];
 
       setMessages(newMessages);
+
       localStorage.setItem("chats", JSON.stringify(updatedChats));
       localStorage.setItem("messages", JSON.stringify(newMessages));
+
+      const applicationData = JSON.parse(
+        localStorage.getItem("applicationData")
+      );
+      if (
+        applicationData &&
+        applicationData.company === selectedChat.name &&
+        applicationData.vacancy === selectedChat.vacancy
+      ) {
+        localStorage.removeItem("applicationData");
+      }
     }
     setIsDeleteModalOpen(false);
   };
