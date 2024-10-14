@@ -10,12 +10,41 @@ const MessageList = ({ messages }) => {
     }
   }, [messages]);
 
+  const handleDownload = (fileName) => {
+    const applicationData = JSON.parse(localStorage.getItem("applicationData"));
+    const resumeContent =
+      applicationData?.selectedFileName === fileName
+        ? applicationData?.resumeContent || ""
+        : "";
+
+    const resumeBlob = new Blob([resumeContent], {
+      type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    });
+    const resumeUrl = URL.createObjectURL(resumeBlob);
+    const link = document.createElement("a");
+    link.href = resumeUrl;
+    link.download = fileName;
+    link.click();
+    URL.revokeObjectURL(resumeUrl);
+  };
+
   return (
     <div className="chat-messages">
       {messages.length > 0 ? (
         messages.map((msg, index) => (
           <div key={index} className={`message ${msg.sender}`}>
-            <div className="message-text">{msg.text}</div>
+            <div className="message-text">
+              {msg.text}
+              {msg.sender === "me" && msg.text.startsWith("Resume:") && (
+                <button
+                  onClick={() =>
+                    handleDownload(msg.text.replace("Resume: ", ""))
+                  }
+                >
+                  Download Resume
+                </button>
+              )}
+            </div>
             <div className="message-time">{msg.time}</div>
           </div>
         ))

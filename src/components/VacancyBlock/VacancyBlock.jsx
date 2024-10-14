@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ResponseWindow from "../ResponseWindow/ResponseWindow";
 import "./VacancyBlock.css";
 
-const VacancyBlock = ({ vacancyData = {} }) => {
+const VacancyBlock = ({ vacancyData = {}, chats = [], setChats }) => {
   const [isResponseWindowOpen, setIsResponseWindowOpen] = useState(false);
   const [selectedVacancy, setSelectedVacancy] = useState("");
 
@@ -23,16 +23,60 @@ const VacancyBlock = ({ vacancyData = {} }) => {
     setIsResponseWindowOpen(false);
   };
 
-  const handleSubmit = (coverLetter) => {
-    const applicationData = {
-      company,
-      vacancy: selectedVacancy,
+  const handleSubmit = (applicationData) => {
+    setIsResponseWindowOpen(false);
+    const { company, vacancy, selectedFileName, coverLetter } = applicationData;
+    createChat(company, vacancy, selectedFileName, coverLetter);
+  };
+
+  const createChat = (company, vacancy, selectedFileName, coverLetter) => {
+    if (!Array.isArray(chats)) {
+      console.error("Chats is not an array:", chats);
+      return;
+    }
+
+    const initialMessages = [
+      {
+        text: `Resume: ${selectedFileName}`,
+        sender: "me",
+        time: new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+      },
+      {
+        text: `Cover Letter: ${coverLetter}`,
+        sender: "me",
+        time: new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+      },
+    ];
+
+    const newChat = {
+      id: Math.random().toString(36).substr(2, 9),
+      name: company,
+      vacancy,
+      messages: initialMessages,
+      status: "Chat created",
+      selectedFileName,
       coverLetter,
     };
-    localStorage.setItem("applicationData", JSON.stringify(applicationData));
 
-    console.log("Application submitted:", applicationData);
-    setIsResponseWindowOpen(false);
+    const updatedChats = [...chats, newChat];
+    setChats(updatedChats);
+    localStorage.setItem("chats", JSON.stringify(updatedChats));
+
+    localStorage.setItem(
+      "applicationData",
+      JSON.stringify({
+        company,
+        vacancy,
+        selectedFileName,
+        coverLetter,
+      })
+    );
   };
 
   return (
@@ -50,7 +94,6 @@ const VacancyBlock = ({ vacancyData = {} }) => {
           </button>
         </div>
       </div>
-
       <ResponseWindow
         isOpen={isResponseWindowOpen}
         onClose={handleCloseResponseWindow}

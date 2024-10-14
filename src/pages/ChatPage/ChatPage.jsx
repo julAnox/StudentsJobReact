@@ -119,32 +119,82 @@ const ChatPage = () => {
     localStorage.setItem("messages", JSON.stringify(messages));
   }, [messages]);
 
-  const createChatFromLocalStorage = () => {
-    const applicationData = localStorage.getItem("applicationData");
-    if (applicationData) {
-      const { company, vacancy } = JSON.parse(applicationData);
-
-      if (
-        !chats.find((chat) => chat.name === company && chat.vacancy === vacancy)
-      ) {
-        const newChat = {
-          id: chats.length + 1,
-          name: company,
-          vacancy: vacancy,
-          status: `Applied for ${vacancy}`,
-          phone: "",
-        };
-
-        const updatedChats = [...chats, newChat];
-        setChats(updatedChats);
-        localStorage.setItem("chats", JSON.stringify(updatedChats));
-      }
-    }
-  };
-
   useEffect(() => {
+    const createChatFromLocalStorage = () => {
+      const applicationData = localStorage.getItem("applicationData");
+
+      if (applicationData) {
+        const { company, vacancy, selectedFileName, coverLetter } =
+          JSON.parse(applicationData);
+
+        const lastMessage = "Chat created";
+
+        if (
+          !chats.find(
+            (chat) => chat.name === company && chat.vacancy === vacancy
+          )
+        ) {
+          const newChat = {
+            id: chats.length + 1,
+            name: company,
+            vacancy: vacancy,
+            status: "",
+            phone: "",
+          };
+
+          const updatedChats = [...chats, newChat];
+          setChats(updatedChats);
+          localStorage.setItem("chats", JSON.stringify(updatedChats));
+
+          const resumeMessage = selectedFileName
+            ? `Resume: ${selectedFileName}`
+            : "Resume not provided";
+
+          const coverLetterMessage =
+            coverLetter && typeof coverLetter === "string"
+              ? `Cover Letter: ${coverLetter}`
+              : "Cover letter not provided";
+
+          const initialMessages = [
+            {
+              text: resumeMessage,
+              sender: "me",
+              time: new Date().toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+              }),
+            },
+            {
+              text: coverLetterMessage,
+              sender: "me",
+              time: new Date().toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+              }),
+            },
+          ];
+
+          newChat.status = lastMessage;
+
+          setMessages((prevMessages) => ({
+            ...prevMessages,
+            [newChat.id]: initialMessages,
+          }));
+
+          localStorage.setItem(
+            "messages",
+            JSON.stringify({
+              ...messages,
+              [newChat.id]: initialMessages,
+            })
+          );
+          localStorage.setItem("chats", JSON.stringify(updatedChats));
+        }
+      }
+    };
+
     createChatFromLocalStorage();
-  }, []);
+  }, [chats, messages]);
 
   const toggleSettings = () => {
     setIsSettingsOpen(!isSettingsOpen);

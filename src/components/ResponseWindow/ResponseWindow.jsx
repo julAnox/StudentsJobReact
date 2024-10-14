@@ -23,19 +23,15 @@ const ResponseWindow = ({ isOpen, onClose, company, vacancy, onSubmit }) => {
   }, [isOpen]);
 
   const handleSubmit = () => {
-    console.log("Submit button clicked");
     setIsSubmitAttempted(true);
 
     if (!selectedFile) {
-      console.log("No resume selected");
       setError("Please upload a resume before submitting.");
       return;
     }
 
     setError("");
     setIsAnimating(true);
-
-    console.log("Cover letter before saving:", coverLetter);
 
     const applicationData = {
       selectedFileName: selectedFile.name,
@@ -46,11 +42,9 @@ const ResponseWindow = ({ isOpen, onClose, company, vacancy, onSubmit }) => {
 
     localStorage.setItem("applicationData", JSON.stringify(applicationData));
 
-    console.log("Data saved to localStorage:", applicationData);
-
     setTimeout(() => {
       setIsAnimating(false);
-      onSubmit(selectedFile);
+      onSubmit(applicationData);
     }, 1000);
   };
 

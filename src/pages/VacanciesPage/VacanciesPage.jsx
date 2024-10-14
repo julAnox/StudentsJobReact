@@ -18,9 +18,19 @@ import "./VacanciesPage.css";
 const VacanciesPage = () => {
   const [experience, setExperience] = useState(0);
   const [income, setIncome] = useState(200);
+  const [chats, setChats] = useState([]);
 
   const handleExperienceChange = (e) => setExperience(e.target.value);
   const handleIncomeChange = (e) => setIncome(e.target.value);
+
+  const vacancyData = {
+    title: "React Web Developer",
+    company: "Microsoft",
+    location: "Minsk",
+    salary: "1500BYN",
+    description: "Here you can improve your skills like hard or soft",
+  };
+
   return (
     <div className="vacancies-all">
       <Navbar />
@@ -45,11 +55,31 @@ const VacanciesPage = () => {
           <ShowFilter />
         </div>
         <div className="grid-of-vacancies">
-          <VacancyBlock />
-          <VacancyBlock />
-          <VacancyBlock />
-          <VacancyBlock />
-          <VacancyBlock />
+          <VacancyBlock
+            vacancyData={vacancyData}
+            chats={chats}
+            setChats={setChats}
+          />
+          <VacancyBlock
+            vacancyData={vacancyData}
+            chats={chats}
+            setChats={setChats}
+          />
+          <VacancyBlock
+            vacancyData={vacancyData}
+            chats={chats}
+            setChats={setChats}
+          />
+          <VacancyBlock
+            vacancyData={vacancyData}
+            chats={chats}
+            setChats={setChats}
+          />
+          <VacancyBlock
+            vacancyData={vacancyData}
+            chats={chats}
+            setChats={setChats}
+          />
         </div>
       </div>
       <Footer />
