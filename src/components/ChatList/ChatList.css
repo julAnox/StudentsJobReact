@@ -1,13 +1,31 @@
 .chat-list {
   width: 20%;
+  height: auto;
   background-color: rgba(185, 185, 185, 0.185);
   border-bottom: 1px solid #1f1f1f;
   display: flex;
   flex-direction: column;
   color: white;
   margin-top: 60px;
+  overflow-y: auto;
 }
 
+.chat-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.chat-list::-webkit-scrollbar-track {
+  background: #1d2d44;
+}
+
+.chat-list::-webkit-scrollbar-thumb {
+  background: #34455c;
+  border-radius: 10px;
+}
+
+.chat-list::-webkit-scrollbar-thumb:hover {
+  background: #3e526e;
+}
 .search-bar {
   display: flex;
   align-items: center;
