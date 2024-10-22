@@ -1,0 +1,21 @@
+.summary-block {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 300px;
+  height: 400px;
+  border-radius: 7px;
+  gap: 10px;
+  padding: 20px;
+  background-color: white;
+}
+
+.ava-summary {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.nickname-summary {
+  color: black;
+}
