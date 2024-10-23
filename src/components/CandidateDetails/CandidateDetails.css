@@ -1,0 +1,35 @@
+.candidate-image {
+  width: 600px;
+  height: 500px;
+}
+.candidate-details-content {
+  padding: 70px 70px;
+  background-color: #b6dfff;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 200px;
+}
+
+.candidate-details-content p {
+  color: rgb(65, 65, 65);
+  max-width: 700px;
+}
+
+.candidate-details-content h2 {
+  font-size: 36px;
+  max-width: 340px;
+}
+
+.candidate-details-content h1 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.candidate-info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
