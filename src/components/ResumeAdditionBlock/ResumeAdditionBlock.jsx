@@ -1,6 +1,12 @@
 import React, { useEffect } from "react";
 import "./ResumeAdditionBlock.css";
 import ladder from "../../assets/steps.png";
+import number01 from "../../assets/number01.png";
+import number02 from "../../assets/number02.png";
+import number03 from "../../assets/number03.png";
+import number04 from "../../assets/number04.png";
+import stair from "../../assets/stair.png";
+import platform from "../../assets/platform.png";
 
 const ResumeAdditionBlock = () => {
   useEffect(() => {
@@ -17,13 +23,13 @@ const ResumeAdditionBlock = () => {
       }
     );
 
-    const steps = document.querySelectorAll(
-      ".step-left-01, .step-right-02, .step-left-03, .step-right-04"
+    const elements = document.querySelectorAll(
+      ".platform, .number, .stair, .text"
     );
-    steps.forEach((step) => observer.observe(step));
+    elements.forEach((el) => observer.observe(el));
 
     return () => {
-      steps.forEach((step) => observer.unobserve(step));
+      elements.forEach((el) => observer.unobserve(el));
     };
   }, []);
 
@@ -33,39 +39,45 @@ const ResumeAdditionBlock = () => {
         How to Start Your Search for Candidates?
       </h1>
       <div className="ladder-container">
-        <img src={ladder} alt="ladder" className="ladder-image" />
+        <img src={ladder} alt="Ladder" className="ladder-image" />
+
         <div className="resume-steps">
-          <div className="step-left-01">
-            <span className="step-number01">Step 1</span>
+          <img src={number01} alt="Number 01" className="number number-01" />
+          <div className="text text-01">
             <h2>Register</h2>
             <p>
               Thus, you will gain access to actions on the Student's Job
               website.
             </p>
           </div>
-          <div className="step-right-02">
-            <span className="step-number02">Step 2</span>
+
+          <img src={stair} alt="Stair" className="stair stair-01" />
+
+          <img src={number02} alt="Number 02" className="number number-02" />
+          <div className="text text-02">
             <h2>Think about what you want</h2>
             <p>Define the role and responsibilities.</p>
           </div>
-          <div className="step-left-03">
-            <span className="step-number03">Step 3</span>
+
+          <img src={stair} alt="Stair" className="stair stair-02" />
+
+          <img src={number03} alt="Number 03" className="number number-03" />
+          <div className="text text-03">
             <h2>Get busy</h2>
             <p>Start looking for employees for yourself</p>
           </div>
-          <div className="step-right-04">
-            <span className="step-number04">Step 4</span>
+
+          <img src={stair} alt="Stair" className="stair stair-03" />
+
+          <img src={number04} alt="Number 04" className="number number-04" />
+          <div className="text text-04">
             <h2>Use our site</h2>
             <p>You can combine business with pleasure</p>
           </div>
+
+          <img src={platform} alt="Platform" className="platform" />
         </div>
       </div>
-      <button
-        className="summary-step-button"
-        onClick={() => alert("Button clicked!")}
-      >
-        Start recruiting on Student's Job
-      </button>
     </div>
   );
 };

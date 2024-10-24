@@ -3,9 +3,9 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  text-align: center;
   background-color: #b6dfff;
   margin-top: 80px;
+  text-align: center;
   position: relative;
 }
 
@@ -18,95 +18,49 @@
 
 .ladder-container {
   position: relative;
+  margin-bottom: 40px;
 }
 
 .ladder-image {
-  margin-top: 80px;
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  height: auto;
 }
 
 .resume-steps {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  gap: 20px;
-}
-
-.step-left-01,
-.step-right-02,
-.step-left-03,
-.step-right-04 {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  color: black;
+  align-items: center;
+}
+
+.number,
+.stair,
+.platform,
+.text {
   opacity: 0;
-  max-width: 180px;
-  transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
 }
 
-.step-left-01 h2,
-.step-right-02 h2,
-.step-left-03 h2,
-.step-right-04 h2 {
-  margin-bottom: 15px;
-}
-
-.visible {
+.number.visible,
+.stair.visible,
+.platform.visible,
+.text.visible {
   opacity: 1;
+  transform: translateY(0);
 }
 
-.step-left-01,
-.step-left-03 {
-  transform: translateX(-300%);
+.number {
+  margin: 20px 0;
 }
 
-.step-left-01.visible,
-.step-left-03.visible {
-  transform: translateX(-110%);
+.stair {
+  margin: 10px 0;
 }
 
-.step-right-02,
-.step-right-04 {
-  transform: translateX(300%);
-}
-
-.step-right-02.visible,
-.step-right-04.visible {
-  transform: translateX(115%);
-}
-
-.step-left-01 {
-  margin-top: 115px;
-}
-
-.step-right-02 {
-  margin-top: 155px;
-}
-
-.step-left-03 {
-  margin-top: 230px;
-}
-
-.step-right-04 {
-  margin-top: 210px;
-}
-
-.summary-step-button {
-  background-color: #007bff;
-  color: #ffffff;
-  padding: 15px 30px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-.summary-step-button:hover {
-  background-color: #0056b3;
+.text {
+  margin: 10px 0;
 }
