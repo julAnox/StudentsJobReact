@@ -17,6 +17,7 @@ const SummaryPage = () => {
         <SummaryPostBanner />
         <SearchSummaryBlock />
         <AnimatedTower /> {/*+stepstextcontent */}
+        {/*+stepstextcontent */}
         <ResumeHighlight />
         <CandidateDetails />
       </div>
