@@ -16,7 +16,7 @@ const SummaryPage = () => {
       <div className="summary-content">
         <SummaryPostBanner />
         <SearchSummaryBlock />
-        <AnimatedTower />
+        <AnimatedTower /> {/*+stepstextcontent */}
         <ResumeHighlight />
         <CandidateDetails />
       </div>
