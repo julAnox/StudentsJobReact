@@ -1,6 +1,5 @@
 import React from "react";
 import "./SearchSummaryBlock.css";
-import ResumeAdditionBlock from "../ResumeAdditionBlock/ResumeAdditionBlock";
 
 const SearchSummaryBlock = () => {
   return (
@@ -26,7 +25,6 @@ const SearchSummaryBlock = () => {
           <button className="search-tag">Driver</button>
         </div>
       </div>
-      <ResumeAdditionBlock />
     </div>
   );
 };

@@ -5,6 +5,7 @@ import SummaryPostBanner from "../../components/SummaryPostBanner/SummaryPostBan
 import SearchSummaryBlock from "../../components/SearchSummaryBlock/SearchSummaryBlock";
 import ResumeHighlight from "../../components/ResumeHighlight/ResumeHighlight";
 import CandidateDetails from "../../components/CandidateDetails/CandidateDetails";
+import AnimatedTower from "../../components/AnimatedTower/AnimatedTower";
 
 import "./SummaryPage.css";
 
@@ -15,6 +16,7 @@ const SummaryPage = () => {
       <div className="summary-content">
         <SummaryPostBanner />
         <SearchSummaryBlock />
+        <AnimatedTower />
         <ResumeHighlight />
         <CandidateDetails />
       </div>
