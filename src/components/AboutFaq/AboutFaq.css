@@ -40,7 +40,7 @@
   justify-content: space-between;
   cursor: pointer;
   background-color: rgba(51, 63, 103, 0.9);
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #8a8a8a;
 }
 
 .accordion-title.active {
