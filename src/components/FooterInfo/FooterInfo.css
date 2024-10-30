@@ -1,0 +1,28 @@
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-info h1 {
+  font-weight: 200;
+  font-size: 20px;
+}
+
+.paragraph-footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-info p {
+  color: #acacac;
+  transition: ease all 0.3s;
+}
+
+.footer-info p:hover {
+  text-decoration: underline;
+  transform: scale(1.01);
+  color: #e4e4e4;
+  cursor: pointer;
+}

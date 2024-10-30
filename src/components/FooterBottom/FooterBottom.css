@@ -1,0 +1,26 @@
+.footer-bottom-strip {
+  width: 100%;
+  padding: 30px 100px;
+  text-align: center;
+  color: #acacac;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  background-color: rgba(1, 3, 10, 0.137);
+  border-top: 1px solid #858585;
+}
+
+.footer-bottom-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 80px;
+}
+
+.footer-bottom-content p:hover {
+  color: #e4e4e4;
+  cursor: pointer;
+}

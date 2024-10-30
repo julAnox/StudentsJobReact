@@ -1,0 +1,28 @@
+.footer-pages {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-pages h1 {
+  font-weight: 200;
+  font-size: 20px;
+}
+
+.paragraph-footer-pages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-pages p {
+  color: #acacac;
+  transition: ease all 0.3s;
+}
+
+.footer-pages p:hover {
+  text-decoration: underline;
+  transform: scale(1.01);
+  color: #e4e4e4;
+  cursor: pointer;
+}

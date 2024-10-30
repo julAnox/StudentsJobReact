@@ -1,0 +1,33 @@
+.footer-logo {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-direction: row;
+}
+
+.footer-logo h1 {
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.img-footer {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-description {
+  color: #acacac;
+}
+
+.footer-logo-section {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  gap: 20px;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
