@@ -1,21 +1,20 @@
 import React from "react";
 import "./AboutFoundation.css";
+import { useTranslation } from "react-i18next";
 
 const AboutFoundation = () => {
+  const { t } = useTranslation();
   return (
     <div>
       <div className="students-job-foundation">
         <div className="students-job-foundation-h">
-          <h3>The Student's Job Foundation</h3>
+          <h3>{t("student's_job_foundation")}</h3>
         </div>
         <div className="students-job-foundation-p">
           <p>
-            The Student's Job project was founded in May 2023. Initially, this
-            project was conceived as a pet project, but it has since undergone
-            significant changes. We made major updates to both the design and
-            functionality of the website.
+            {t("student's_job_foundation_info")}
             <ul>
-              Features we added include:
+              {t("feautures_added")}
               <li>A chat where users can communicate with employers.</li>
               <li>
                 A simple and user-friendly design that doesn't push users away.

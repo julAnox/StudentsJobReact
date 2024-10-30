@@ -9,13 +9,13 @@ function OverlaySection() {
     <div className="overlay">
       <div className="parallax-text">{t("welcome_message")}</div>
       <p className="hero-subtitle">{t("hero_subtitle")}</p>
-      <div className="search-box">
+      <div className="search-box-overlay">
         <input
           type="text"
           placeholder={t("search_placeholder")}
-          className="search-input"
+          className="search-input-overlay"
         />
-        <button className="search-btn">{t("search_button")}</button>
+        <button className="search-btn-overlay">{t("search_button")}</button>
       </div>
     </div>
   );

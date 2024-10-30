@@ -11,10 +11,10 @@ import "./AnimatedTower.css";
 
 const AnimatedTower = () => {
   const steps = [
-    { id: 1, number: number01, delay: 0 },
-    { id: 2, number: number02, delay: 0.5 },
+    { id: 1, number: number01, delay: 1 },
+    { id: 2, number: number02, delay: 1 },
     { id: 3, number: number03, delay: 1 },
-    { id: 4, number: number04, delay: 1.5, noStairs: true },
+    { id: 4, number: number04, delay: 1, noStairs: true },
   ];
 
   return (
