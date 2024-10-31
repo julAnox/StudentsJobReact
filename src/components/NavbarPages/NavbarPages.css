@@ -1,0 +1,5 @@
+.main-nav-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}

@@ -1,0 +1,51 @@
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
+.gap-logo {
+  display: flex;
+  align-items: center;
+}
+
+.hoverable {
+  padding: 17px;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.hoverable:hover {
+  cursor: pointer;
+  padding: 17px;
+  background-color: rgba(255, 255, 255, 0.075);
+  color: #1e90ff;
+}
+
+.gap-logo {
+  gap: 20px;
+  padding: 10px 10px;
+}
+
+.gap-logo:hover {
+  cursor: pointer;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.075);
+  color: #1e90ff;
+}
+
+.underline {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.underline:hover {
+  color: #1e90ff;
+}
