@@ -5,7 +5,7 @@ const SearchSummaryBlock = () => {
   return (
     <div className="search-summary-block">
       <div className="search-summary-content">
-        <h1 className="summary-post-title">
+        <h1 className="summary-post-title-bl">
           What kind of employees are there on Student's Job?
         </h1>
 

@@ -10,7 +10,7 @@
   background-color: transparent;
 }
 
-.summary-post-title {
+.summary-post-title-bl {
   font-size: 34px;
   font-weight: bold;
   color: #000000;
@@ -55,7 +55,6 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  flex-wrap: wrap;
 }
 
 .search-tag {
@@ -76,4 +75,19 @@
   margin: 0;
   display: flex;
   align-items: center;
+}
+@media (max-width: 500px) {
+  .frequently-searched {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .search-bar-summary {
+    padding: 20px;
+    height: 10px;
+  }
+  .summary-post-title-bl {
+    font-size: 22px;
+  }
 }

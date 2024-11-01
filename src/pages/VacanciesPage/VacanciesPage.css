@@ -9,12 +9,8 @@ body {
   align-items: flex-start;
   margin: 0 auto;
   width: 1500px;
-  padding: 90px 30px;
+  padding: 90px;
   gap: 70px;
-}
-
-.vacancies-all {
-  background-image: url("../../assets/vacancies-main-bg.png");
 }
 
 .filters {
@@ -60,7 +56,9 @@ body {
 }
 
 @media (max-width: 1410px) {
-  .vacancies-all {
+  .vacancies-content {
+    padding: 30px;
+    width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -75,5 +73,8 @@ body {
     display: flex;
     max-height: none;
     margin-top: 20px;
+  }
+  .grid-of-vacancies {
+    max-width: 300px;
   }
 }
