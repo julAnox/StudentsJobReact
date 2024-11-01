@@ -53,3 +53,10 @@
 .step-3 {
   transform: translate(-225px, 445px) !important;
 }
+
+.tower-afk-image {
+  padding: 30px;
+  display: block;
+  margin: 0 auto;
+  width: 370px;
+}

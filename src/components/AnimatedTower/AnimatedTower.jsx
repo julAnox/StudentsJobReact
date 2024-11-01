@@ -7,66 +7,73 @@ import number04 from "../../assets/number04.png";
 import stair from "../../assets/stair.png";
 import platform from "../../assets/platform.png";
 import StepsTextContent from "../StepsTextContent/StepsTextContent";
+import statictower from "../../assets/static-tower.png";
 import "./AnimatedTower.css";
 
 const AnimatedTower = () => {
   const steps = [
-    { id: 1, number: number01, delay: 1 },
-    { id: 2, number: number02, delay: 1 },
+    { id: 1, number: number01, delay: 0 },
+    { id: 2, number: number02, delay: 0.5 },
     { id: 3, number: number03, delay: 1 },
-    { id: 4, number: number04, delay: 1, noStairs: true },
+    { id: 4, number: number04, delay: 1.5, noStairs: true },
   ];
+
+  const isSmallScreen = window.innerWidth < 950;
 
   return (
     <div className="tower-container">
-      {steps.map((step, index) => (
-        <motion.div
-          key={step.id}
-          className={`tower-step step-${index} platform-step-${step.id}`}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: step.delay }}
-        >
-          <motion.img
-            src={platform}
-            alt={`Platform for ${step.alt}`}
-            className="platform-image"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: step.delay, duration: 0.8 }}
-          />
-          {!step.noStairs && (
-            <div className="stairs-container">
-              {[...Array(4)].map((_, stairIndex) => (
-                <motion.img
-                  key={stairIndex}
-                  src={stair}
-                  alt={`Stair ${stairIndex + 1} for ${step.alt}`}
-                  className="stair-image"
-                  style={{
-                    marginLeft: `${stairIndex * 25}px`,
-                    marginTop: `${-94}px`,
-                  }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{
-                    delay: step.delay + 0.2 * (stairIndex + 1),
-                    duration: 0.6,
-                  }}
-                />
-              ))}
-            </div>
-          )}
-          <motion.img
-            src={step.number}
-            alt={step.alt}
-            className="number-image"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: step.delay + 0.8, duration: 0.8 }}
-          />
-        </motion.div>
-      ))}
+      {isSmallScreen ? (
+        <img src={statictower} alt="statictower" className="tower-afk-image" />
+      ) : (
+        steps.map((step, index) => (
+          <motion.div
+            key={step.id}
+            className={`tower-step step-${index} platform-step-${step.id}`}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: step.delay }}
+          >
+            <motion.img
+              src={platform}
+              alt={`Platform for ${step.alt}`}
+              className="platform-image"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: step.delay, duration: 0.8 }}
+            />
+            {!step.noStairs && (
+              <div className="stairs-container">
+                {[...Array(4)].map((_, stairIndex) => (
+                  <motion.img
+                    key={stairIndex}
+                    src={stair}
+                    alt={`Stair ${stairIndex + 1} for ${step.alt}`}
+                    className="stair-image"
+                    style={{
+                      marginLeft: `${stairIndex * 25}px`,
+                      marginTop: `${-94}px`,
+                    }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{
+                      delay: step.delay + 0.2 * (stairIndex + 1),
+                      duration: 0.6,
+                    }}
+                  />
+                ))}
+              </div>
+            )}
+            <motion.img
+              src={step.number}
+              alt={step.alt}
+              className="number-image"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: step.delay + 0.8, duration: 0.8 }}
+            />
+          </motion.div>
+        ))
+      )}
       <StepsTextContent />
     </div>
   );

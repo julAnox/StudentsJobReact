@@ -4,40 +4,51 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center; /* Центрирование элементов по горизонтали */
   text-align: center;
-  max-width: 250px;
+  max-width: 300px; /* Увеличен максимальный размер для больших экранов */
+  width: 100%; /* Позволяет контейнеру занимать 100% ширины */
+  top: 50%; /* Центрирование по вертикали */
+  transform: translateY(-50%); /* Убирает смещение по вертикали */
 }
 
 .steps-text-content h1 {
-  font-size: 33px;
+  font-size: 28px; /* Уменьшенный размер заголовка */
+  margin: 10px 0; /* Убираем лишние отступы */
 }
 
 .steps-text-content p {
-  font-size: 16px;
-  margin-bottom: 30px;
+  font-size: 14px; /* Уменьшенный размер текста */
+  margin-bottom: 20px; /* Уменьшенные отступы между абзацами */
   color: rgb(77, 77, 77);
 }
 
-.step-text-first {
-  position: relative;
-  top: 180px;
-  left: -195%;
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 600px) {
+  .steps-text-content {
+    max-width: 90%; /* Увеличение ширины для мобильных устройств */
+  }
+
+  .steps-text-content h1 {
+    font-size: 24px; /* Уменьшение размера заголовка на мобильных */
+  }
+
+  .steps-text-content p {
+    font-size: 12px; /* Уменьшение размера текста на мобильных */
+  }
 }
 
-.step-text-second {
-  position: relative;
-  top: -290px;
-  left: 50%;
-}
+/* Адаптивные стили для планшетов */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .steps-text-content {
+    max-width: 80%; /* Увеличение ширины для планшетов */
+  }
 
-.step-text-third {
-  position: relative;
-  top: 140px;
-  left: -70%;
-}
+  .steps-text-content h1 {
+    font-size: 26px; /* Уменьшение размера заголовка для планшетов */
+  }
 
-.step-text-fourth {
-  position: relative;
-  top: -240px;
-  left: 200%;
+  .steps-text-content p {
+    font-size: 14px; /* Небольшое увеличение размера текста для планшетов */
+  }
 }
