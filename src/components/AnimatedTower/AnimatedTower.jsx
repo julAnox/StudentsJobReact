@@ -18,7 +18,7 @@ const AnimatedTower = () => {
     { id: 4, number: number04, delay: 1.5, noStairs: true },
   ];
 
-  const isSmallScreen = window.innerWidth < 950;
+  const isSmallScreen = window.innerWidth < 1267;
 
   return (
     <div className="tower-container">
