@@ -19,7 +19,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: -5px;
 }
 
 .filters div {
@@ -47,29 +46,32 @@ body {
   margin-right: 10px;
 }
 
-@media (max-width: 1409px) {
-  .vacancies-content {
-    margin-top: 35px;
+.toggle-filters-btn {
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #1a73e8;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 1410px) {
+  .vacancies-all {
+    display: flex;
+    justify-content: center;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
   }
 
-  .grid-of-vacancies {
-    width: 100%;
-    grid-template-columns: 1fr;
+  .search-vac {
+    width: 300px;
   }
 
   .filters {
-    width: 100%;
-  }
-
-  .filters div {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .search {
-    width: 100%;
+    max-width: 300px;
+    display: flex;
+    max-height: none;
+    margin-top: 20px;
   }
 }
