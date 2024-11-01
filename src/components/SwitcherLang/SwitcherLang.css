@@ -33,11 +33,7 @@
 
 @media (max-width: 390px) {
   .language-switcher {
-    margin-top: 280px;
-    margin-right: 57px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: absolute;
+    left: 30%;
   }
 }

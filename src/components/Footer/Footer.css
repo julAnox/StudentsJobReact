@@ -17,3 +17,20 @@
   padding: 50px;
   background-color: rgba(1, 3, 10, 0.137);
 }
+@media (max-width: 971px) {
+  .footer-content-upper {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 493px) {
+  .footer-content-upper {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+  }
+}

@@ -55,3 +55,18 @@
 .search-btn-overlay:hover {
   background-color: rgba(140, 160, 177, 0.507);
 }
+
+@media (max-width: 770px) {
+  .search-input-overlay {
+    height: 50px;
+    width: 210px;
+  }
+  .search-btn-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 50px;
+    text-align: center;
+  }
+}

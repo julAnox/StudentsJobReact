@@ -24,3 +24,10 @@
   color: #e4e4e4;
   cursor: pointer;
 }
+@media (max-width: 992px) {
+  .footer-bottom-strip {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+}
