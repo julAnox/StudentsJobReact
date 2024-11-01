@@ -13,7 +13,6 @@
 }
 .employment {
   display: flex;
-  align-items: last baseline;
   flex-direction: column;
 }
 .employment label {

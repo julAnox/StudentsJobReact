@@ -10,7 +10,6 @@
 }
 .schedule {
   display: flex;
-  align-items: last baseline;
   flex-direction: column;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.377);
 }
