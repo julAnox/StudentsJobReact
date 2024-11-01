@@ -8,11 +8,13 @@ body {
   justify-content: center;
   align-items: flex-start;
   margin: 0 auto;
-  max-width: 1500px;
-  padding: 20px;
-  margin-top: 90px;
+  width: 1500px;
+  padding: 90px 30px;
   gap: 70px;
-  margin-bottom: 30px;
+}
+
+.vacancies-all {
+  background-image: url("../../assets/vacancies-main-bg.png");
 }
 
 .filters {

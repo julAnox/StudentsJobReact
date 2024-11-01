@@ -26,7 +26,7 @@
 }
 
 .accordion-item {
-  background-color: rgba(51, 63, 103, 0.9);
+  background-color: #4081bb;
   color: #fff;
   margin-bottom: 10px;
   border-radius: 5px;
@@ -39,17 +39,17 @@
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-  background-color: rgba(51, 63, 103, 0.9);
-  border-bottom: 1px solid #8a8a8a;
+  background-color: #4e99db;
+  border-bottom: 2px solid #0d508a;
 }
 
 .accordion-title.active {
-  background-color: rgba(51, 63, 103, 0.9);
+  background-color: #4e99db;
 }
 
 .accordion-content {
   padding: 15px;
-  background-color: #5972929a;
+  background-color: #4081bb;
   font-size: 16px;
   line-height: 1.5;
   overflow: hidden;

@@ -1,10 +1,18 @@
 .about-container {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 20px;
+  padding: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 80px;
+  background: linear-gradient(
+    to right,
+    #51a5da,
+    /* начальный цвет для светлого перехода */ #3b8fc3,
+    /* второй цвет для плавности */ #215aa6,
+    /* третий цвет для усиления глубины */ #1f59a5,
+    /* глубокий синий, повторяющий изображение */ #4e99db
+      /* завершающий цвет для завершения перехода */
+  );
+  width: 100%;
 }

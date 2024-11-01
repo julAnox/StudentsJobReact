@@ -44,3 +44,51 @@
   color: #6c757d;
   margin-top: 30px;
 }
+
+@media (max-width: 1275px) {
+  .summary-post-banner {
+    height: 100px;
+    background-image: url("../../assets/spb_1249.png");
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    height: 100vh;
+  }
+}
+@media (max-width: 926px) {
+  .summary-post-banner {
+    height: 100px;
+    background-image: url("../../assets/spb_926.png");
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    height: 100vh;
+  }
+}
+@media (max-width: 800px) {
+  .summary-post-banner {
+    height: 100px;
+    background-image: url("../../assets/spb_800.png");
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    height: 100vh;
+  }
+}
+
+@media (max-width: 546px) {
+  .summary-post-banner {
+    height: 100px;
+    background-image: url("../../assets/spb_546.png");
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    height: 100vh;
+  }
+}
+
+@media (max-width: 390px) {
+  .summary-post-subtitle {
+    font-size: 16px;
+  }
+}

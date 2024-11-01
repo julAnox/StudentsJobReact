@@ -1,18 +1,13 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
 .flex-r,
 .flex-c {
   justify-content: center;
   align-items: center;
   display: flex;
-  background-image: url("../../assets/login_signup_bg.png");
+}
+.flex-r.container-login {
   background-size: cover;
   background-position: center;
+  background-image: url("../../assets/login_signup_bg.png");
 }
 
 .flex-c {
