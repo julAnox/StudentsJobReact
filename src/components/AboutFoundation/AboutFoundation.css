@@ -27,3 +27,18 @@ li {
 .students-job-foundation li {
   margin-left: 40px;
 }
+
+@media (max-width: 1093px) {
+  .students-job-foundation {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .students-job-foundation-h {
+    font-size: 30px;
+    display: contents;
+  }
+}

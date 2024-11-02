@@ -68,3 +68,23 @@
   font-weight: bold;
   margin-right: 10px;
 }
+@media (max-width: 1000px) {
+  .about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .about-faq-h {
+    display: flex;
+  }
+  .accordion-all {
+    width: 140%;
+  }
+  .about-faq-h {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

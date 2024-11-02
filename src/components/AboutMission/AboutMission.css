@@ -16,3 +16,16 @@
   font-size: 16px;
   font-weight: 100;
 }
+
+@media (max-width: 1000px) {
+  .about-mission {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .about-mission-h {
+    display: contents;
+  }
+}

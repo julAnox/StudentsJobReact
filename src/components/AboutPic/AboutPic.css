@@ -1,19 +1,31 @@
 .about-pic-container {
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   height: 55vh;
   background-size: cover;
   background-position: center;
   background-image: url("../../assets/about-pic-header.png");
+  padding-left: 16%;
 }
 
 .about-pic-text {
-  position: absolute;
-  top: 50%;
-  transform: translate(60%, -50%);
   color: rgb(255, 255, 255);
   padding: 10px;
   font-size: 38px;
   text-shadow: 1px 1px 20px black, 0 0 1em rgba(0, 0, 0, 0.416), 0 0 0.2em white;
   max-width: 500px;
   font-weight: bolder;
+}
+
+@media (max-width: 1000px) {
+  .about-pic-container {
+    padding: 40px 16% 0px 16%;
+    width: 100%;
+  }
+
+  .about-pic-text {
+    max-width: 400px;
+    font-size: 35px;
+  }
 }
