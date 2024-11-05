@@ -127,7 +127,7 @@ const ChatPage = () => {
         const { company, vacancy, selectedFileName, coverLetter } =
           JSON.parse(applicationData);
 
-        const lastMessage = vacancy; //
+        const lastMessage = vacancy;
 
         if (
           !chats.find(
