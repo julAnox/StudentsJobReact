@@ -16,3 +16,8 @@
   );
   width: 100%;
 }
+@media (max-width: 1292px) {
+  .about-container {
+    background: #2f9ee2;
+  }
+}

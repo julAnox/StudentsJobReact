@@ -5,11 +5,11 @@
   flex-direction: column;
   padding: 20px;
   color: white;
-  margin-top: 60px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   gap: 100px;
+  margin-top: 60px;
 }
 
 .settings-content {
