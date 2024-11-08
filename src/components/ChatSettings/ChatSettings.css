@@ -76,3 +76,16 @@
 .settings-actions button:hover {
   scale: 0.99;
 }
+/* ChatPage.css */
+@media (max-width: 768px) {
+  .chat-main {
+    display: none;
+  }
+
+  .chat-settings {
+    width: 80%;
+    position: relative;
+  }
+}
+@media (max-width: 768px) {
+}
