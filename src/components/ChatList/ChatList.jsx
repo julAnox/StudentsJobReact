@@ -17,6 +17,7 @@ const ChatList = ({ chats, selectedChat, handleChatSelect }) => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
+        <span className="material-symbols-outlined">search</span>
       </div>
       {filteredChats.map((chat) => (
         <div
