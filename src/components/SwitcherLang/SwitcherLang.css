@@ -31,7 +31,14 @@
   color: white;
 }
 
-@media (max-width: 390px) {
+@media (max-width: 532px) {
+  .language-switcher {
+    position: absolute;
+    left: 34%;
+  }
+}
+
+@media (max-width: 446px) {
   .language-switcher {
     position: absolute;
     left: 30%;

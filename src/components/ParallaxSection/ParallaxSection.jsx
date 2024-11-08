@@ -8,8 +8,12 @@ function ParallaxSection() {
     const handleScroll = () => {
       const bgImage = document.querySelector(".bg-home");
       const scrollY = window.scrollY;
-      bgImage.style.transform = `translateY(${scrollY * 0.5}px)`;
-      bgImage.style.filter = `blur(${Math.min(scrollY / 100, 5)}px)`;
+
+      if (window.innerWidth > 400) {
+        bgImage.style.transform = `translateY(${scrollY * 0.5}px)`;
+      } else {
+        bgImage.style.transform = `translateY(0px)`;
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -21,8 +25,8 @@ function ParallaxSection() {
 
   return (
     <div className="parallax-container">
-      <img src={bghome} alt="Background" className="bg-home" />
       <OverlaySection />
+      <img src={bghome} alt="Background" className="bg-home" />
     </div>
   );
 }
