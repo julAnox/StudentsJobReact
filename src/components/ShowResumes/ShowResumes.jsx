@@ -4,7 +4,7 @@ import "./ShowResumes.css";
 
 function ShowResumes() {
   const location = useLocation();
-  const [resumes, setResumes] = useState(
+  const [resumes] = useState(
     location.state?.newResume ? [location.state.newResume] : []
   );
 

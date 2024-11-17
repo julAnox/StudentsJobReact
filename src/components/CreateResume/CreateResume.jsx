@@ -80,8 +80,11 @@ const CreateResume = () => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSelectChange = (value, action) => {
-    setFormData((prevData) => ({ ...prevData, [action.name]: value }));
+  const handleSelectChange = (selectedOption, name) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: selectedOption ? selectedOption.value : "",
+    }));
   };
 
   const handlePhoneChange = (value) => {
@@ -96,7 +99,9 @@ const CreateResume = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (currentStep === 4) {
+      console.log(formData);
       navigate("/showresumes", { state: { newResume: formData } });
     } else {
       navigateStep(1);
@@ -181,8 +186,8 @@ const CreateResume = () => {
                 value={genderOptions.find(
                   (opt) => opt.value === formData.gender
                 )}
-                onChange={(selected) =>
-                  handleSelectChange(selected, { name: "gender" })
+                onChange={(selectedOption) =>
+                  handleSelectChange(selectedOption, "gender")
                 }
                 placeholder="Select your gender"
               />
@@ -194,6 +199,7 @@ const CreateResume = () => {
                 value={formData.phone}
                 onChange={handlePhoneChange}
                 inputProps={{ name: "phone", required: true, autoFocus: true }}
+                disableDropdown
               />
             </div>
           </>
@@ -209,8 +215,8 @@ const CreateResume = () => {
                 value={professionOptions.find(
                   (opt) => opt.value === formData.profession
                 )}
-                onChange={(selected) =>
-                  handleSelectChange(selected, { name: "profession" })
+                onChange={(selectedOption) =>
+                  handleSelectChange(selectedOption, "profession")
                 }
                 placeholder="Select your profession"
               />
@@ -312,13 +318,13 @@ const CreateResume = () => {
     <div className="unique-wrapper-create-res">
       <div className="unique-container">
         <div className="unique-form-container">
-          <h2 className="unique-title">Create your resume on Student's Job</h2>
-          <div className="unique-progress-text">Your progress:</div>
+          <h2 className="unique-title">Create your resume on unique</h2>
+          <div className="unique-progress-text">Step {currentStep} of 4</div>
           <div className="unique-progress-bar-container">
             <div
               className="unique-progress-bar"
               style={{ width: `${progressPercentage}%` }}
-            />
+            ></div>
           </div>
           <form onSubmit={handleSubmit}>
             {renderFormContent()}
@@ -326,14 +332,14 @@ const CreateResume = () => {
               {currentStep > 1 && (
                 <button
                   type="button"
-                  className="unique-btn"
                   onClick={() => navigateStep(-1)}
+                  className="unique-button"
                 >
                   Back
                 </button>
               )}
-              <button type="submit" className="unique-btn">
-                {currentStep === 4 ? "Submit" : "Next"}
+              <button type="submit" className="unique-button">
+                {currentStep === 4 ? "Finish" : "Next"}
               </button>
             </div>
           </form>

@@ -9,7 +9,7 @@
 
 .resumes-dashboard-card {
   background-color: #ffffff;
-  padding: 40px;
+  padding: 20px;
   border-radius: 12px;
   width: 100%;
   max-width: 750px;
@@ -18,9 +18,9 @@
 }
 
 .resumes-dashboard-title {
-  font-size: 28px;
-  color: #2a9df4;
-  margin-bottom: 30px;
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #000000;
   font-weight: bold;
 }
 
@@ -96,7 +96,6 @@
   margin-top: 10px;
 }
 
-.resumes-dashboard-create-button:hover,
-.resumes-dashboard-view-button:hover {
-  background: #1e94e9;
+.resumes-dashboard-create-button:hover {
+  background: linear-gradient(122.33deg, #5fb0c2 30.62%, #1989d8 100%);
 }

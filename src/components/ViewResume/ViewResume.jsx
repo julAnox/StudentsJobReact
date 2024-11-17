@@ -8,17 +8,12 @@ function ViewResume() {
   const location = useLocation();
   const [resume, setResume] = useState(null);
 
-  // Retrieve the resume data from state passed from ShowResumes or CreateResume
   useEffect(() => {
     const selectedResume = location.state?.resumes?.[id] || null;
     setResume(selectedResume);
   }, [id, location.state]);
 
   const handleSave = () => {
-    // Since we're not using localStorage, you can update the resume here
-    // For example, you can use a global state or handle saving in a different way.
-    // If needed, you can navigate back or perform another action.
-
     navigate("/showresumes");
   };
 

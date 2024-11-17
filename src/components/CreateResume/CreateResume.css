@@ -105,7 +105,7 @@
   margin-top: 20px;
 }
 
-.unique-btn {
+.unique-button {
   background: linear-gradient(122.33deg, #68bed1 30.62%, #1e94e9 100%);
   color: #fff;
   border: none;
@@ -115,11 +115,11 @@
   transition: background 0.3s ease;
 }
 
-.unique-btn:hover {
+.unique-button:hover {
   background: linear-gradient(122.33deg, #5fb0c2 30.62%, #1989d8 100%);
 }
 
-.unique-btn:disabled {
+.unique-button:disabled {
   background: #ccc;
   cursor: not-allowed;
 }
