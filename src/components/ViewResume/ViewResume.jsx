@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import "./ViewResume.css";
 
 function ViewResume() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const [resume, setResume] = useState(null);
 
+  // Retrieve the resume data from state passed from ShowResumes or CreateResume
   useEffect(() => {
-    const storedResumes = JSON.parse(localStorage.getItem("createRes")) || [];
-    const selectedResume = storedResumes[id];
+    const selectedResume = location.state?.resumes?.[id] || null;
     setResume(selectedResume);
-  }, [id]);
+  }, [id, location.state]);
 
   const handleSave = () => {
-    const storedResumes = JSON.parse(localStorage.getItem("createRes")) || [];
-    storedResumes[id] = resume;
-    localStorage.setItem("createRes", JSON.stringify(storedResumes));
+    // Since we're not using localStorage, you can update the resume here
+    // For example, you can use a global state or handle saving in a different way.
+    // If needed, you can navigate back or perform another action.
+
     navigate("/showresumes");
   };
 

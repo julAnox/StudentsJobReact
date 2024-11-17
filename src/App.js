@@ -11,6 +11,9 @@ import SummaryPage from "./pages/SummaryPage/SummaryPage";
 import SummarySecondaryPage from "./pages/SummarySecondaryPage/SummarySecondaryPage";
 import ChatPage from "./pages/ChatPage/ChatPage";
 import AuctionPage from "./pages/AuctionPage/AuctionPage";
+import ShowResumes from "./components/ShowResumes/ShowResumes";
+import CreateResume from "./components/CreateResume/CreateResume";
+import ViewResume from "./components/ViewResume/ViewResume";
 
 function App() {
   return (
@@ -34,6 +37,10 @@ function App() {
             path="/vacancies/secondary"
             element={<VacanciesSecondaryPage />}
           />
+
+          <Route path="/showresumes" element={<ShowResumes />} />
+          <Route path="/createresume" element={<CreateResume />} />
+          <Route path="/viewresume/:index" element={<ViewResume />} />
         </Routes>
       </div>
     </Router>

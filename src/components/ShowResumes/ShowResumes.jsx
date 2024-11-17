@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./ShowResumes.css";
 
 function ShowResumes() {
-  const [resumes, setResumes] = useState([]);
-  const [selectedResumeIndex, setSelectedResumeIndex] = useState(null);
+  const location = useLocation();
+  const [resumes, setResumes] = useState(
+    location.state?.newResume ? [location.state.newResume] : []
+  );
 
-  useEffect(() => {
-    const storedResumes = JSON.parse(localStorage.getItem("createRes")) || [];
-    console.log(storedResumes);
-    setResumes(storedResumes);
-  }, []);
+  const [selectedResumeIndex, setSelectedResumeIndex] = useState(null);
 
   const handleSelectResume = (index) => {
     setSelectedResumeIndex(index);
