@@ -3,9 +3,9 @@
   align-items: center;
   justify-content: flex-start;
   height: 55vh;
-  background-size: cover;
-  background-position: center;
-  background-image: url("../../assets/about-pic-header.png");
+  background-size: cover !important;
+  background-position: center !important;
+  background-image: url("../../assets/about-pic-header.png") !important;
   padding-left: 16%;
 }
 

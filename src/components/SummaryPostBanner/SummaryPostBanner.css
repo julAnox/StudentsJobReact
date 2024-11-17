@@ -1,7 +1,7 @@
 .summary-post-banner {
   padding: 135px;
   text-align: center;
-  background-image: url("../../assets/sum_post_banner_bg.jpg");
+  background-image: url("../../assets/sum_post_banner_bg.jpg") !important;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

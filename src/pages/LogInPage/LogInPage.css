@@ -7,7 +7,7 @@
 .flex-r.container-login {
   background-size: cover;
   background-position: center;
-  background-image: url("../../assets/login_signup_bg.png");
+  background-image: url("../../assets/login_signup_bg.png") !important;
 }
 
 .flex-c {

@@ -1,16 +1,11 @@
-body {
-  background: rgb(2, 32, 56);
-  font-family: "Poppins", sans-serif;
-}
-
 .home-container {
   overflow-x: hidden;
 }
 
 .main {
-  background-image: url("../../assets/home-main-bg.png");
-  background-size: cover;
-  background-position: center;
+  background-image: url("../../assets/home-main-bg.png") !important;
+  background-position: center center !important;
+  background-size: cover !important;
   display: flex;
   flex-direction: column;
   align-items: center;
