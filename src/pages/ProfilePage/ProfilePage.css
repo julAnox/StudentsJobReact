@@ -12,7 +12,6 @@
   min-height: 100vh;
   background-size: cover;
   background-position: center;
-  background-image: url("../../assets/login_signup_bg.png") !important;
 }
 
 .profile-container {
@@ -24,6 +23,13 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.profile-input input {
+  padding: 1px;
+}
+
+.profile-input {
+  color: black;
+}
 .profile-form-row {
   display: flex;
   justify-content: flex-start;
@@ -41,7 +47,7 @@
 
 .profile-input,
 .profile-select {
-  width: 65%;
+  width: 60%;
   max-width: 100%;
   border: 2px solid rgba(216, 216, 216, 1);
   outline: none;

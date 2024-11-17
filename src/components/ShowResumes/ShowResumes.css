@@ -1,0 +1,102 @@
+.resumes-dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #f0f4f8;
+}
+
+.resumes-dashboard-card {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 750px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.resumes-dashboard-title {
+  font-size: 28px;
+  color: #2a9df4;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.resumes-dashboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.resumes-dashboard-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #e0edf7;
+  border-radius: 8px;
+  background-color: #f9fbfe;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.resumes-dashboard-item:hover {
+  background-color: #e6f4fc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.resumes-dashboard-selected {
+  background-color: #d8eff9;
+  border-color: #1e94e9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.resumes-dashboard-header {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.resumes-dashboard-profession {
+  font-size: 16px;
+  color: #555555;
+}
+
+.resumes-dashboard-skills {
+  font-size: 14px;
+  color: #777777;
+}
+
+.resumes-dashboard-empty {
+  font-size: 18px;
+  color: #777777;
+  margin-top: 30px;
+}
+
+.resumes-dashboard-actions {
+  margin-bottom: 30px;
+}
+
+.resumes-dashboard-create-button,
+.resumes-dashboard-view-button {
+  padding: 12px 25px;
+  background: linear-gradient(122.33deg, #68bed1 30.62%, #1e94e9 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.resumes-dashboard-create-button:hover,
+.resumes-dashboard-view-button:hover {
+  background: #1e94e9;
+}

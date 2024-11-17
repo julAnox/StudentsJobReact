@@ -1,0 +1,81 @@
+.resume-page-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.resume-page-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.resume-page-title {
+  font-size: 1.8rem;
+  color: #000;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.resume-page-profession {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.resume-page-section {
+  margin-top: 20px;
+}
+
+.resume-page-section-title {
+  font-size: 1.2rem;
+  color: #000;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.resume-page-section-content {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.resume-page-save-button {
+  padding: 12px 20px;
+  background: linear-gradient(122.33deg, #68bed1 30.62%, #1e94e9 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 30px auto;
+}
+
+.resume-page-save-button:hover {
+  background: #1e94e9;
+}
+
+@media (max-width: 600px) {
+  .resume-page-container {
+    padding: 15px;
+  }
+
+  .resume-page-title {
+    font-size: 1.5rem;
+  }
+
+  .resume-page-profession {
+    font-size: 1rem;
+  }
+
+  .resume-page-section-title {
+    font-size: 1.1rem;
+  }
+
+  .resume-page-section-content {
+    font-size: 0.9rem;
+  }
+}

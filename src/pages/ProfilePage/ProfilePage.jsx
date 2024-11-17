@@ -1,33 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 import "./ProfilePage.css";
 import profiledefault from "../../assets/user-default.png";
 
 function ProfilePage() {
   const { t } = useTranslation();
   const [imagePreview, setImagePreview] = useState(profiledefault);
-  const [selectedCity, setSelectedCity] = useState("Minsk");
-  const cityDistricts = {
-    Minsk: [
-      "Central",
-      "Sovetski",
-      "Pervomaysky",
-      "Partizansky",
-      "Zavodski",
-      "Leninsky",
-      "Oktyabrsky",
-      "Moscow",
-      "Frunzenski",
-    ],
-    Brest: ["Leninski", "Moskovski"],
-    Grodno: ["Oktyabrski", "Leninski"],
-    Gomel: ["Centralni", "Novobelitski"],
-    Mogilev: ["Leninski", "Zadneprovsky"],
-    Vitebsk: ["Oktyabrski", "Zheleznodorozhny"],
-  };
-
-  const [districts, setDistricts] = useState(cityDistricts["Minsk"]);
+  const [selectedCity, setSelectedCity] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [birthDate, setBirthDate] = useState("");
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -41,9 +26,15 @@ function ProfilePage() {
   };
 
   const handleCityChange = (e) => {
-    const city = e.target.value;
-    setSelectedCity(city);
-    setDistricts(cityDistricts[city]);
+    setSelectedCity(e.target.value);
+  };
+
+  const handleCountryChange = (e) => {
+    setSelectedCountry(e.target.value);
+  };
+
+  const handleDateChange = (e) => {
+    setBirthDate(e.target.value);
   };
 
   return (
@@ -105,11 +96,13 @@ function ProfilePage() {
               {t("date_of_birth")}:
             </label>
             <input
-              type="text"
+              type="date"
               id="date-input"
               name="birthday"
               className="profile-input"
               required
+              value={birthDate}
+              onChange={handleDateChange}
             />
           </div>
 
@@ -127,16 +120,43 @@ function ProfilePage() {
           </div>
 
           <div className="profile-form-row">
+            <label htmlFor="select-country" className="profile-label">
+              {t("Сountry")}:
+            </label>
+            <input
+              type="text"
+              id="select-country"
+              name="country"
+              className="profile-input"
+              value={selectedCountry}
+              onChange={handleCountryChange}
+            />
+          </div>
+
+          <div className="profile-form-row">
+            <label htmlFor="select-city" className="profile-label">
+              {t("city")}:
+            </label>
+            <input
+              type="text"
+              id="select-city"
+              name="city"
+              className="profile-input"
+              value={selectedCity}
+              onChange={handleCityChange}
+            />
+          </div>
+
+          <div className="profile-form-row">
             <label htmlFor="phone" className="profile-label">
               {t("telephone_number")}:
             </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
+            <PhoneInput
+              international
+              defaultCountry="US"
+              value={phoneNumber}
+              onChange={setPhoneNumber}
               className="profile-input"
-              required
-              maxLength="20"
             />
           </div>
 
@@ -147,42 +167,6 @@ function ProfilePage() {
             <select id="gender" name="gender" className="profile-select">
               <option value="Man">Man</option>
               <option value="Woman">Woman</option>
-            </select>
-          </div>
-
-          <div className="profile-form-row">
-            <label htmlFor="select-city" className="profile-label">
-              {t("city")}:
-            </label>
-            <select
-              id="select-city"
-              name="city"
-              className="profile-select"
-              value={selectedCity}
-              onChange={handleCityChange}
-            >
-              {Object.keys(cityDistricts).map((city) => (
-                <option key={city} value={city}>
-                  {city}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="profile-form-row">
-            <label htmlFor="select-district" className="profile-label">
-              {t("district")}:
-            </label>
-            <select
-              id="select-district"
-              name="district"
-              className="profile-select"
-            >
-              {districts.map((district) => (
-                <option key={district} value={district}>
-                  {district}
-                </option>
-              ))}
             </select>
           </div>
         </form>
@@ -197,7 +181,9 @@ function ProfilePage() {
           </div>
           <div className="profile-actions-row">
             <button className="profile-my-company">{t("my_company")}</button>
-            <button className="profile-my-resumes">{t("my_resumes")}</button>
+            <Link to="/showresumes">
+              <button className="profile-my-resumes">{t("my_resumes")}</button>
+            </Link>
             <button className="profile-logout-btn">{t("log_out")}</button>
           </div>
         </div>

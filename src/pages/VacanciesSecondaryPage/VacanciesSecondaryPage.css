@@ -1,0 +1,80 @@
+body {
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+.vacancies-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 auto;
+  width: 1500px;
+  padding: 90px;
+  gap: 70px;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.filters div {
+  width: 250px;
+  border: none;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: rgba(141, 141, 141, 0.185);
+}
+.filters select option {
+  background-color: black;
+}
+
+.filters select:active,
+.filters select:focus,
+.filters option:focus,
+.filters option:active {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.filters input[type="radio"] {
+  margin-right: 10px;
+}
+
+.toggle-filters-btn {
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #1a73e8;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 1410px) {
+  .vacancies-content {
+    padding: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .search-vac {
+    width: 300px;
+  }
+
+  .filters {
+    max-width: 300px;
+    display: flex;
+    max-height: none;
+    margin-top: 20px;
+  }
+  .grid-of-vacancies {
+    max-width: 300px;
+  }
+}

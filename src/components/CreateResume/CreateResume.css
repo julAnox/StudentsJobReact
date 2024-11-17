@@ -1,0 +1,119 @@
+.unique-wrapper-create-res {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f7f9fc;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.unique-container {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.unique-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.unique-progress-text {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.unique-progress-bar-container {
+  background: #e0e0e0;
+  border-radius: 20px;
+  height: 10px;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.unique-progress-bar {
+  background: #4caf50;
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.unique-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.unique-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.unique-form-group label {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.unique-form-group input,
+.unique-form-group textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.unique-form-group input:focus,
+.unique-form-group textarea:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+.unique-form-group textarea {
+  resize: none;
+}
+
+.unique-form-group .react-select__control {
+  border-color: #ccc;
+}
+
+.unique-form-group .react-select__control--is-focused {
+  border-color: #4caf50;
+  box-shadow: none;
+}
+
+.unique-form-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.unique-btn {
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.unique-btn:hover {
+  background: #45a049;
+}
+
+.unique-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}

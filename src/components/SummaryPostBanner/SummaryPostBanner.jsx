@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./SummaryPostBanner.css";
 
 const SummaryPostBanner = () => {
@@ -10,12 +11,9 @@ const SummaryPostBanner = () => {
           Find your dream job by creating your resume with Student's Job — the
           best service for students and graduates.
         </p>
-        <button
-          className="summary-post-button"
-          onClick={() => alert("Button clicked!")}
-        >
-          Create Resume
-        </button>
+        <Link to="/summary/secondary">
+          <button className="summary-post-button">Create Resume</button>
+        </Link>
         <p className="summary-post-note">
           Student's Job helps young professionals quickly find suitable
           positions and start their careers.
