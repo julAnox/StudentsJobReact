@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import Slider1img from "../../assets/slider1.png";
 import "./Slider.css";
 
@@ -27,6 +27,16 @@ const Slider = () => {
     },
   ];
 
+  const startSlider = useCallback(() => {
+    intervalRef.current = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+    }, 4000);
+  }, [slides.length]);
+
+  const pauseSlider = useCallback(() => {
+    clearInterval(intervalRef.current);
+  }, []);
+
   useEffect(() => {
     if (isPlaying) {
       startSlider();
@@ -34,17 +44,7 @@ const Slider = () => {
       pauseSlider();
     }
     return () => pauseSlider();
-  }, [isPlaying, currentSlide]);
-
-  const startSlider = () => {
-    intervalRef.current = setInterval(() => {
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 4000);
-  };
-
-  const pauseSlider = () => {
-    clearInterval(intervalRef.current);
-  };
+  }, [isPlaying, startSlider, pauseSlider]);
 
   const togglePlayPause = () => {
     setIsPlaying((prevIsPlaying) => !prevIsPlaying);
