@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./ViewResume.css";
 
 function ViewResume() {
-  const navigate = useNavigate();
   const location = useLocation();
+  const navigate = useNavigate();
   const [resume, setResume] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [showBothButtons, setShowBothButtons] = useState(true);
 
   useEffect(() => {
     const selectedResume = location.state?.resume || null;
@@ -13,7 +15,32 @@ function ViewResume() {
   }, [location.state]);
 
   const handleSave = () => {
-    navigate("/showresumes");
+    if (showBothButtons) {
+      navigate("/showresumes");
+    } else {
+      const updatedResumes = JSON.parse(localStorage.getItem("resumes")) || [];
+      const index = updatedResumes.findIndex((r) => r.email === resume.email);
+      if (index !== -1) {
+        updatedResumes[index] = resume;
+        localStorage.setItem("resumes", JSON.stringify(updatedResumes));
+      }
+
+      setIsEditing(false);
+      setShowBothButtons(true);
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setResume((prevResume) => ({
+      ...prevResume,
+      [name]: value,
+    }));
+  };
+
+  const handleEdit = () => {
+    setIsEditing(true);
+    setShowBothButtons(false);
   };
 
   if (!resume) {
@@ -22,56 +49,91 @@ function ViewResume() {
 
   return (
     <div className="resume-page-container">
-      <div className="resume-page-header">
-        <h1 className="resume-page-title">
-          {resume.name} {resume.surname}
-        </h1>
-        <h2 className="resume-page-profession">{resume.profession}</h2>
-      </div>
-      <div className="resume-page-section">
-        <h2 className="resume-page-section-title">Skills</h2>
-        <p className="resume-page-section-content">
-          {Array.isArray(resume.skills)
-            ? resume.skills
-                .map((skill) =>
-                  typeof skill === "object" ? skill.label : skill
-                )
-                .join(", ")
-            : resume.skills.label}
-        </p>
+      <h1 className="resume-page-title">Resume</h1>
+
+      <div className="resume-page-content">
+        {[
+          "name",
+          "surname",
+          "dateOfBirth",
+          "gender",
+          "country",
+          "city",
+          "phone",
+          "email",
+          "profession",
+          "experience",
+          "education",
+          "institution",
+          "graduationYear",
+          "specialization",
+          "contacts",
+        ].map((field, index) => (
+          <div
+            className={`resume-page-section ${
+              index % 2 === 0 ? "left" : "right"
+            }`}
+            key={field}
+          >
+            <h2 className="resume-page-section-title">
+              {field.charAt(0).toUpperCase() + field.slice(1)}
+            </h2>
+            {isEditing ? (
+              <input
+                type="text"
+                name={field}
+                value={resume[field] || ""}
+                onChange={handleChange}
+              />
+            ) : (
+              <p className="resume-page-section-content">{resume[field]}</p>
+            )}
+          </div>
+        ))}
+
+        <div className="resume-page-section skills">
+          <h2 className="resume-page-section-title">Skills</h2>
+          {isEditing ? (
+            <textarea
+              name="skills"
+              value={resume.skills.join(", ")}
+              onChange={(e) =>
+                handleChange({
+                  target: {
+                    name: "skills",
+                    value: e.target.value.split(","),
+                  },
+                })
+              }
+            />
+          ) : (
+            <p className="resume-page-section-content">
+              {resume.skills.length > 0
+                ? resume.skills.join(", ")
+                : "No skills listed"}
+            </p>
+          )}
+        </div>
       </div>
 
-      <div className="resume-page-section">
-        <h2 className="resume-page-section-title">Experience</h2>
-        <p className="resume-page-section-content">{resume.experience}</p>
+      <div className="resume-page-footer">
+        {showBothButtons && (
+          <>
+            <button className="resume-page-button edit" onClick={handleEdit}>
+              Edit Resume
+            </button>
+            <button className="resume-page-button save" onClick={handleSave}>
+              Save Changes
+            </button>
+          </>
+        )}
+
+        {!showBothButtons && (
+          <button className="resume-page-button save" onClick={handleSave}>
+            Save Changes
+          </button>
+        )}
       </div>
-      <div className="resume-page-section">
-        <h2 className="resume-page-section-title">Education</h2>
-        <p className="resume-page-section-content">{resume.education}</p>
-      </div>
-      <div className="resume-page-section">
-        <h2 className="resume-page-section-title">Institution</h2>
-        <p className="resume-page-section-content">{resume.institution}</p>
-      </div>
-      <div className="resume-page-section">
-        <h2 className="resume-page-section-title">Graduation Year</h2>
-        <p className="resume-page-section-content">{resume.graduationYear}</p>
-      </div>
-      <div className="resume-page-section">
-        <h2 className="resume-page-section-title">Specialization</h2>
-        <p className="resume-page-section-content">{resume.specialization}</p>
-      </div>
-      <div className="resume-page-section">
-        <h2 className="resume-page-section-title">Phone</h2>
-        <p className="resume-page-section-content">{resume.phone}</p>
-      </div>
-      <div className="resume-page-section">
-        <h2 className="resume-page-section-title">Contacts</h2>
-        <p className="resume-page-section-content">{resume.contacts}</p>
-      </div>
-      <button className="resume-page-save-button" onClick={handleSave}>
-        Save Changes
-      </button>
     </div>
   );
 }

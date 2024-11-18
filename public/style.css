@@ -1,4 +1,4 @@
 body {
-  background: rgb(2, 32, 56);
+  background: rgb(2, 32, 56) !important;
   font-family: "Poppins", sans-serif;
 }

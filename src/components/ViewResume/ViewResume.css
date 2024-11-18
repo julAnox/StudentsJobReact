@@ -1,34 +1,33 @@
 .resume-page-container {
-  max-width: 700px;
+  max-width: 900px;
   margin: 40px auto;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.resume-page-header {
-  text-align: center;
-  margin-bottom: 15px;
+  background-color: #ffffff;
 }
 
 .resume-page-title {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #000;
   font-weight: 600;
-  margin-bottom: 5px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.resume-page-profession {
-  font-size: 1.2rem;
-  color: #555;
+.resume-page-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
+/* Section */
 .resume-page-section {
   margin-top: 20px;
 }
 
 .resume-page-section-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #000;
   margin-bottom: 8px;
   font-weight: 500;
@@ -40,7 +39,26 @@
   line-height: 1.4;
 }
 
-.resume-page-save-button {
+.resume-page-section.left {
+  grid-column: 1;
+}
+
+.resume-page-section.right {
+  grid-column: 2;
+}
+
+.resume-page-section input,
+.resume-page-section textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.resume-page-button {
   padding: 12px 20px;
   background: linear-gradient(122.33deg, #68bed1 30.62%, #1e94e9 100%);
   color: white;
@@ -52,9 +70,11 @@
   transition: all 0.3s ease;
   display: block;
   margin: 30px auto;
+  width: 200px;
+  text-align: center;
 }
 
-.resume-page-save-button:hover {
+.resume-page-button:hover {
   background: #1e94e9;
 }
 
@@ -64,15 +84,19 @@
   }
 
   .resume-page-title {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
-  .resume-page-profession {
-    font-size: 1rem;
+  .resume-page-content {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-page-section {
+    margin-top: 15px;
   }
 
   .resume-page-section-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .resume-page-section-content {

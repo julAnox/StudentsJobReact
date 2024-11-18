@@ -108,7 +108,7 @@ const CreateResume = () => {
       localStorage.setItem("resumes", JSON.stringify(existingResumes));
 
       console.log(formData);
-      navigate("/showresumes", { state: { newResume: formData } });
+      navigate("/showresumes", { state: { resume: formData } });
     } else {
       navigateStep(1);
     }
