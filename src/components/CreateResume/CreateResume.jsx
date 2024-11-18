@@ -62,7 +62,7 @@ const CreateResume = () => {
     country: "",
     city: "",
     phone: "",
-    citizenship: "",
+    email: "",
     profession: "",
     experience: "",
     education: "",
@@ -142,6 +142,17 @@ const CreateResume = () => {
               />
             </div>
             <div className="unique-form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Enter your email"
+              />
+            </div>
+            <div className="unique-form-group">
               <label htmlFor="dateOfBirth">Date of Birth</label>
               <input
                 type="date"
@@ -171,17 +182,6 @@ const CreateResume = () => {
                 value={formData.city}
                 onChange={handleChange}
                 placeholder="Enter your city"
-              />
-            </div>
-            <div className="unique-form-group">
-              <label htmlFor="citizenship">Citizenship</label>
-              <input
-                type="text"
-                id="citizenship"
-                name="citizenship"
-                value={formData.citizenship}
-                onChange={handleChange}
-                placeholder="Enter your citizenship"
               />
             </div>
             <div className="unique-form-group">

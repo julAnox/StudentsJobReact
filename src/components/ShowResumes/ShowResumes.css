@@ -60,15 +60,17 @@
   font-size: 18px;
   font-weight: bold;
   color: #333333;
-  margin-bottom: 8px;
 }
 
-.resumes-dashboard-profession {
+.resumes-dashboard-fio {
   font-size: 16px;
   color: #555555;
+  margin-bottom: 10px;
 }
 
-.resumes-dashboard-skills {
+.resumes-dashboard-skills,
+.resumes-dashboard-phone,
+.resumes-dashboard-email {
   font-size: 14px;
   color: #777777;
 }

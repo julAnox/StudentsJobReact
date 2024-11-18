@@ -53,13 +53,19 @@ function ShowResumes() {
               >
                 <div className="resumes-dashboard-label">
                   <h3 className="resumes-dashboard-header">
-                    {resume.name || "No Name"} {resume.surname || "No Surname"}
-                  </h3>
-                  <p className="resumes-dashboard-profession">
                     {resume.profession || "No Profession"}
+                  </h3>
+                  <p className="resumes-dashboard-fio">
+                    {resume.name || "No Name"} {resume.surname || "No Surname"}
+                  </p>
+                  <p className="resumes-dashboard-phone">
+                    Phone: {resume.phone ? `+${resume.phone}` : null}
+                  </p>
+                  <p className="resumes-dashboard-email">
+                    Email: {resume.email}
                   </p>
                   <p className="resumes-dashboard-skills">
-                    Skills:{" "}
+                    Skills: {}
                     {Array.isArray(resume.skills)
                       ? resume.skills.join(", ")
                       : "No skills available"}
