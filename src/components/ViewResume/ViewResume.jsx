@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./ViewResume.css";
 
 function ViewResume() {
-  const { id } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
   const [resume, setResume] = useState(null);
 
   useEffect(() => {
-    const selectedResume = location.state?.resumes?.[id] || null;
+    const selectedResume = location.state?.resume || null;
     setResume(selectedResume);
-  }, [id, location.state]);
+  }, [location.state]);
 
   const handleSave = () => {
     navigate("/showresumes");

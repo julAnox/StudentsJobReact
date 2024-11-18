@@ -73,7 +73,7 @@ function ShowResumes() {
                 </div>
 
                 <div className="resumes-dashboard-buttons">
-                  <Link to={`/viewresume/${index}`}>
+                  <Link to={`/viewresume/${index}`} state={{ resume }}>
                     <button className="resumes-dashboard-view-button">
                       View Resume
                     </button>
