@@ -46,11 +46,11 @@
   color: #555;
 }
 
+.css-1wy0on6,
 .css-hlgwow,
-.css-1xc3v61-indicatorContainer,
+.unique-form-group textarea,
 .react-tel-input .form-control,
-.selected-flag,
-.unique-form-group textarea {
+.react-tel-input .selected-flag {
   background-color: #eeeeee;
 }
 .unique-tile-container {
