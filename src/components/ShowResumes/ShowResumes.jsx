@@ -1,37 +1,43 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./ShowResumes.css";
 
 function ShowResumes() {
-  const location = useLocation();
-  const [resumes, setResumes] = useState(
-    location.state?.newResume ? [location.state.newResume] : []
-  );
-
+  const [resumes, setResumes] = useState([]);
   const [selectedResumeIndex, setSelectedResumeIndex] = useState(null);
+
+  useEffect(() => {
+    const storedResumes = JSON.parse(localStorage.getItem("resumes")) || [];
+    setResumes(storedResumes);
+
+    const selectedResumeIndexFromStorage = localStorage.getItem(
+      "selectedResumeIndex"
+    );
+    if (selectedResumeIndexFromStorage !== null) {
+      setSelectedResumeIndex(parseInt(selectedResumeIndexFromStorage));
+    }
+  }, []);
 
   const handleSelectResume = (index) => {
     setSelectedResumeIndex(index);
+    localStorage.setItem("selectedResumeIndex", index);
   };
 
   const handleDeleteResume = (index) => {
     const updatedResumes = resumes.filter((_, i) => i !== index);
     setResumes(updatedResumes);
-    if (selectedResumeIndex === index) setSelectedResumeIndex(null);
+    localStorage.setItem("resumes", JSON.stringify(updatedResumes));
+
+    if (selectedResumeIndex === index) {
+      setSelectedResumeIndex(null);
+      localStorage.removeItem("selectedResumeIndex");
+    }
   };
 
   return (
     <div className="resumes-dashboard-container">
       <div className="resumes-dashboard-card">
         <h2 className="resumes-dashboard-title">Your Resumes</h2>
-
-        <div className="resumes-dashboard-actions">
-          <Link to="/createresume">
-            <button className="resumes-dashboard-create-button">
-              Create New Resume
-            </button>
-          </Link>
-        </div>
 
         <div className="resumes-dashboard-list">
           {resumes.length > 0 ? (
@@ -75,23 +81,20 @@ function ShowResumes() {
                   >
                     Delete
                   </button>
-                  <button
-                    className={`resumes-dashboard-select-button ${
-                      selectedResumeIndex === index ? "selected" : ""
-                    }`}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleSelectResume(index);
-                    }}
-                  >
-                    Select
-                  </button>
                 </div>
               </div>
             ))
           ) : (
             <p className="resumes-dashboard-empty">No resumes found</p>
           )}
+        </div>
+
+        <div className="resumes-dashboard-actions">
+          <Link to="/createresume">
+            <button className="resumes-dashboard-create-button">
+              Create New Resume
+            </button>
+          </Link>
         </div>
       </div>
     </div>

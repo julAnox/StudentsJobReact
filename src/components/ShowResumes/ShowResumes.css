@@ -11,15 +11,17 @@
   background-color: #ffffff;
   padding: 20px;
   border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
   width: 100%;
   max-width: 750px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  text-align: center;
 }
 
 .resumes-dashboard-title {
   font-size: 22px;
-  margin-bottom: 10px;
   color: #000000;
   font-weight: bold;
 }
@@ -75,10 +77,6 @@
   font-size: 18px;
   color: #777777;
   margin-top: 30px;
-}
-
-.resumes-dashboard-actions {
-  margin-bottom: 30px;
 }
 
 .resumes-dashboard-buttons {

@@ -101,6 +101,12 @@ const CreateResume = () => {
     e.preventDefault();
 
     if (currentStep === 4) {
+      const existingResumes = JSON.parse(localStorage.getItem("resumes")) || [];
+
+      existingResumes.push(formData);
+
+      localStorage.setItem("resumes", JSON.stringify(existingResumes));
+
       console.log(formData);
       navigate("/showresumes", { state: { newResume: formData } });
     } else {
