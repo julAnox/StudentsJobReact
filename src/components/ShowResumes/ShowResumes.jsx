@@ -4,7 +4,7 @@ import "./ShowResumes.css";
 
 function ShowResumes() {
   const location = useLocation();
-  const [resumes] = useState(
+  const [resumes, setResumes] = useState(
     location.state?.newResume ? [location.state.newResume] : []
   );
 
@@ -12,6 +12,12 @@ function ShowResumes() {
 
   const handleSelectResume = (index) => {
     setSelectedResumeIndex(index);
+  };
+
+  const handleDeleteResume = (index) => {
+    const updatedResumes = resumes.filter((_, i) => i !== index);
+    setResumes(updatedResumes);
+    if (selectedResumeIndex === index) setSelectedResumeIndex(null);
   };
 
   return (
@@ -54,11 +60,33 @@ function ShowResumes() {
                   </p>
                 </div>
 
-                <Link to={`/viewresume/${index}`}>
-                  <button className="resumes-dashboard-view-button">
-                    View Selected Resume
+                <div className="resumes-dashboard-buttons">
+                  <Link to={`/viewresume/${index}`}>
+                    <button className="resumes-dashboard-view-button">
+                      View Resume
+                    </button>
+                  </Link>
+                  <button
+                    className="resumes-dashboard-delete-button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDeleteResume(index);
+                    }}
+                  >
+                    Delete
                   </button>
-                </Link>
+                  <button
+                    className={`resumes-dashboard-select-button ${
+                      selectedResumeIndex === index ? "selected" : ""
+                    }`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleSelectResume(index);
+                    }}
+                  >
+                    Select
+                  </button>
+                </div>
               </div>
             ))
           ) : (

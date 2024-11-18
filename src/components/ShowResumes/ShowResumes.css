@@ -81,8 +81,38 @@
   margin-bottom: 30px;
 }
 
-.resumes-dashboard-create-button,
-.resumes-dashboard-view-button {
+.resumes-dashboard-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.resumes-dashboard-view-button,
+.resumes-dashboard-delete-button,
+.resumes-dashboard-select-button {
+  background-color: #ffffff;
+  border: 1px solid rgba(216, 216, 216, 1);
+  color: #333333;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  width: 100%;
+  transition: ease all 0.3s;
+  box-sizing: border-box;
+}
+
+.resumes-dashboard-view-button:hover,
+.resumes-dashboard-delete-button:hover,
+.resumes-dashboard-select-button:hover {
+  background: linear-gradient(122.33deg, #68bed1 30.62%, #1e94e9 100%);
+  color: white;
+}
+
+.resumes-dashboard-create-button {
   padding: 12px 25px;
   background: linear-gradient(122.33deg, #68bed1 30.62%, #1e94e9 100%);
   color: white;
