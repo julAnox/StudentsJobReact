@@ -76,7 +76,8 @@
 .resumes-dashboard-empty {
   font-size: 18px;
   color: #777777;
-  margin-top: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .resumes-dashboard-buttons {
