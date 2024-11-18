@@ -105,7 +105,7 @@
 }
 
 .profile-save-settings:hover {
-  transform: translateY(-5px);
+  transform: translateY(-2px);
 }
 
 .profile-actions-row {
@@ -131,7 +131,7 @@
 .profile-my-company:hover,
 .profile-my-resumes:hover,
 .profile-logout-btn:hover {
-  transform: translateY(-5px);
+  transform: translateY(-2px);
 }
 
 .profile-heading {

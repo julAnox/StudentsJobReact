@@ -234,8 +234,41 @@ const CreateResume = () => {
           </>
         );
       case 3:
+        const handleTileSelect = (educationLevel) => {
+          setFormData((prevData) => ({
+            ...prevData,
+            education: educationLevel,
+          }));
+          localStorage.setItem("selectedEducation", educationLevel);
+        };
+
         return (
           <>
+            <div className="unique-form-group">
+              <label htmlFor="education">Education</label>
+              <div className="unique-tile-container">
+                {[
+                  "High School",
+                  "Vocational",
+                  "Incomplete Higher",
+                  "Higher",
+                  "Bachelor's",
+                  "Master's",
+                  "PhD",
+                  "Doctor of Sciences",
+                ].map((educationLevel, index) => (
+                  <div
+                    key={index}
+                    className={`unique-tile ${
+                      formData.education === educationLevel ? "selected" : ""
+                    }`}
+                    onClick={() => handleTileSelect(educationLevel)}
+                  >
+                    {educationLevel}
+                  </div>
+                ))}
+              </div>
+            </div>
             <div className="unique-form-group">
               <label htmlFor="institution">Institution Name</label>
               <input
@@ -271,6 +304,7 @@ const CreateResume = () => {
             </div>
           </>
         );
+
       case 4:
         return (
           <>
@@ -318,7 +352,7 @@ const CreateResume = () => {
     <div className="unique-wrapper-create-res">
       <div className="unique-container">
         <div className="unique-form-container">
-          <h2 className="unique-title">Create your resume on unique</h2>
+          <h2 className="unique-title">Create your resume on Student's Job</h2>
           <div className="unique-progress-text">Step {currentStep} of 4</div>
           <div className="unique-progress-bar-container">
             <div
