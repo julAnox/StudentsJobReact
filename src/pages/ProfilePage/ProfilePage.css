@@ -31,6 +31,7 @@
 .profile-input {
   color: black;
 }
+
 .profile-form-row {
   display: flex;
   justify-content: flex-start;
@@ -142,6 +143,9 @@
 }
 
 @media (max-width: 390px) {
+  .profile-my-resumes {
+    width: 100%;
+  }
   .profile-container {
     width: 80%;
     padding: 15px;
@@ -161,7 +165,8 @@
   }
 
   .profile-input,
-  .profile-select {
+  .profile-select,
+  #date-input {
     width: 100%;
   }
 
@@ -179,8 +184,25 @@
   .profile-heading {
     text-align: center;
   }
+
   .profile-select {
     color: black;
     height: 35px;
+  }
+
+  .profile-input[type="date"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid rgba(216, 216, 216, 1);
+    background-color: #eeeeee;
+    color: black;
+    outline: none;
   }
 }
