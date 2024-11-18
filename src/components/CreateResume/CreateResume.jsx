@@ -372,7 +372,12 @@ const CreateResume = () => {
                   Back
                 </button>
               )}
-              <button type="submit" className="unique-button">
+              <button
+                type="submit"
+                className={`unique-button ${
+                  currentStep === 1 ? "unique-next-only" : ""
+                }`}
+              >
                 {currentStep === 4 ? "Finish" : "Next"}
               </button>
             </div>

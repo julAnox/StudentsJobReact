@@ -69,7 +69,6 @@
   padding: 10px;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .unique-tile:hover {
@@ -80,7 +79,6 @@
 .unique-tile.selected {
   background: linear-gradient(122.33deg, #68bed1 30.62%, #1e94e9 100%);
   color: #fff;
-  border: none;
 }
 
 .unique-progress-bar {
@@ -136,9 +134,13 @@
   box-shadow: none;
 }
 
+.unique-next-only {
+  margin-left: auto;
+}
 .unique-form-navigation {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 20px;
 }
 
