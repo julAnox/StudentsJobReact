@@ -73,6 +73,7 @@ const CreateResume = () => {
     contacts: "",
   });
   const [currentStep, setCurrentStep] = useState(1);
+  const [inputValue, setInputValue] = useState("");
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -125,6 +126,7 @@ const CreateResume = () => {
                 type="text"
                 id="name"
                 name="name"
+                maxLength={15}
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Enter your name"
@@ -136,6 +138,7 @@ const CreateResume = () => {
                 type="text"
                 id="surname"
                 name="surname"
+                maxLength={15}
                 value={formData.surname}
                 onChange={handleChange}
                 placeholder="Enter your surname"
@@ -147,6 +150,7 @@ const CreateResume = () => {
                 type="text"
                 id="email"
                 name="email"
+                maxLength={30}
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email"
@@ -168,6 +172,7 @@ const CreateResume = () => {
                 type="text"
                 id="country"
                 name="country"
+                maxLength={15}
                 value={formData.country}
                 onChange={handleChange}
                 placeholder="Enter your country"
@@ -179,6 +184,7 @@ const CreateResume = () => {
                 type="text"
                 id="city"
                 name="city"
+                maxLength={15}
                 value={formData.city}
                 onChange={handleChange}
                 placeholder="Enter your city"
@@ -196,6 +202,15 @@ const CreateResume = () => {
                   handleSelectChange(selectedOption, "gender")
                 }
                 placeholder="Select your gender"
+                inputValue={inputValue}
+                onInputChange={(newValue, actionMeta) => {
+                  if (
+                    newValue.length <= 5 ||
+                    actionMeta.action === "input-blur"
+                  ) {
+                    setInputValue(newValue);
+                  }
+                }}
               />
             </div>
             <div className="unique-form-group">
@@ -225,6 +240,15 @@ const CreateResume = () => {
                   handleSelectChange(selectedOption, "profession")
                 }
                 placeholder="Select your profession"
+                inputValue={inputValue}
+                onInputChange={(newValue, actionMeta) => {
+                  if (
+                    newValue.length <= 5 ||
+                    actionMeta.action === "input-blur"
+                  ) {
+                    setInputValue(newValue);
+                  }
+                }}
               />
             </div>
             <div className="unique-form-group">
@@ -232,6 +256,7 @@ const CreateResume = () => {
               <textarea
                 id="experience"
                 name="experience"
+                maxLength={145}
                 value={formData.experience}
                 onChange={handleChange}
                 placeholder="Describe your experience"
@@ -281,6 +306,7 @@ const CreateResume = () => {
                 type="text"
                 id="institution"
                 name="institution"
+                maxLength={25}
                 value={formData.institution}
                 onChange={handleChange}
                 placeholder="Enter institution name"
@@ -289,9 +315,11 @@ const CreateResume = () => {
             <div className="unique-form-group">
               <label htmlFor="graduationYear">Graduation Year</label>
               <input
-                type="number"
+                type="text"
                 id="graduationYear"
                 name="graduationYear"
+                maxLength={4}
+                inputMode="numeric"
                 value={formData.graduationYear}
                 onChange={handleChange}
                 placeholder="Enter graduation year"
@@ -303,6 +331,7 @@ const CreateResume = () => {
                 type="text"
                 id="specialization"
                 name="specialization"
+                maxLength={25}
                 value={formData.specialization}
                 onChange={handleChange}
                 placeholder="Enter your specialization"
@@ -332,6 +361,15 @@ const CreateResume = () => {
                   }))
                 }
                 placeholder="Select your skills"
+                inputValue={inputValue}
+                onInputChange={(newValue, actionMeta) => {
+                  if (
+                    newValue.length <= 5 ||
+                    actionMeta.action === "input-blur"
+                  ) {
+                    setInputValue(newValue);
+                  }
+                }}
               />
             </div>
             <div className="unique-form-group">
@@ -339,6 +377,7 @@ const CreateResume = () => {
               <textarea
                 id="contacts"
                 name="contacts"
+                maxLength={100}
                 value={formData.contacts}
                 onChange={handleChange}
                 placeholder="Enter your contact details"

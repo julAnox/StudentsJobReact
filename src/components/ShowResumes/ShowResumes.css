@@ -32,6 +32,11 @@
   gap: 20px;
 }
 
+.resumes-dashboard-label {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
 .resumes-dashboard-item {
   display: flex;
   justify-content: space-between;
