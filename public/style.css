@@ -1,4 +1,6 @@
-body {
+body,
+html,
+:root {
   background: rgb(2, 32, 56);
   font-family: "Poppins", sans-serif;
 }
