@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
@@ -8,11 +8,23 @@ import profiledefault from "../../assets/user-default.png";
 
 function ProfilePage() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [imagePreview, setImagePreview] = useState(profiledefault);
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [birthDate, setBirthDate] = useState("");
+  const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    if (!userData) {
+      navigate("/login");
+      return;
+    }
+
+    setEmail(userData.email || "");
+  }, [navigate]);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -35,6 +47,11 @@ function ProfilePage() {
 
   const handleDateChange = (e) => {
     setBirthDate(e.target.value);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("userData");
+    navigate("/login");
   };
 
   return (
@@ -116,6 +133,9 @@ function ProfilePage() {
               name="email"
               className="profile-input"
               maxLength="40"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              readOnly
             />
           </div>
 
@@ -184,7 +204,9 @@ function ProfilePage() {
             <Link to="/showresumes">
               <button className="profile-my-resumes">{t("my_resumes")}</button>
             </Link>
-            <button className="profile-logout-btn">{t("log_out")}</button>
+            <button className="profile-logout-btn" onClick={handleLogout}>
+              {t("log_out")}
+            </button>
           </div>
         </div>
       </div>

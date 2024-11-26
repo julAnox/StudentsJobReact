@@ -31,6 +31,13 @@ function LogInPage() {
       );
 
       if (response.status === 200) {
+        localStorage.setItem(
+          "userData",
+          JSON.stringify({
+            email: email,
+            ...response.data,
+          })
+        );
         navigate("/profile");
       }
     } catch (error) {
