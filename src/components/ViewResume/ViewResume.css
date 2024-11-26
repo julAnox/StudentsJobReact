@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 }
 
 .resume-page-container {
@@ -110,6 +111,8 @@
 
 @media (max-width: 600px) {
   .resume-page-container {
+    flex-direction: column;
+    width: 95%;
     padding: 15px;
   }
 
@@ -131,5 +134,14 @@
 
   .resume-page-section-content {
     font-size: 0.9rem;
+  }
+}
+@media (max-width: 556px) {
+  .resume-page-footer {
+    gap: 15px;
+  }
+  .resume-page-button {
+    padding: 10px;
+    width: 145px;
   }
 }
