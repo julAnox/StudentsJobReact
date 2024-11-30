@@ -1,0 +1,367 @@
+/* Container styles */
+.auction-container {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  flex-direction: column;
+  min-height: calc(100vh - 140px);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: white;
+  padding: 2rem;
+}
+
+.auction-header {
+  margin-top: 60px;
+  margin-bottom: 2rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.auction-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #60a5fa, #a78bfa);
+
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.candidate-info {
+  color: #94a3b8;
+}
+
+/* Grid Layout */
+.auction-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Profile Section */
+.profile-section {
+  animation: slideIn 0.5s ease-out;
+}
+
+.profile-card {
+  background: rgba(26, 37, 55, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-image-container {
+  position: relative;
+  width: 8rem;
+  margin: 0 auto 1rem;
+}
+
+.profile-image {
+  width: 100%;
+  height: 8rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(96, 165, 250, 0.5);
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: -0.5rem;
+  right: 1.5rem;
+  width: 1rem;
+  height: 1rem;
+  background-color: #4ade80;
+  border-radius: 50%;
+  border: 2px solid #1a2537;
+}
+
+.profile-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #94a3b8;
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #60a5fa;
+}
+
+.skills-section {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #334155;
+}
+
+.skills-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-bottom: 0.75rem;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  padding: 0.25rem 0.75rem;
+  background: rgba(96, 165, 250, 0.1);
+  color: #60a5fa;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+}
+
+/* Auction Content */
+.auction-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Status Cards */
+.status-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.status-card {
+  background: rgba(26, 37, 55, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.status-card-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.status-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #60a5fa;
+}
+
+.status-label {
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+.status-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Bidding Section */
+.bidding-section {
+  background: rgba(26, 37, 55, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.company-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.company-card {
+  background: #243042;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.company-card.active {
+  opacity: 1;
+  box-shadow: 0 0 0 2px #60a5fa;
+}
+
+.company-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.company-logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.company-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.company-name {
+  font-weight: 600;
+}
+
+.company-cap {
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+.bid-input {
+  width: 100%;
+  background: #1a2537;
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.bid-input:focus {
+  outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
+}
+
+.bid-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.bid-button {
+  width: 100%;
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.bid-button:hover:not(:disabled) {
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+}
+
+.bid-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* History Section */
+.history-section {
+  background: rgba(26, 37, 55, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.history-item {
+  background: #243042;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  transition: background-color 0.3s ease;
+}
+
+.history-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.history-company {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.history-phase {
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+.history-amount {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #60a5fa;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .auction-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .company-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .status-cards {
+    grid-template-columns: 1fr;
+  }
+}

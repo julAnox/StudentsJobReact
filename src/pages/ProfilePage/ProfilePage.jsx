@@ -4,7 +4,9 @@ import { useTranslation } from "react-i18next";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import "./ProfilePage.css";
+import Navbar from "../../components/Navbar/Navbar";
 import profiledefault from "../../assets/user-default.png";
+import axios from "axios";
 
 function ProfilePage() {
   const { t } = useTranslation();
@@ -15,16 +17,45 @@ function ProfilePage() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [gender, setGender] = useState("Man");
 
   useEffect(() => {
-    const userData = JSON.parse(localStorage.getItem("userData"));
-    if (!userData) {
-      navigate("/login");
-      return;
-    }
+    const fetchProfileData = async () => {
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      if (!userData) {
+        navigate("/login");
+        return;
+      }
 
-    setEmail(userData.email || "");
-  }, [navigate]);
+      setEmail(userData.email || "");
+
+      try {
+        const response = await axios.get(
+          `http://127.0.0.1:8000/profile?email=${userData.email}`
+        );
+        const profile = response.data;
+
+        // Заполнение данных профиля
+        setName(profile.name || "");
+        setSurname(profile.surname || "");
+        setSelectedCity(profile.city || "");
+        setSelectedCountry(profile.country || "");
+        setPhoneNumber(profile.phone || "");
+        setBirthDate(profile.birthDate || "");
+        setGender(profile.gender || "Man");
+        if (profile.profilePicture) {
+          setImagePreview(profile.profilePicture);
+        }
+      } catch (error) {
+        console.error(error);
+        alert(t("failed_to_load_profile"));
+      }
+    };
+
+    fetchProfileData();
+  }, [navigate, t]);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -49,6 +80,47 @@ function ProfilePage() {
     setBirthDate(e.target.value);
   };
 
+  const handleSaveProfile = async (event) => {
+    event.preventDefault();
+
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    if (!userData) {
+      alert(t("user_not_authenticated"));
+      return;
+    }
+
+    const profileData = {
+      email: userData.email,
+      name,
+      surname,
+      city: selectedCity,
+      country: selectedCountry,
+      phone: phoneNumber,
+      birthDate,
+      gender,
+      profilePicture: imagePreview,
+    };
+
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/profile/",
+        profileData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.data.success) {
+        alert(t("profile_updated_successfully"));
+      }
+    } catch (error) {
+      console.error(error);
+      alert(t("profile_update_failed"));
+    }
+  };
+
   const handleLogout = () => {
     localStorage.removeItem("userData");
     navigate("/login");
@@ -56,9 +128,14 @@ function ProfilePage() {
 
   return (
     <div className="profile-container-wrapper">
+      <Navbar />
       <div className="profile-container">
         <h1 className="profile-heading">{t("personal_area")}</h1>
-        <form id="profile-form" className="profile-form">
+        <form
+          id="profile-form"
+          className="profile-form"
+          onSubmit={handleSaveProfile}
+        >
           <div className="profile-form-row">
             <label htmlFor="profile-pic" className="profile-label">
               {t("profile_picture")}:
@@ -91,6 +168,8 @@ function ProfilePage() {
               className="profile-input"
               required
               maxLength="20"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
 
@@ -105,6 +184,8 @@ function ProfilePage() {
               className="profile-input"
               required
               maxLength="20"
+              value={surname}
+              onChange={(e) => setSurname(e.target.value)}
             />
           </div>
 
@@ -134,7 +215,6 @@ function ProfilePage() {
               className="profile-input"
               maxLength="40"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
               readOnly
             />
           </div>
@@ -184,7 +264,13 @@ function ProfilePage() {
             <label htmlFor="gender" className="profile-label">
               {t("gender")}:
             </label>
-            <select id="gender" name="gender" className="profile-select">
+            <select
+              id="gender"
+              name="gender"
+              className="profile-select"
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+            >
               <option value="Man">Man</option>
               <option value="Woman">Woman</option>
             </select>
@@ -192,13 +278,9 @@ function ProfilePage() {
         </form>
 
         <div className="profile-actions">
-          <div className="full-width-btn">
-            <Link to="/home">
-              <button className="profile-save-settings">
-                {t("save_settings")}
-              </button>
-            </Link>
-          </div>
+          <button type="submit" className="profile-save-settings">
+            {t("save_settings")}
+          </button>
           <div className="profile-actions-row">
             <button className="profile-my-company">{t("my_company")}</button>
             <Link to="/showresumes">

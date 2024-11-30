@@ -36,6 +36,7 @@ function SignUpPage() {
       );
 
       if (response.status === 201) {
+        localStorage.setItem("userData", JSON.stringify({ email }));
         window.location.href = "/profile";
       }
     } catch (error) {
