@@ -1,90 +1,62 @@
-.about-faq {
+.faq-section {
   display: flex;
+  background: rgb(3, 37, 66);
   flex-direction: row;
-  justify-content: space-between;
-  max-width: 70%;
+  gap: 100px;
+}
+.faq-container {
+  max-width: 800px;
   margin: 0 auto;
-  width: 100%;
 }
 
-.about-content {
+.faq-item {
+  margin-bottom: 16px;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 16px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  width: 100%;
-}
-
-.about-faq-h {
-  width: 62%;
-  font-size: 33px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.accordion-all {
-  width: 90%;
-}
-
-.accordion-item {
-  background-color: #4081bb;
-  color: #fff;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.accordion-title {
-  padding: 15px;
+  align-items: center;
+  background: rgba(96, 165, 250, 0.1);
+  border: none;
+  border-radius: 8px;
+  color: white;
   font-size: 18px;
-  display: flex;
-  justify-content: space-between;
+  text-align: left;
   cursor: pointer;
-  background-color: #4e99db;
-  border-bottom: 2px solid #0d508a;
 }
 
-.accordion-title.active {
-  background-color: #4e99db;
+.faq-question.active {
+  background: rgba(96, 165, 250, 0.2);
+  border-radius: 8px 8px 0 0;
 }
 
-.accordion-content {
-  padding: 15px;
-  background-color: #4081bb;
-  font-size: 16px;
-  line-height: 1.5;
-  overflow: hidden;
+.faq-question .icon {
+  transition: transform 0.3s ease;
+}
+
+.faq-question .icon.rotate {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
   max-height: 0;
-  opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.accordion-content.show {
+.faq-answer.show {
+  padding: 20px;
   max-height: 500px;
-  opacity: 1;
-  padding: 15px;
+  background: rgba(96, 165, 250, 0.05);
+  border-radius: 0 0 8px 8px;
 }
 
-.accordion-title span {
-  font-weight: bold;
-  margin-right: 10px;
-}
-@media (max-width: 1000px) {
-  .about-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@media (max-width: 1155px) {
+  .faq-section {
     flex-direction: column;
-    gap: 15px;
-  }
-  .about-faq-h {
-    display: flex;
-  }
-  .accordion-all {
-    width: 140%;
-  }
-  .about-faq-h {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    gap: 20px;
   }
 }

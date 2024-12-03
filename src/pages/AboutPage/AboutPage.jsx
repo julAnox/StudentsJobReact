@@ -1,64 +1,28 @@
 import React from "react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import "./AboutPage.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import AboutPic from "../../components/AboutPic/AboutPic";
 import AboutFoundation from "../../components/AboutFoundation/AboutFoundation";
 import AboutMission from "../../components/AboutMission/AboutMission";
 import AboutFaq from "../../components/AboutFaq/AboutFaq";
-import AboutContacts from "../../components/AboutContacts/AboutContacts";
-import AboutPic from "../../components/AboutPic/AboutPic";
-import "./AboutPage.css";
+import AboutQuestions from "../../components/AboutQuestions/AboutQuestions";
+import AboutContact from "../../components/AboutContact/AboutContact";
 
 const AboutPage = () => {
   return (
-    <div>
+    <div className="about-page">
       <Navbar />
       <AboutPic />
-      <div className="about-container">
-        <AboutFoundation />
-        <AboutMission />
-        <AboutFaq />
-        <AboutContacts />
-      </div>
+      <AboutFoundation />
+      <AboutMission />
+      <AboutFaq />
+      <AboutQuestions />
+      <AboutContact />
       <Footer />
     </div>
   );
 };
 
 export default AboutPage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

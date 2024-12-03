@@ -1,31 +1,37 @@
-.about-pic-container {
+.hero-section {
+  height: 60vh;
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  height: 55vh;
-  background-size: cover !important;
-  background-position: center !important;
-  background-image: url("../../assets/about-pic-header.png") !important;
-  padding-left: 16%;
+  padding: 0 16%;
+  background-image: url("https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80");
+  background-size: cover;
+  background-position: center;
 }
 
-.about-pic-text {
-  color: rgb(255, 255, 255);
-  padding: 10px;
-  font-size: 38px;
-  text-shadow: 1px 1px 20px black, 0 0 1em rgba(0, 0, 0, 0.416), 0 0 0.2em white;
-  max-width: 500px;
-  font-weight: bolder;
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.7);
 }
 
-@media (max-width: 1000px) {
-  .about-pic-container {
-    padding: 40px 16% 0px 16%;
-    width: 100%;
-  }
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+}
 
-  .about-pic-text {
-    max-width: 400px;
-    font-size: 35px;
-  }
+.hero-content h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.hero-content p {
+  font-size: 20px;
+  opacity: 0.9;
 }

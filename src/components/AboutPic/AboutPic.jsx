@@ -1,13 +1,12 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 import "./AboutPic.css";
 
 const AboutPic = () => {
-  const { t } = useTranslation();
   return (
-    <div className="about-pic-container">
-      <div className="about-pic-text">
-        <h3>{t("solid_foundation")}</h3>
+    <div className="hero-section">
+      <div className="hero-content">
+        <h1>Building a Solid Foundation for Your Career</h1>
+        <p>Connecting ambitious students with meaningful opportunities</p>
       </div>
     </div>
   );

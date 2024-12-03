@@ -1,23 +1,46 @@
-.about-container {
-  padding: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 60px;
-  background: linear-gradient(
-    to right,
-    #51a5da,
-    /* начальный цвет для светлого перехода */ #3b8fc3,
-    /* второй цвет для плавности */ #215aa6,
-    /* третий цвет для усиления глубины */ #1f59a5,
-    /* глубокий синий, повторяющий изображение */ #4e99db
-      /* завершающий цвет для завершения перехода */
-  );
-  width: 100%;
+.about-page {
+  min-height: 100vh;
+  background: rgb(2, 32, 56);
+  color: white;
 }
-@media (max-width: 1292px) {
-  .about-container {
-    background: #2f9ee2;
+
+.section {
+  padding: 64px 16%;
+}
+
+.section h2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #60a5fa;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 48px 24px;
+  }
+
+  .section-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section {
+    padding: 0 24px;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1015px) {
+  .section-grid {
+    display: flex;
+    flex-direction: column;
   }
 }

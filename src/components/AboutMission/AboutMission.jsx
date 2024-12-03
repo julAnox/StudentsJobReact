@@ -1,28 +1,57 @@
 import React from "react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import "./AboutMission.css";
 
 const AboutMission = () => {
   return (
-    <div>
-      <div className="about-mission">
-        <div className="about-mission-h">
-          <h3>Our Mission</h3>
-        </div>
-        <div className="about-mission-p">
+    <div className="section mission-section">
+      <div className="section-grid">
+        <div className="mission-content">
+          <h2>Our Mission</h2>
           <p>
             Our mission is to empower students in their career journey by
             providing easy access to job opportunities tailored to their skills
-            and aspirations. We aim to bridge the gap between young talent and
+            and aspirations. We bridge the gap between young talent and
             employers, offering a platform where students can find meaningful
-            work experiences, internships, and part-time jobs that align with
-            their academic and career goals. We believe that early professional
-            exposure is key to long-term success, and we strive to support
-            students at every step by offering resources, guidance, and tools to
-            enhance their employability.
+            work experiences.
           </p>
+          <div className="mission-features">
+            <div className="feature">
+              <div className="feature-icon">
+                <Mail />
+              </div>
+              <div>
+                <h3>Career Growth</h3>
+                <p>Supporting your professional development journey</p>
+              </div>
+            </div>
+            <div className="feature">
+              <div className="feature-icon">
+                <Phone />
+              </div>
+              <div>
+                <h3>Network Building</h3>
+                <p>Connect with industry professionals and peers</p>
+              </div>
+            </div>
+            <div className="feature">
+              <div className="feature-icon">
+                <MapPin />
+              </div>
+              <div>
+                <h3>Job Matching</h3>
+                <p>Find opportunities that align with your goals</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="mission-image">
+          <img
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+            alt="Students collaborating"
+          />
         </div>
       </div>
-      <hr />
     </div>
   );
 };

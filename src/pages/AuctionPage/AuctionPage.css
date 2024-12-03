@@ -12,7 +12,7 @@
 
 .auction-header {
   margin-top: 60px;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   animation: fadeIn 0.5s ease-out;
 }
 
@@ -23,7 +23,6 @@
 
   background-clip: text;
   color: transparent;
-  margin-bottom: 0.5rem;
 }
 
 .candidate-info {
@@ -200,7 +199,6 @@
   background: #243042;
   padding: 1rem;
   border-radius: 0.75rem;
-  opacity: 0.5;
   transition: all 0.3s ease;
 }
 
@@ -364,4 +362,89 @@
   .status-cards {
     grid-template-columns: 1fr;
   }
+}
+.phase-title {
+  font-size: 1.25rem;
+  color: #60a5fa;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.position-input {
+  margin-top: 0.5rem;
+  width: 100%;
+  background: #1a2537;
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.position-low {
+  color: #4ade80;
+}
+.position-medium {
+  color: #facc15;
+}
+.position-high {
+  color: #fb923c;
+}
+.position-top {
+  color: #ef4444;
+}
+
+.benefits-input {
+  margin-top: 0.5rem;
+  width: 100%;
+  min-height: 80px;
+  background: #1a2537;
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: white;
+  resize: vertical;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: rgba(26, 37, 55, 0.8);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.results-table th,
+.results-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #334155;
+}
+
+.results-table th {
+  background: rgba(96, 165, 250, 0.1);
+  color: #60a5fa;
+}
+
+.results-table tr:last-child td {
+  border-bottom: none;
+}
+
+.phase-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.phase-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: #334155;
+}
+
+.phase-dot.active {
+  background: #60a5fa;
 }

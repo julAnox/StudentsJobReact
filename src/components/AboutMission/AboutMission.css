@@ -1,31 +1,44 @@
-.about-mission {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  max-width: 70%;
-  gap: 150px;
-  margin: 0 auto;
+.mission-section {
+  border-bottom: 1px solid rgba(96, 165, 250, 0.2);
 }
-.about-mission-h {
-  width: 50%;
-  font-size: 33px;
-  font-weight: bold;
-}
-.about-mission-p {
-  width: 100%;
-  font-size: 16px;
-  font-weight: 100;
+.section-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
 }
 
-@media (max-width: 1000px) {
-  .about-mission {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 30px;
-  }
-  .about-mission-h {
-    display: contents;
-  }
+.mission-features {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.feature-icon {
+  display: flex;
+  padding: 12px;
+  background: rgba(96, 165, 250, 0.1);
+  border-radius: 8px;
+  color: #60a5fa;
+}
+
+.feature h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #60a5fa;
+  margin-bottom: 8px;
+}
+
+.mission-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
 }
