@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
@@ -255,6 +255,20 @@ const SummaryPage = () => {
     },
   ];
 
+  const navigate = useNavigate();
+
+  const handleSummarySecondary = () => {
+    navigate("/summary/secondary");
+  };
+
+  const handleVacanciesSecondary = () => {
+    navigate("/vacancies/secondary");
+  };
+
+  const handleShowResumes = () => {
+    navigate("/showresumes");
+  };
+
   return (
     <div className="summary-page">
       <ParticlesBackground />
@@ -273,7 +287,12 @@ const SummaryPage = () => {
             <div className="summary-pg-name-search-box">
               <Search className="summary-pg-name-search-icon" />
               <input type="text" placeholder="Search for your dream job..." />
-              <button className="summary-pg-name-btn-primary">Search</button>
+              <button
+                className="summary-pg-name-btn-primary"
+                onClick={handleSummarySecondary}
+              >
+                Search
+              </button>
             </div>
 
             <div className="summary-pg-name-popular-searches">
@@ -454,7 +473,12 @@ const SummaryPage = () => {
                     </span>
                   ))}
                 </div>
-                <button className="summary-pg-name-btn-apply">Apply Now</button>
+                <button
+                  className="summary-pg-name-btn-apply"
+                  onClick={handleVacanciesSecondary}
+                >
+                  Apply Now
+                </button>
               </motion.div>
             ))}
           </div>
@@ -472,7 +496,10 @@ const SummaryPage = () => {
                 discover your potential and find the perfect match for your
                 skills.
               </p>
-              <button className="summary-pg-name-btn-primary">
+              <button
+                className="summary-pg-name-btn-primary"
+                onClick={handleShowResumes}
+              >
                 Upload Resume <ChevronRight size={20} />
               </button>
             </div>

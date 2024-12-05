@@ -23,6 +23,14 @@
   color: #60a5fa;
 }
 
+.about-feature-icon {
+  display: flex;
+  padding: 12px;
+  background: rgba(96, 165, 250, 0.1);
+  border-radius: 8px;
+  color: #60a5fa;
+}
+
 .feature h3 {
   font-size: 20px;
   font-weight: 600;

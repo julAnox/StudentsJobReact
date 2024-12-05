@@ -17,7 +17,7 @@ const AboutMission = () => {
           </p>
           <div className="mission-features">
             <div className="feature">
-              <div className="feature-icon">
+              <div className="about-feature-icon">
                 <Mail />
               </div>
               <div>
@@ -26,7 +26,7 @@ const AboutMission = () => {
               </div>
             </div>
             <div className="feature">
-              <div className="feature-icon">
+              <div className="about-feature-icon">
                 <Phone />
               </div>
               <div>
@@ -35,7 +35,7 @@ const AboutMission = () => {
               </div>
             </div>
             <div className="feature">
-              <div className="feature-icon">
+              <div className="about-feature-icon">
                 <MapPin />
               </div>
               <div>
