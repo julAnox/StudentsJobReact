@@ -1,69 +1,594 @@
-.summary-content {
-  margin-top: 60px;
+:root {
+  --primary-dark: #0a192f;
+  --primary-light: #112240;
+  --accent-blue: #64ffda;
+  --text-primary: #ccd6f6;
+  --text-secondary: #8892b0;
+  --gradient-blue: linear-gradient(120deg, #0a192f 0%, #112240 100%);
 }
 
-.filters {
+.summary-page {
+  background-color: var(--primary-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.summary-pg-name-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.summary-pg-name-section {
+  padding: 6rem 0;
+}
+
+.summary-pg-name-btn-primary {
+  background-color: transparent;
+  color: var(--accent-blue);
+  border: 1px solid var(--accent-blue);
+  padding: 0.8rem 2rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.summary-pg-name-btn-primary:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+  transform: translateY(-2px);
+}
+
+.summary-pg-name-section-title {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.summary-pg-name-section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60%;
+  height: 2px;
+  background-color: var(--accent-blue);
+}
+
+.summary-pg-name-glass-effect {
+  background: rgba(17, 34, 64, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  border-radius: 12px;
+}
+
+/* Particles Canvas */
+.particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Hero Section */
+.summary-pg-name-pic {
+  min-height: 100vh;
+  background: var(--gradient-blue);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.summary-pg-name-pic::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")
+    center/cover;
+  opacity: 0.1;
+}
+
+.summary-pg-name-hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.summary-pg-name-pic h1 {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(120deg, var(--text-primary), var(--accent-blue));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.summary-pg-name-pic p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+/* Search Container */
+.summary-pg-name-search-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.summary-pg-name-search-box {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary-pg-name-search-icon {
+  color: var(--accent-blue);
+  margin: 0 1rem;
+}
+
+.summary-pg-name-search-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+
+.summary-pg-name-search-box input::placeholder {
+  color: var(--text-secondary);
+}
+
+.summary-pg-name-search-box input:focus {
+  outline: none;
+}
+
+.summary-pg-name-popular-searches {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.summary-pg-name-popular-searches span {
+  color: var(--text-secondary);
+}
+
+.summary-pg-name-search-tags {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.summary-pg-name-search-tags button {
+  background: transparent;
+  border: 1px solid var(--text-secondary);
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.summary-pg-name-search-tags button:hover {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+}
+
+/* Features Section */
+.summary-pg-name-features {
+  background: var(--primary-light);
+}
+
+.summary-pg-name-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.summary-pg-name-feature-card {
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.summary-pg-name-feature-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.feature-icon {
+  color: var(--accent-blue);
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.animated-counter {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--accent-blue);
+  display: inline-block;
+}
+
+/* Process Steps */
+.summary-pg-name-process-steps {
+  background: linear-gradient(
+    180deg,
+    var(--primary-light) 0%,
+    var(--primary-dark) 100%
+  );
+  position: relative;
+}
+
+.summary-pg-name-steps-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.summary-pg-name-step-card {
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.summary-pg-name-step-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-blue);
+  background: rgba(100, 255, 218, 0.1);
+  border-radius: 50%;
+  padding: 1rem;
+}
+
+.summary-pg-name-step-number {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgba(100, 255, 218, 0.2);
+}
+
+.summary-pg-name-step-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-blue), transparent);
+  transform-origin: left;
+  animation: progress 2s ease-out forwards;
+}
+
+@keyframes progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Resume Highlight */
+.summary-pg-name-resume-highlight {
+  background: var(--primary-dark);
+  padding: 4rem 0;
+}
+
+.summary-pg-name-resume-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem;
+  gap: 3rem;
+}
+
+.summary-pg-name-resume-text {
+  flex: 1;
+}
+
+.summary-pg-name-resume-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary-pg-name-resume-text p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.summary-pg-name-resume-icon {
+  color: var(--accent-blue);
+  opacity: 0.8;
+}
+
+/* Statistics Section */
+.summary-pg-name-statistics {
+  background: var(--primary-dark);
+  padding: 4rem 0;
+}
+
+.summary-pg-name-statistics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.summary-pg-name-stat-card {
+  text-align: center;
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.summary-pg-name-stat-card h3 {
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Featured Jobs Section */
+.summary-pg-name-featured-jobs {
+  background: var(--primary-light);
+  position: relative;
+}
+
+.summary-pg-name-jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.summary-pg-name-job-card {
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  gap: 1rem;
 }
 
-.filters div {
-  width: 250px;
+.summary-pg-name-job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.summary-pg-name-job-type {
+  background: rgba(100, 255, 218, 0.1);
+  color: var(--accent-blue);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.summary-pg-name-job-company,
+.summary-pg-name-job-details {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.summary-pg-name-job-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.summary-pg-name-job-location,
+.summary-pg-name-job-salary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.summary-pg-name-job-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.summary-pg-name-skill-tag {
+  background: rgba(100, 255, 218, 0.1);
+  color: var(--accent-blue);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.summary-pg-name-btn-apply {
+  background: var(--accent-blue);
+  color: var(--primary-dark);
   border: none;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 5px;
-  background-color: rgba(141, 141, 141, 0.185);
-}
-.filters select option {
-  background-color: black;
-}
-
-.filters select:active,
-.filters select:focus,
-.filters option:focus,
-.filters option:active {
-  border: none;
-  outline: none;
-  box-shadow: none;
+  padding: 0.8rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: auto;
 }
 
-.filters input[type="radio"] {
-  margin-right: 10px;
+.summary-pg-name-btn-apply:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(100, 255, 218, 0.2);
 }
 
-.grid-of-summary {
+/* Success Stories Section */
+.summary-pg-name-success-stories {
+  background: var(--primary-dark);
+  position: relative;
+}
+
+.summary-pg-name-stories-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  padding: 10px;
-  border: 4px solid red;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
 }
 
-@media (max-width: 1409px) {
-  .vacancies-content {
-    margin-top: 35px;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+.summary-pg-name-story-card {
+  padding: 2rem;
+  text-align: center;
+}
+
+.summary-pg-name-story-image {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--accent-blue);
+}
+
+.summary-pg-name-story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.summary-pg-name-story-content h3 {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.summary-pg-name-story-role,
+.summary-pg-name-story-company {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.summary-pg-name-story-quote {
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+/* Benefits Section */
+.summary-pg-name-benefits {
+  background: var(--primary-light);
+  position: relative;
+}
+
+.summary-pg-name-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.summary-pg-name-benefit-card {
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.summary-pg-name-benefit-icon {
+  color: var(--accent-blue);
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 1.5rem;
+}
+
+.summary-pg-name-benefit-card h3 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.summary-pg-name-benefit-card p {
+  color: var(--text-secondary);
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 768px) {
+  .summary-pg-name-pic h1 {
+    font-size: 2.5rem;
   }
 
-  .grid-of-vacancies {
+  .summary-pg-name-pic p {
+    font-size: 1rem;
+  }
+
+  .summary-pg-name-search-box {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .summary-pg-name-search-box input {
     width: 100%;
+  }
+
+  .summary-pg-name-popular-searches {
+    flex-direction: column;
+  }
+
+  .summary-pg-name-resume-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .summary-pg-name-resume-text h2 {
+    font-size: 2rem;
+  }
+
+  .summary-pg-name-btn-primary {
+    margin: 0 auto;
+  }
+
+  .summary-pg-name-statistics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .summary-pg-name-features-grid,
+  .summary-pg-name-steps-container,
+  .summary-pg-name-jobs-grid,
+  .summary-pg-name-stories-grid,
+  .summary-pg-name-benefits-grid {
     grid-template-columns: 1fr;
   }
 
-  .filters {
-    width: 100%;
+  .summary-pg-name-job-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .summary-pg-name-statistics-grid {
+    grid-template-columns: 1fr;
   }
 
-  .filters div {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .search {
-    width: 100%;
+  .summary-pg-name-story-image {
+    width: 100px;
+    height: 100px;
   }
 }

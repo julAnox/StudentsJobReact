@@ -3,8 +3,8 @@
   justify-content: space-between;
 }
 
-.submit-button,
-.close-button {
+.submit-button-response-window,
+.close-button-response-window {
   padding: 10px 20px;
   cursor: pointer;
   border: none;
@@ -14,19 +14,19 @@
   transition: background-color 0.3s ease;
 }
 
-.submit-button:hover,
-.close-button:hover {
+.submit-button-response-window:hover,
+.close-button-response-window:hover {
   background-color: #45a049;
 }
 
-.submit-button.animate {
+.submit-button-response-window.animate {
   cursor: not-allowed;
 }
 
-.close-button {
+.close-button-response-window {
   background-color: #f44336;
 }
 
-.close-button:hover {
+.close-button-response-window:hover {
   background-color: #e53935;
 }

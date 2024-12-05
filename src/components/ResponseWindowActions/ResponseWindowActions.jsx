@@ -10,13 +10,17 @@ const ResponseWindowActions = ({
   return (
     <div className="response-window-actions">
       <button
-        className="submit-button"
+        className="submit-button-response-window"
         onClick={onSubmit}
         disabled={isAnimating || isSubmitDisabled}
       >
         Submit
       </button>
-      <button className="close-button" onClick={onClose} disabled={isAnimating}>
+      <button
+        className="close-button-response-window"
+        onClick={onClose}
+        disabled={isAnimating}
+      >
         Close
       </button>
     </div>

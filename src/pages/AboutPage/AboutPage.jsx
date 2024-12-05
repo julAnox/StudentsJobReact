@@ -1,5 +1,4 @@
 import React from "react";
-import { Mail, Phone, MapPin } from "lucide-react";
 import "./AboutPage.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";

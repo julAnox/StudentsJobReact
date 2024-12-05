@@ -99,3 +99,10 @@
 .submit-button:hover {
   background: #3b82f6;
 }
+
+@media (max-width: 1000px) {
+  .contact-grid {
+    display: flex;
+    flex-direction: column;
+  }
+}

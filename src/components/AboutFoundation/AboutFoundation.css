@@ -24,7 +24,7 @@
 .foundation-content ul {
   margin-top: 16px;
   padding-left: 20px;
-  list-style: disc;
+  list-style: circle;
 }
 
 .foundation-content ul > li {
@@ -36,4 +36,14 @@
   height: auto;
   border-radius: 16px;
   object-fit: cover;
+}
+@media (max-width: 1000px) {
+  .section .students-job-foundation {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-grid {
+    grid-template-columns: 1fr;
+  }
 }

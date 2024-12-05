@@ -1,12 +1,6 @@
 .mission-section {
   border-bottom: 1px solid rgba(96, 165, 250, 0.2);
 }
-.section-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
-}
 
 .mission-features {
   margin-top: 32px;

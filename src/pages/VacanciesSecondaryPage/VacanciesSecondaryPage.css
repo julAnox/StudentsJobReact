@@ -3,6 +3,10 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.vacancies-all {
+  background-color: rgb(2, 32, 56);
+}
+
 .vacancies-content {
   display: flex;
   justify-content: center;
