@@ -1,48 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import axios from "axios";
+import { useSignUp } from "../../components/hooks/useSignUp";
 import "./SignUpPage.css";
 
 function SignUpPage() {
   const { t } = useTranslation();
 
-  const [email, setEmail] = useState("");
-  const [password1, setPassword1] = useState("");
-  const [password2, setPassword2] = useState("");
-  const [error, setError] = useState(null);
-
-  const handleSignup = async (event) => {
-    event.preventDefault();
-
-    if (password1 !== password2) {
-      setError(t("password_mismatch"));
-      return;
-    }
-
-    try {
-      const response = await axios.post(
-        "http://127.0.0.1:8000/signup/",
-        {
-          email: email,
-          password1: password1,
-          password2: password2,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (response.status === 201) {
-        localStorage.setItem("userData", JSON.stringify({ email }));
-        window.location.href = "/profile";
-      }
-    } catch (error) {
-      setError(error.response?.data?.error || t("signup_failed"));
-    }
-  };
+  const {
+    email,
+    setEmail,
+    password1,
+    setPassword1,
+    password2,
+    setPassword2,
+    error,
+    handleSignup,
+  } = useSignUp(t);
 
   return (
     <div className="flex-r container-sign-up">

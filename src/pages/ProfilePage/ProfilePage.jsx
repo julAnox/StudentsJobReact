@@ -21,6 +21,11 @@ function ProfilePage() {
   const [surname, setSurname] = useState("");
   const [gender, setGender] = useState("Man");
 
+  const formatDate = (dateStr) => {
+    const [day, month, year] = dateStr.split(".");
+    return `${year}-${month}-${day}`;
+  };
+
   useEffect(() => {
     const fetchProfileData = async () => {
       const userData = JSON.parse(localStorage.getItem("userData"));
@@ -32,22 +37,34 @@ function ProfilePage() {
       setEmail(userData.email || "");
 
       try {
+        const user = sessionStorage.getItem("user");
+
         const response = await axios.get(
-          `http://127.0.0.1:8000/profile?email=${userData.email}`
+          `http://127.0.0.1:8000/profile/?user=${user}`,
+          {
+            withCredentials: true,
+          }
         );
         const profile = response.data;
-
-        // Заполнение данных профиля
-        setName(profile.name || "");
-        setSurname(profile.surname || "");
-        setSelectedCity(profile.city || "");
-        setSelectedCountry(profile.country || "");
-        setPhoneNumber(profile.phone || "");
-        setBirthDate(profile.birthDate || "");
-        setGender(profile.gender || "Man");
-        if (profile.profilePicture) {
-          setImagePreview(profile.profilePicture);
-        }
+        setName(profile["auth_user"]["first_name"] || "");
+        setSurname(profile["auth_user"]["last_name"] || "");
+        setSelectedCity(profile.auth_user?.region?.title || "");
+        setSelectedCountry(profile.auth_user?.country?.title || "");
+        setPhoneNumber(profile["auth_user"]["phone"] || "");
+        setBirthDate(
+          profile["auth_user"]["birthday"]
+            ? formatDate(profile["auth_user"]["birthday"])
+            : ""
+        );
+        if (profile["auth_user"]["gender"] === "M") {
+          setGender("Man");
+        } else setGender("Woman");
+        const baseURL = "http://127.0.0.1:8000";
+        setImagePreview(
+          profile.auth_user.img
+            ? `${baseURL}${profile.auth_user.img}`
+            : profiledefault
+        );
       } catch (error) {
         console.error(error);
         alert(t("failed_to_load_profile"));
@@ -89,41 +106,65 @@ function ProfilePage() {
       return;
     }
 
-    const profileData = {
-      email: userData.email,
-      name,
-      surname,
-      city: selectedCity,
-      country: selectedCountry,
-      phone: phoneNumber,
-      birthDate,
-      gender,
-      profilePicture: imagePreview,
-    };
+    const formData = new FormData();
+    formData.append("email", userData.email);
+    formData.append("first_name", name);
+    formData.append("last_name", surname);
+    formData.append("city", selectedCity);
+    formData.append("country", selectedCountry);
+    formData.append("phone", phoneNumber);
+    formData.append("birthday", birthDate);
+    formData.append("gender", gender);
+
+    if (imagePreview !== profiledefault) {
+      const file = dataURItoBlob(imagePreview);
+      formData.append("img", file);
+    }
 
     try {
+      console.log(userData.id);
+      const user = sessionStorage.getItem("user"); // Debugging the ID to ensure it's available
       const response = await axios.post(
-        "http://127.0.0.1:8000/profile/",
-        profileData,
+        `http://127.0.0.1:8000/profile/?user=${user}`,
+        formData,
         {
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "multipart/form-data",
           },
         }
       );
+      console.log(response.data);
 
       if (response.data.success) {
         alert(t("profile_updated_successfully"));
+      } else {
+        alert(t("profile_update_failed"));
       }
     } catch (error) {
       console.error(error);
-      alert(t("profile_update_failed"));
+      alert(t("profile_update_error"));
     }
   };
 
   const handleLogout = () => {
     localStorage.removeItem("userData");
     navigate("/login");
+  };
+
+  const dataURItoBlob = (dataURI) => {
+    if (!dataURI || !dataURI.startsWith("data:image")) {
+      console.error("Invalid image data URI", dataURI);
+      return null;
+    }
+
+    const byteString = atob(dataURI.split(",")[1]);
+    const mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
+    const ab = new ArrayBuffer(byteString.length);
+    const ia = new Uint8Array(ab);
+    for (let i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+    return new Blob([ab], { type: mimeString });
   };
 
   return (
@@ -275,22 +316,24 @@ function ProfilePage() {
               <option value="Woman">Woman</option>
             </select>
           </div>
-        </form>
 
-        <div className="profile-actions">
-          <button type="submit" className="profile-save-settings">
-            {t("save_settings")}
-          </button>
-          <div className="profile-actions-row">
-            <button className="profile-my-company">{t("my_company")}</button>
-            <Link to="/showresumes">
-              <button className="profile-my-resumes">{t("my_resumes")}</button>
-            </Link>
-            <button className="profile-logout-btn" onClick={handleLogout}>
-              {t("log_out")}
+          <div className="profile-actions">
+            <button type="submit" className="profile-save-settings">
+              {t("save_settings")}
             </button>
+            <div className="profile-actions-row">
+              <button className="profile-my-company">{t("my_company")}</button>
+              <Link to="/showresumes">
+                <button className="profile-my-resumes">
+                  {t("my_resumes")}
+                </button>
+              </Link>
+              <button className="profile-logout-btn" onClick={handleLogout}>
+                {t("log_out")}
+              </button>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

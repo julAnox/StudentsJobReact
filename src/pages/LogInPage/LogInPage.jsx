@@ -1,49 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
-import axios from "axios";
+import { useLogIn } from "../../components/hooks/useLogIn";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import "./LogInPage.css";
 
 function LogInPage() {
   const { t } = useTranslation();
-  const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
-
-  const handleLogin = async (event) => {
-    event.preventDefault();
-
-    try {
-      const response = await axios.post(
-        "http://127.0.0.1:8000/login/",
-        {
-          email: email,
-          password: password,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (response.status === 200) {
-        localStorage.setItem(
-          "userData",
-          JSON.stringify({
-            email: email,
-            ...response.data,
-          })
-        );
-        navigate("/profile");
-      }
-    } catch (error) {
-      setError(error.response?.data?.error || t("log_in_failed"));
-    }
-  };
+  const { email, setEmail, password, setPassword, error, handleLogin } =
+    useLogIn(t);
 
   return (
     <div className="flex-r container-login">
