@@ -6,8 +6,8 @@ import "./SummaryBackground.css";
 const SummaryBackground = () => {
   const navigate = useNavigate();
 
-  const handleSummarySecondary = () => {
-    navigate("/summary/secondary");
+  const handleVacanciesSecondary = () => {
+    navigate("/vacancies/secondary");
   };
   return (
     <section className="summary-pg-name-pic">
@@ -24,7 +24,7 @@ const SummaryBackground = () => {
             <input type="text" placeholder="Search for your dream job..." />
             <button
               className="summary-pg-name-btn-primary"
-              onClick={handleSummarySecondary}
+              onClick={handleVacanciesSecondary}
             >
               Search
             </button>
