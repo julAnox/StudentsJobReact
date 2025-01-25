@@ -8,10 +8,27 @@ import Navbar from "../../components/Navbar/Navbar";
 import profiledefault from "../../assets/user-default.png";
 import axios from "axios";
 
+// Function to convert data URI to Blob
+const dataURItoBlob = (dataURI) => {
+  const byteString = atob(dataURI.split(",")[1]);
+  const mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
+
+  const arrayBuffer = new ArrayBuffer(byteString.length);
+  const uintArray = new Uint8Array(arrayBuffer);
+
+  for (let i = 0; i < byteString.length; i++) {
+    uintArray[i] = byteString.charCodeAt(i);
+  }
+
+  const blob = new Blob([uintArray], { type: mimeString });
+  return blob;
+};
+
 function ProfilePage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [imagePreview, setImagePreview] = useState(profiledefault);
+  const [newImage, setNewImage] = useState(null);
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedCountry, setSelectedCountry] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -21,62 +38,78 @@ function ProfilePage() {
   const [surname, setSurname] = useState("");
   const [gender, setGender] = useState("Man");
 
-  const formatDate = (dateStr) => {
+  // Convert DD.MM.YYYY to YYYY-MM-DD
+  const formatDateForInput = (dateStr) => {
+    if (!dateStr) return "";
     const [day, month, year] = dateStr.split(".");
-    return `${year}-${month}-${day}`;
+    if (!day || !month || !year) return "";
+    return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+  };
+
+  // Convert YYYY-MM-DD to DD.MM.YYYY
+  const formatDateForBackend = (dateStr) => {
+    if (!dateStr) return "";
+    const [year, month, day] = dateStr.split("-");
+    if (!day || !month || !year) return "";
+    return `${day}.${month}.${year}`;
+  };
+
+  const fetchProfileData = async () => {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    if (!userData) {
+      navigate("/login");
+      return;
+    }
+
+    setEmail(userData.email || "");
+
+    try {
+      const user = sessionStorage.getItem("user");
+
+      const response = await axios.get(
+        `http://127.0.0.1:8000/profile/?user=${user}`,
+        {
+          withCredentials: true,
+        }
+      );
+      const profile = response.data;
+      setName(profile["auth_user"]["first_name"] || "");
+      setSurname(profile["auth_user"]["last_name"] || "");
+      setSelectedCity(profile.auth_user?.region?.title || "");
+      setSelectedCountry(profile.auth_user?.country?.title || "");
+      setPhoneNumber(profile["auth_user"]["phone"] || "");
+      setBirthDate(
+        profile["auth_user"]["birthday"]
+          ? formatDateForInput(profile["auth_user"]["birthday"])
+          : ""
+      );
+      if (profile["auth_user"]["gender"] === "M") {
+        setGender("Man");
+      } else setGender("Woman");
+
+      const baseURL = "http://127.0.0.1:8000";
+      if (profile.auth_user.img) {
+        // Add timestamp to prevent caching
+        setImagePreview(
+          `${baseURL}${profile.auth_user.img}?t=${new Date().getTime()}`
+        );
+      } else {
+        setImagePreview(profiledefault);
+      }
+    } catch (error) {
+      console.error(error);
+      alert(t("failed_to_load_profile"));
+    }
   };
 
   useEffect(() => {
-    const fetchProfileData = async () => {
-      const userData = JSON.parse(localStorage.getItem("userData"));
-      if (!userData) {
-        navigate("/login");
-        return;
-      }
-
-      setEmail(userData.email || "");
-
-      try {
-        const user = sessionStorage.getItem("user");
-
-        const response = await axios.get(
-          `http://127.0.0.1:8000/profile/?user=${user}`,
-          {
-            withCredentials: true,
-          }
-        );
-        const profile = response.data;
-        setName(profile["auth_user"]["first_name"] || "");
-        setSurname(profile["auth_user"]["last_name"] || "");
-        setSelectedCity(profile.auth_user?.region?.title || "");
-        setSelectedCountry(profile.auth_user?.country?.title || "");
-        setPhoneNumber(profile["auth_user"]["phone"] || "");
-        setBirthDate(
-          profile["auth_user"]["birthday"]
-            ? formatDate(profile["auth_user"]["birthday"])
-            : ""
-        );
-        if (profile["auth_user"]["gender"] === "M") {
-          setGender("Man");
-        } else setGender("Woman");
-        const baseURL = "http://127.0.0.1:8000";
-        setImagePreview(
-          profile.auth_user.img
-            ? `${baseURL}${profile.auth_user.img}`
-            : profiledefault
-        );
-      } catch (error) {
-        console.error(error);
-        alert(t("failed_to_load_profile"));
-      }
-    };
-
     fetchProfileData();
   }, [navigate, t]);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
+      setNewImage(file);
       const reader = new FileReader();
       reader.onload = (event) => {
         setImagePreview(event.target.result);
@@ -85,16 +118,9 @@ function ProfilePage() {
     }
   };
 
-  const handleCityChange = (e) => {
-    setSelectedCity(e.target.value);
-  };
-
-  const handleCountryChange = (e) => {
-    setSelectedCountry(e.target.value);
-  };
-
-  const handleDateChange = (e) => {
-    setBirthDate(e.target.value);
+  const handleLogout = () => {
+    localStorage.removeItem("userData");
+    navigate("/login");
   };
 
   const handleSaveProfile = async (event) => {
@@ -107,64 +133,48 @@ function ProfilePage() {
     }
 
     const formData = new FormData();
-    formData.append("email", userData.email);
+    formData.append("email", email);
     formData.append("first_name", name);
     formData.append("last_name", surname);
     formData.append("city", selectedCity);
     formData.append("country", selectedCountry);
     formData.append("phone", phoneNumber);
-    formData.append("birthday", birthDate);
-    formData.append("gender", gender);
+    formData.append("birthday", formatDateForBackend(birthDate));
+    formData.append("gender", gender === "Man" ? "M" : "W");
 
-    if (imagePreview !== profiledefault) {
+    // Handle image upload
+    if (newImage) {
+      formData.append("img", newImage);
+    } else if (
+      imagePreview !== profiledefault &&
+      imagePreview.startsWith("data:image")
+    ) {
       const file = dataURItoBlob(imagePreview);
-      formData.append("img", file);
+      if (file) {
+        formData.append("img", file, "profile.jpg");
+      }
     }
 
     try {
-      console.log(userData.id);
-      const user = sessionStorage.getItem("user"); // Debugging the ID to ensure it's available
-      const response = await axios.post(
+      const user = sessionStorage.getItem("user");
+      await axios.post(
         `http://127.0.0.1:8000/profile/?user=${user}`,
         formData,
         {
           headers: {
             "Content-Type": "multipart/form-data",
           },
+          withCredentials: true,
         }
       );
-      console.log(response.data);
 
-      if (response.data.success) {
-        alert(t("profile_updated_successfully"));
-      } else {
-        alert(t("profile_update_failed"));
-      }
+      alert(t("profile_updated_successfully"));
+      setNewImage(null); // Reset the new image state
+      await fetchProfileData(); // Refresh the profile data
     } catch (error) {
-      console.error(error);
+      console.error("Error while saving profile:", error);
       alert(t("profile_update_error"));
     }
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem("userData");
-    navigate("/login");
-  };
-
-  const dataURItoBlob = (dataURI) => {
-    if (!dataURI || !dataURI.startsWith("data:image")) {
-      console.error("Invalid image data URI", dataURI);
-      return null;
-    }
-
-    const byteString = atob(dataURI.split(",")[1]);
-    const mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
-    const ab = new ArrayBuffer(byteString.length);
-    const ia = new Uint8Array(ab);
-    for (let i = 0; i < byteString.length; i++) {
-      ia[i] = byteString.charCodeAt(i);
-    }
-    return new Blob([ab], { type: mimeString });
   };
 
   return (
@@ -241,7 +251,7 @@ function ProfilePage() {
               className="profile-input"
               required
               value={birthDate}
-              onChange={handleDateChange}
+              onChange={(e) => setBirthDate(e.target.value)}
             />
           </div>
 
@@ -264,28 +274,34 @@ function ProfilePage() {
             <label htmlFor="select-country" className="profile-label">
               {t("Сountry")}:
             </label>
-            <input
+            <select
               type="text"
               id="select-country"
               name="country"
               className="profile-input"
               value={selectedCountry}
-              onChange={handleCountryChange}
-            />
+              onChange={(e) => setSelectedCountry(e.target.value)}
+            >
+              <option value="Belarus">Belarus</option>
+              <option value="Russia">Russia</option>
+            </select>
           </div>
 
           <div className="profile-form-row">
             <label htmlFor="select-city" className="profile-label">
               {t("city")}:
             </label>
-            <input
+            <select
               type="text"
               id="select-city"
               name="city"
               className="profile-input"
               value={selectedCity}
-              onChange={handleCityChange}
-            />
+              onChange={(e) => setSelectedCity(e.target.value)}
+            >
+              <option value="Minsk">Minsk</option>
+              <option value="Brst">Brest</option>
+            </select>
           </div>
 
           <div className="profile-form-row">

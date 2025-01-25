@@ -5,6 +5,7 @@ import Advantages from "../../components/Advantages/Advantages";
 import Facts from "../../components/Facts/Facts";
 import SwitcherLang from "../../components/SwitcherLang/SwitcherLang";
 import "./HomePage.css";
+import Reviews from "../../components/Reviews/Reviews";
 
 function HomePage() {
   return (
@@ -15,6 +16,7 @@ function HomePage() {
       <div className="main">
         <Advantages />
         <Facts />
+        <Reviews />
       </div>
       <Footer />
     </div>
